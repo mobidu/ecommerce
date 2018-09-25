@@ -7,18 +7,18 @@
     
     @yield('title')
 
-    <meta name="description" content="Ngelapak Indonesia adalah toko online fashion terkemuka di indonesia dengan ribuan produk fashion trendi terbaru. Ngelapak, supplier sepatu, celana, baju, pakaian anak, distro. Grosir Sepatu."/>
-    <meta name="keywords" content="toko fashion online, fashion terbaru, baju murah, fashion murah, reseller baju, dropship baju, baju online murah" />
+    <meta name="description" content="Pasar E-Rakyat adalah toko online terkemuka di indonesia dengan ribuan produk trendi terbaru."/>
+    <meta name="keywords" content="toko online, Toko Elektronik, Elektronik online" />
 `   <meta name="robots" content="noindex,follow,noodp"/>
-    <meta name="author" content="Ngelapak Indonesia">
-    <meta name="generator" content="Ngelapak Indonesia">
-    <link rel="canonical" href="http://www.ngelapak.id/" />
+    <meta name="author" content="websitegratis.id">
+    <meta name="generator" content="websitegratis.id">
+    <link rel="canonical" href="https://websitegratis.id/" />
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Toko Fashion Online Indonesia" />
-    <meta property="og:description" content="Ngelapak Indonesia adalah toko online fashion terkemuka di indonesia dengan ribuan produk fashion trendi terbaru. Ngelapak, supplier sepatu, celana, baju, pakaian anak, distro. Grosir Sepatu." />
-    <meta property="og:url" content="http://www.ngelapak.id/" />
-    <meta property="og:site_name" content="Ngelapak Fashion Online" />
+    <meta property="og:title" content="Toko Elektronik Online Indonesia" />
+    <meta property="og:description" content="Pasar E-Rakyat adalah toko online terkemuka di indonesia dengan ribuan produk trendi terbaru." />
+    <meta property="og:url" content="https://websitegratis.id/" />
+    <meta property="og:site_name" content="Pasar E-Rakyat" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
