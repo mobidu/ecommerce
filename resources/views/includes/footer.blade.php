@@ -58,7 +58,7 @@
                         <p>Copyright &copy; {{ date('Y') }} <a href="{{ url('/') }}" style="text-decoration: none; color: #000"><strong>{{ $pengaturan->nama_toko }}</strong></a></p>
                     </div>
                     <div class="col-md-6">
-                        <p class="pull-right">Develop By <a href="http://makassarnetwork.info/">MakassarNetwork</a></p>
+                        <p class="pull-right">Develop By <a href="https://websitegratis.id/">websitegratis.id</a></p>
                     </div>
                 </div>
             </div>
