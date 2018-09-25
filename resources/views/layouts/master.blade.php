@@ -41,7 +41,7 @@
         <!-- Logo -->
         <a href="{{ url('/admin/home') }}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>D</b>W</span>
+          <span class="logo-mini"><b>P</b>R</span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>{{ $pengaturan->nama_toko }}</b></span>
         </a>
@@ -110,7 +110,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="{{ asset('img/logo-folded.png') }}" class="img-circle" alt="User Image">
+              <img src="{{ asset('img/user-blank.jpg') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
               <p>{{ Auth::guard('admin')->user()->name }}</p>
