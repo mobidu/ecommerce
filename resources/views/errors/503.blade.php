@@ -34,13 +34,15 @@
             .title {
                 font-size: 72px;
                 margin-bottom: 40px;
+                font-weight: bold;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <img src="{{url('/img/logo.png')}}" alt="">
+                <div class="title">Kami Akan Kembali.</div>
             </div>
         </div>
     </body>
