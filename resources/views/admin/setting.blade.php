@@ -40,6 +40,7 @@
                             <li class="pull-left header"><i class="fa fa-th"></i> </li>
                         </ul>
                         <form class="form-horizontal" action="{{url('/admin/setting/update')}}" method="post" enctype="multipart/form-data">
+                            {{csrf_field()}}
                             <div class="tab-content">
                                 <div class="tab-pane active" id="general" style="padding:20px;">
                                     <div class="form-group">
@@ -116,6 +117,13 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="form-group pull-right">
+                                        <button type="submit" class="btn btn-primary" style="margin-right: 30px;">Simpan</button>
+                                    </div>
+                                </div>
+                            </div>
 
                         </form>
                     </div><!-- nav-tabs-custom -->

@@ -94,8 +94,9 @@ Route::get('/admin/password/reset/{token?}', 'Auth\PasswordController@showResetF
     Route::get('/admin/home', 'HomeController@index');
     //Route Setting
     Route::get('/admin/setting', ['as' => 'setting.index', 'uses' => 'SettingController@index']);
+//    Route::post('/admin/setting', 'SettingController@simpan');
     Route::post('/admin/setting/kabupaten', ['as' => 'setting.getkabupaten', 'uses' => 'SettingController@getKabupaten']);
-    Route::put('/admin/setting/update', ['as' => 'setting.update', 'uses' => 'SettingController@update']);
+    Route::post('/admin/setting/update', ['as' => 'setting.update', 'uses' => 'SettingController@update']);
     //Route categori
     Route::get('/admin/category', ['as' => 'kategori', 'uses' => 'CategoryController@index']);
     Route::post('/admin/category', ['as' => 'kategori.store', 'uses' => 'CategoryController@store']);
