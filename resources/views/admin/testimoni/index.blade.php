@@ -56,7 +56,7 @@
 
 				    	@foreach ($testimoni as $item)
 				    		<tr>
-					    		<td><a href="{{ url('/dw-admin/testimoni/' . $item->id . '/edit') }}"><strong>{{ $item->nama }}</strong></td>
+					    		<td><a href="{{ url('/admin/testimoni/' . $item->id . '/edit') }}"><strong>{{ $item->nama }}</strong></td>
 					    		<td>{{ $item->email }}</td>
 					    		<td>{{ $item->no_hp }}</td>
 					    		<td>{{ str_limit($item->pesan, 30) }}</td>
@@ -68,7 +68,7 @@
 					    			@endif
 					    		</td>
 					    		<td>
-					    		{{ Form::open(array('url'=>'/dw-admin/testimoni/' . $item->id, 'method'=>'DELETE')) }}
+					    		{{ Form::open(array('url'=>'/admin/testimoni/' . $item->id, 'method'=>'DELETE')) }}
 					    		<button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
 					    		{{ Form::close() }}
 					    		</td>

@@ -49,7 +49,7 @@
                     @endif
                 	<hr>
 
-                	{!! Form::open(array('url'=>'/dw-admin/payment', 'class'=>'form-horizontal')) !!}
+                	{!! Form::open(array('url'=>'/admin/payment', 'class'=>'form-horizontal')) !!}
 	                	<div class="form-group">
 	                      {!! Form::label('nama_pemilik', 'Nama Pemilik', ['class'=>'col-sm-offset-1 control-label']) !!}
 	                      <div class="col-sm-12"> 

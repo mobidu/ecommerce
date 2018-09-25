@@ -11,6 +11,7 @@ use App\Product;
 use App\Category;
 use App\Supplier;
 use Cart;
+use Illuminate\Support\Facades\Storage;
 use Response;
 use RajaOngkir;
 use App\Order;
@@ -219,7 +220,7 @@ class HomepageController extends Controller
     public function simpanInvoice(Request $request)
     {
         $this->validate($request, [
-            'invoice'       => 'bail|request|unique:paids',
+            'invoice'       => 'bail|required|unique:paids',
             'nama_pemilik'  => 'required',
             'bank_from'     => 'required',
             'no_rekening'   => 'required',
@@ -228,20 +229,34 @@ class HomepageController extends Controller
             'bukti_transfer'=> 'required'
         ]);
 
+        $fullUrl = '';
+
         if ($request->hasFile('bukti_transfer')) {
             $file = $request->file('bukti_transfer');
             $filename = str_random(6) . "." . $file->getClientOriginalExtension();
             $path = public_path() . '/upload/bukti';
-            $paid = Paid::create($request->all());
-            $file->move($path, $filename);
+            $fullUrl = $request->file('bukti_transfer')->storeAs(
+                '/public/upload/bukti', $filename
+            );;
         }
+
+        $paid = new Paid();
+        $paid->invoice = $request->get('invoice');
+        $paid->nama_pemilik = $request->get('invoice');
+        $paid->bank_from = $request->get('bank_from');
+        $paid->no_rekening = $request->get('no_rekening');
+        $paid->bank_to = $request->get('bank_to');
+        $paid->jumlah = $request->get('jumlah');
+        $paid->bukti_transfer = $fullUrl;
+
+        $paid->save();
 
         if (!empty($paid->id)) {
             $order = Order::where('invoice', '=', $paid->invoice)->first();
             $order->update(['paid_id' => $paid->id]);
         }
 
-        return redirect('/konfirmas-pembayaran')->with('status', 'Konfirmasi Pembayaran Sukses');
+        return redirect('/konfirmasi-pembayaran')->with('status', 'Konfirmasi Pembayaran Sukses');
     }
 
     public function frontPage($slug)

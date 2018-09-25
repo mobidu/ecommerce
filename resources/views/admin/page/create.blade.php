@@ -38,7 +38,7 @@
     <section class="content">
         <div class="row">
 
-        {!! Form::open(array('url'=>'/dw-admin/pages/create', 'class'=>'form-horizontal')) !!}
+        {!! Form::open(array('url'=>'/admin/pages/create', 'class'=>'form-horizontal')) !!}
       	<div class="col-md-12">
 
             <!-- Profile Image -->

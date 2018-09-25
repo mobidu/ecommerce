@@ -13,7 +13,8 @@ class PageController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index()
@@ -61,7 +62,7 @@ class PageController extends Controller
     	]);
 
     	Page::create($request->all());
-    	return redirect('/dw-admin/pages');
+    	return redirect('/admin/pages');
     }
 
     public function edit($id)
@@ -83,12 +84,12 @@ class PageController extends Controller
     	]);
     	$page = Page::findOrFail($id);
     	$page->update($request->all());
-    	return redirect('/dw-admin/pages');
+    	return redirect('/admin/pages');
     }
 
     public function destroy($id)
     {
     	Page::findOrFail($id)->delete();
-    	return redirect('/dw-admin/pages');
+    	return redirect('/admin/pages');
     }
 }

@@ -17,11 +17,17 @@ class Authenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
+//        dd($guard);
         if (Auth::guard($guard)->guest()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('dw-admin/login');
+                if($guard == 'admin'){
+                    return redirect('admin/login');
+                }
+
+                return redirect('/login');
+
             }
         }
 

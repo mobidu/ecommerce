@@ -17,11 +17,11 @@
               </div>
           @endif
 
-          {!! Form::open(array('url'=>'/dw-admin/login')) !!}
+          {!! Form::open(array('url'=>'/admin/login')) !!}
           {!! csrf_field() !!}
             <fieldset>
               <div class="row">
-                <div class="center-block"> <img class="profile-img" src="{{ asset('img/logo.png') }}" class="img-responsive" alt=""> </div>
+                <div class="center-block"> <img class="profile-img" src="{{ asset('img/logo.png') }}" width="200" class="img-responsive" alt=""> </div>
                 <hr>
               </div>
               <div class="row">

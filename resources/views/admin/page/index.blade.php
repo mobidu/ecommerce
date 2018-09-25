@@ -36,7 +36,7 @@
                 </div><!-- /.box-header -->
                 
                 <div class="table-responsive">
-                	<a href="{{ url('/dw-admin/pages/create') }}"><button class="btn btn-primary btn-sm pull-right">Add New</button></a>
+                	<a href="{{ url('/admin/pages/create') }}"><button class="btn btn-primary btn-sm pull-right">Add New</button></a>
 					<table class="table table-striped table-bordered display" id="kategori">
 				    	<thead>
 				    		<tr>
@@ -49,11 +49,11 @@
 				    	<tbody>
 				    	@foreach ($page as $item)
 				    		<tr>
-				    			<td><a href="{{ url('/dw-admin/pages/' . $item->id . '/edit') }}"><strong>{{ $item->judul }}</strong></a></td>
+				    			<td><a href="{{ url('/admin/pages/' . $item->id . '/edit') }}"><strong>{{ $item->judul }}</strong></a></td>
 				    			<td>{{ $item->slug }}</td>
 				    			<td>{!! str_limit($item->content, 30) !!}</td>
 				    			<td>
-				    				{!! Form::open(array('url' => '/dw-admin/pages/' . $item->id, 'method' => 'DELETE')) !!}
+				    				{!! Form::open(array('url' => '/admin/pages/' . $item->id, 'method' => 'DELETE')) !!}
 				    					{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
 				    					
 				    				{!! Form::close() !!}

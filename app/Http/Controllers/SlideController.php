@@ -14,7 +14,8 @@ class SlideController extends Controller
 {
     public function __construct()
     {
-    	$this->middleware('auth');
+//    	$this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index()
@@ -52,7 +53,7 @@ class SlideController extends Controller
     		]);
     	}
 
-    	return redirect('/dw-admin/slide');
+    	return redirect('/admin/slide');
     }
 
     public function destroy($id)
@@ -61,6 +62,6 @@ class SlideController extends Controller
     	$slide = Slide::findOrFail($id);
     	File::delete('/upload/banner' . $slide->banner_slide);
     	$slide->delete();
-    	return redirect('/dw-admin/slide');
+    	return redirect('/admin/slide');
     }
 }

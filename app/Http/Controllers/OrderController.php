@@ -13,7 +13,8 @@ class OrderController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index()
@@ -49,7 +50,7 @@ class OrderController extends Controller
             'no_resi'       => $request->input('no_resi')
         ]);
 
-        return redirect('/dw-admin/order/' . $request->invoice);
+        return redirect('/admin/order/' . $request->invoice);
     }
 
     public function waiyPayment()

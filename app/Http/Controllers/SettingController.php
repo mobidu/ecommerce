@@ -16,15 +16,17 @@ class SettingController extends Controller
     
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index()
     {
         $pengaturan = Setting::find(1);
-        $provinsi = Provinsi::all();
-        $kabupaten = Kabupaten::find($pengaturan->kabupaten_id);
-        
+//        $provinsi = new RajaOngkir();
+        $provinsi = \RajaOngkir::provinsi()->all();
+        $kabupaten = \RajaOngkir::kota()->find($pengaturan->kabupaten_id);
+//        dd($kabupaten);
         return view('admin.setting', [
             'pengaturan'    =>$pengaturan,
             'provinsi'      =>$provinsi,
@@ -34,22 +36,23 @@ class SettingController extends Controller
 
     public function getKabupaten(Request $request)
     {
+
         $provinsi_id = $request->id;
-        $kabupaten = Kabupaten::where('provinsi_id', '=', $provinsi_id)->get();
-        foreach ($kabupaten as $kabupaten) {
-            $a[] = array(
-                'id'=>$kabupaten->id,
-                'nama_kabupaten'=>$kabupaten->nama_kabupaten
-                );
-        }
-        return Response::json($a); 
+        $kabupaten = \RajaOngkir::kota()->byProvinsi($provinsi_id)->get();
+//        foreach ($kabupaten as $kabupaten) {
+//            $a[] = array(
+//                'id'=>$kabupaten->id,
+//                'nama_kabupaten'=>$kabupaten->nama_kabupaten
+//                );
+//        }
+        return response()->json($kabupaten, 200);
     }
 
     public function update(Request $request)
     {
         $setting = Setting::find(1);
         $setting->update($request->all());
-        return redirect('/dw-admin/setting');
+        return redirect('/admin/setting');
     }
 
 }

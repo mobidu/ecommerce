@@ -3,10 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticable;
 
-class Customer extends Model
+class Customer extends Authenticable
 {
-    protected $fillable = ['nama_lengkap', 'no_hp', 'email', 'pinbbm'];
+//    protected $guard = 'admin';
+//    protected $table = 'customers';
+    protected $guarded = 'customer';
+
+    protected $fillable = ['nama_lengkap', 'no_hp', 'email', 'pinbbm', 'username', 'password', 'referred_by', 'affiliate_id'];
 
     public function order()
     {
@@ -17,4 +22,5 @@ class Customer extends Model
     {
     	return $this->hasManyThrough('App\Order_detail', 'App\Order');
     }
+
 }

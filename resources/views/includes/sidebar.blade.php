@@ -1,3 +1,12 @@
+@if(auth()->guard('customer')->check())
+    <ul class="list-group">
+        <li class="list-group-item active">MENU CUSTOMER</li>
+        <a href="{{url('/profil')}}" class="list-group-item"><span class="fa fa-user"></span>&nbsp;&nbsp;Profil</a>
+        <a href="#" class="list-group-item"><span class="fa fa-cart-arrow-down"></span>&nbsp;&nbsp;Order</a>
+        <a href="{{url('/affiliate')}}" class="list-group-item"><span class="fa fa-users"></span>&nbsp;&nbsp;Affiliate</a>
+        {{--<li><a href="#" class="">Profil</a></li>--}}
+    </ul>
+@endif
 <div class="panel panel-primary">
     <div class="panel-heading">KATEGORI</div>
         <div class="panel-body">

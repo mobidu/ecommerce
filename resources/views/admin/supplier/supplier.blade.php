@@ -56,7 +56,7 @@
                     @endif
                 	<hr>
 
-                	{!! Form::open(array('url'=>'/dw-admin/supplier', 'class'=>'form-horizontal')) !!}
+                	{!! Form::open(array('url'=>'/admin/supplier', 'class'=>'form-horizontal')) !!}
 	                	<div class="form-group">
 	                      {!! Form::label('nama_supplier', 'Name Supplier', ['class'=>'col-sm-offset-1 control-label']) !!}
 	                      <div class="col-sm-12"> 
@@ -136,13 +136,13 @@
 				    			<td>{{ $item->contact }}</td>
 				    			<td>
 
-				    				{{ Form::open(array('method'=>'DELETE', 'route'=>array('dw-admin.supplier.destroy', $item->id))) }}
+				    				{{ Form::open(array('method'=>'DELETE', 'route'=>array('supplier.destroy', $item->id))) }}
 					    			<button type="submit"><i class="fa fa-trash"></i></button>
 					    			{{ Form::close() }}
 					    		</td>
 					    		<td>
-				    				<a href="{{ url('/dw-admin/supplier/'. $item->id) }}" title="Show Detail"><button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-folder-open"></i></button></a>
-					    			<a href="{{ url('/dw-admin/supplier/'. $item->id . '/edit') }}" title="Edit"><button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-pencil"></i></button></a>
+				    				<a href="{{ url('/admin/supplier/'. $item->id) }}" title="Show Detail"><button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-folder-open"></i></button></a>
+					    			<a href="{{ url('/admin/supplier/'. $item->id . '/edit') }}" title="Edit"><button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-pencil"></i></button></a>
 					    		</td>
 				    		</tr>
 				    	@endforeach

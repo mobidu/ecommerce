@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\front;
 
+use App\Mail\OrderRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -19,6 +20,7 @@ class TransactionController extends Controller
 {
     public function store(Request $request)
     {
+//        dd($request->all());
     	$this->validate($request, [
     		'nama_lengkap'	=> 'required',
     		'no_hp'			=> 'required|max:12',
@@ -31,12 +33,23 @@ class TransactionController extends Controller
     		]);
     	
     	DB::beginTransaction();
-    	$customer = Customer::create([
+
+
+    	$customer = null;
+
+    	if(auth()->guard('customer')->check()){
+    	    $customer = Customer::findOrFail(auth()->guard('customer')->user()->id);
+        }else{
+            $customer = Customer::create([
     				'nama_lengkap'	=> $request->nama_lengkap,
     				'no_hp'			=> $request->no_hp,
     				'email'			=> $request->email,
     				'pinbbm'		=> $request->pinbbm
-    	]);
+    	    ]);
+        }
+
+
+
 	    	if (!$customer)
 	    	{
 	    		DB::rollback();
@@ -118,11 +131,13 @@ class TransactionController extends Controller
             'bbm'			=> $emailadmin->bbm
         );
 
-        Mail::send('front.email', $data, function ($message) use ($data) {
-            $message->from($data['emailfrom'], $data['nama_toko'] . ' | Detail Pesanan');
-            $message->to($data['emailto'])->subject('Detail Pesanan Anda #' . $data['invoice']);
-            $message->bcc($data['emailfrom'], $data['nama_toko'] . ' | Detail Pesanan');
-        });
+        \Mail::to($data['emailto'])->send(new OrderRequest($data));
+
+//        Mail::send('front.email', $data, function ($message) use ($data) {
+//            $message->from($data['emailfrom'], $data['nama_toko'] . ' | Detail Pesanan');
+//            $message->to($data['emailto'])->subject('Detail Pesanan Anda #' . $data['invoice']);
+//            $message->bcc($data['emailfrom'], $data['nama_toko'] . ' | Detail Pesanan');
+//        });
 
 	    return redirect('/finish')->with(['invoice' => $order->invoice, 'customer' => $customer->nama_lengkap, 'email' => $customer->email]);
     }
@@ -136,5 +151,9 @@ class TransactionController extends Controller
     		'cart'			=> $cart
     	]);
     }
+
+    public function konfirmasi_pembayaran(Request $request)
+    {}
+
 
 }

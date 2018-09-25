@@ -17,7 +17,8 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index()
@@ -121,7 +122,7 @@ class ProductController extends Controller
             'diskon'        => $request->diskon,
             'harga_jual'    => $harga_jual,
             ]);
-        return redirect('/dw-admin/product');
+        return redirect('/admin/product');
     }
 
     public function hapusGambar(Request $request)
@@ -210,7 +211,7 @@ class ProductController extends Controller
             'diskon'        => $request->diskon,
             'harga_jual'    => $harga_jual,
             ]);
-        return redirect('/dw-admin/product');
+        return redirect('/admin/product');
     }
 
     /**
@@ -230,6 +231,6 @@ class ProductController extends Controller
         } 
 
         $product->delete();
-        return redirect('/dw-admin/product');
+        return redirect('/admin/product');
     }
 }

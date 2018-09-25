@@ -39,7 +39,7 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a href="{{ url('/dw-admin/home') }}" class="logo">
+        <a href="{{ url('/admin/home') }}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>D</b>W</span>
           <!-- logo for regular state and mobile devices -->
@@ -56,7 +56,7 @@
 
             <ul class="nav navbar-nav">
               <!-- Messages: style can be found in dropdown.less-->
-              
+
               <li class="dropdown messages-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-envelope-o"></i>
@@ -79,7 +79,7 @@
                           <p>Why not buy a new awesome theme?</p>
                         </a>
                       </li><!-- end message -->
-                      
+
                     </ul>
                   </li>
                   <li class="footer"><a href="#">See All Messages</a></li>
@@ -106,25 +106,25 @@
                           <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
                         </a>
                       </li>
-                      
+
                     </ul>
                   </li>
                   <li class="footer"><a href="#">View all</a></li>
                 </ul>
               </li>
-              
+
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="{{ asset('img/logo-folded.png') }}" class="user-image" alt="User Image">
-                  <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                  <span class="hidden-xs">{{ Auth::guard('admin')->user()->name }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
                     <p>
-                      {{ Auth::user()->name }}
+                      {{ Auth::guard('admin')->user()->name }}
                       <small>Ecommerce Since 2014</small>
                     </p>
                   </li>
@@ -143,10 +143,10 @@
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="{{ url('/dw-admin/setting') }}" class="btn btn-default btn-flat">Settings</a>
+                      <a href="{{ url('/admin/setting') }}" class="btn btn-default btn-flat">Settings</a>
                     </div>
                     <div class="pull-right">
-                      <a href="{{ url('/dw-admin/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="{{ url('/admin/logout') }}" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
@@ -169,7 +169,7 @@
               <img src="{{ asset('img/logo-folded.png') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>{{ Auth::user()->name }}</p>
+              <p>{{ Auth::guard('admin')->user()->name }}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -187,11 +187,11 @@
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview">
-              <a href="{{ url('/dw-admin/home') }}">
+              <a href="{{ url('/admin/home') }}">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-              </a> 
+              </a>
             </li>
-            
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-th"></i>
@@ -199,9 +199,9 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ url('/dw-admin/category') }}"><i class="fa fa-circle-o"></i> Categories</a></li>
-                <li><a href="{{ url('/dw-admin/supplier') }}"><i class="fa fa-circle-o"></i> Suppliers</a></li>
-                <li><a href="{{ url('/dw-admin/product') }}"><i class="fa fa-circle-o"></i> Products</a></li>
+                <li><a href="{{ url('/admin/category') }}"><i class="fa fa-circle-o"></i> Categories</a></li>
+                <li><a href="{{ url('/admin/supplier') }}"><i class="fa fa-circle-o"></i> Suppliers</a></li>
+                <li><a href="{{ url('/admin/product') }}"><i class="fa fa-circle-o"></i> Products</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -211,24 +211,24 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ url('/dw-admin/order') }}"><i class="fa fa-circle-o"></i> All Orders</a></li>
-                <li><a href="{{ url('/dw-admin/waiting-payment') }}"><i class="fa fa-circle-o"></i> Waiting Payment</a></li>
+                <li><a href="{{ url('/admin/order') }}"><i class="fa fa-circle-o"></i> All Orders</a></li>
+                <li><a href="{{ url('/admin/waiting-payment') }}"><i class="fa fa-circle-o"></i> Waiting Payment</a></li>
               </ul>
             </li>
             <li class="treeview">
-              <a href="{{ url('/dw-admin/slide') }}">
+              <a href="{{ url('/admin/slide') }}">
                 <i class="fa fa-caret-square-o-up"></i>
                 <span>Slider</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="{{ url('/dw-admin/pages') }}">
+              <a href="{{ url('/admin/pages') }}">
                 <i class="glyphicon glyphicon-th-large"></i>
                 <span>Pages</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="{{ url('/dw-admin/testimoni') }}">
+              <a href="{{ url('/admin/testimoni') }}">
                 <i class="glyphicon glyphicon-grain"></i>
                 <span>Testimoni</span>
               </a>
@@ -240,8 +240,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ url('/dw-admin/setting') }}"><i class="fa fa-circle-o"></i> General</a></li>
-                <li><a href="{{ url('/dw-admin/payment') }}"><i class="fa fa-circle-o"></i> Payment Method</a></li>
+                <li><a href="{{ url('/admin/setting') }}"><i class="fa fa-circle-o"></i> General</a></li>
+                <li><a href="{{ url('/admin/payment') }}"><i class="fa fa-circle-o"></i> Payment Method</a></li>
               </ul>
             </li>
 
@@ -263,7 +263,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
-        <strong>Copyright &copy; 2015-2016 <a href="http://daengweb.biz.id">Almsaeed Studio</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; {{date('Y')}} <a href="https://websitegratis.id">Website Gratis</a>.</strong> All rights reserved.
       </footer>
 
       <!-- Control Sidebar -->

@@ -6,10 +6,9 @@
 @endsection
 
 @section('plugin')
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
-	<script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-	<script src="//cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+	<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 @endsection
 
 @section('content')
@@ -49,7 +48,7 @@
                     @endif
                 	<hr>
 
-                	{!! Form::open(array('url'=>'/dw-admin/category', 'class'=>'form-horizontal')) !!}
+                	{!! Form::open(array('url'=>'/admin/category', 'class'=>'form-horizontal')) !!}
 	                	<div class="form-group">
 	                      {!! Form::label('nama_kategori', 'Name', ['class'=>'col-sm-offset-1 control-label']) !!}
 	                      <div class="col-sm-12"> 
@@ -132,7 +131,7 @@
 <script type="text/javascript">
     $("#nama_kategori").focusout(function(){
         $.ajax({
-            url: "/dw-admin/category/slug",
+            url: "/admin/category/slug",
             type:"POST",
             beforeSend: function (xhr) {
                 var token = $('meta[name="csrf_token"]').attr('content');

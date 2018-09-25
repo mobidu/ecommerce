@@ -15,7 +15,8 @@ class TestimoniController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
+        $this->middleware('auth:customer');
     }
     
     public function index()
@@ -69,12 +70,12 @@ class TestimoniController extends Controller
     {
     	$testimoni = Testimoni::findOrFail($id);
     	$testimoni->update(['status' => $request->input('status')]);
-    	return redirect('/dw-admin/testimoni');
+    	return redirect('/admin/testimoni');
     }
 
     public function destroy($id)
     {
     	Testimoni::find($id)->delete();
-        return redirect('/dw-admin/testimoni');
+        return redirect('/admin/testimoni');
     }
 }

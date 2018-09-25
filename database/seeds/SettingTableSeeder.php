@@ -12,16 +12,16 @@ class SettingTableSeeder extends Seeder
     public function run()
     {
         $s = new App\Setting;
-        $s->nama_toko = "Daeng Web";
-        $s->nama_pemilik = "Anugrah Sandi";
-        $s->alamat = "Jl. Sultan Hasanuddin";
+        $s->nama_toko = "Pasar E-Rakyat";
+        $s->nama_pemilik = "";
+        $s->alamat = "Bandung";
         $s->provinsi_id = "12";
         $s->kabupaten_id = "1201";
-        $s->sms = "085343966997";
+        $s->sms = "081223596458";
         $s->bbm = "5A567B10";
-        $s->line = "makassarnetwork";
-        $s->instagram = "http://instagram.com/makassarnetwork";
-        $s->email = "makassarnetwork06@gmail.com";
+        $s->line = "parerakyat";
+        $s->instagram = "";
+        $s->email = "";
         $s->save();
     }
 }

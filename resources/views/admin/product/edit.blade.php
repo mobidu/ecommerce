@@ -39,7 +39,7 @@
     <section class="content">
         <div class="row">
 
-        {!! Form::model($product, array('url'=>'/dw-admin/product/' . $product->id, 'class'=>'form-horizontal', 'files' => true, 'method'=>'PUT')) !!}
+        {!! Form::model($product, array('url'=>'/admin/product/' . $product->id, 'class'=>'form-horizontal', 'files' => true, 'method'=>'PUT')) !!}
       	<div class="col-md-8">
 
             <!-- Profile Image -->

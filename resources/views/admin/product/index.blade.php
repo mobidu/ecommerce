@@ -33,7 +33,7 @@
             <div class="box">
                 <div class="box-header">
             	    <div class="pull-right"> 
-				    	<a href="{{ url('/dw-admin/product/create') }}"><button class="btn btn-primary btn-sm">Add New</button></a>
+				    	<a href="{{ url('/admin/product/create') }}"><button class="btn btn-primary btn-sm">Add New</button></a>
 				    </div>
 
                 </div><!-- /.box-header -->
@@ -61,11 +61,11 @@
 				    		<tr>
 					    		<td>{{ $item->kode_produk }}</td>
 					    		@if ($item->media_image_id != null)
-					    			<td><a href="{{ url('/dw-admin/product/' . $item->id . '/edit') }}"><img class="img-thumbnail img-responsive" src="{{ asset('upload/img/' . $item->media_image->name_photo . '') }}" width="70"></a></td>
+					    			<td><a href="{{ url('/admin/product/' . $item->id . '/edit') }}"><img class="img-thumbnail img-responsive" src="{{ asset('upload/img/' . $item->media_image->name_photo . '') }}" width="70"></a></td>
 					    		@else
-					    			<td><a href="{{ url('/dw-admin/product/' . $item->id . '/edit') }}"><img class="img-thumbnail img-responsive" src="{{ asset('img/not-available.jpg') }}" width="70"></a></td>
+					    			<td><a href="{{ url('/admin/product/' . $item->id . '/edit') }}"><img class="img-thumbnail img-responsive" src="{{ asset('img/not-available.jpg') }}" width="70"></a></td>
 					    		@endif
-					    		<td><a href="{{ url('/dw-admin/product/' . $item->id . '/edit') }}"><strong>{{ $item->nama_produk }}</strong></a></td>
+					    		<td><a href="{{ url('/admin/product/' . $item->id . '/edit') }}"><strong>{{ $item->nama_produk }}</strong></a></td>
 					    		<td>{{ $item->category->nama_kategori }}</td>
 					    		<td>{{ $item->stok }}</td>
 					    		<td>{{ $item->harga }}</td>
@@ -78,14 +78,14 @@
 					    			@endif
 					    		</td>
 					    		<td>
-					    		{{ Form::open(array('url'=>'/dw-admin/product/' . $item->id, 'method'=>'DELETE')) }}
+					    		{{ Form::open(array('url'=>'/admin/product/' . $item->id, 'method'=>'DELETE')) }}
 					    		<button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
 					    		{{ Form::close() }}
 					    		</td>
 					    		
 					    		<!--
 					    		<td>
-					    			{{ Form::open(array('method'=>'DELETE', 'route'=>array('dw-admin.product.destroy', $item->id))) }}
+					    			{{ Form::open(array('method'=>'DELETE', 'route'=>array('product.destroy', $item->id))) }}
 					    			{{ Form::submit('Delete', array('class'=>'btn btn-danger btn-sm')) }}
 					    			{{ Form::close() }}
 					    		</td>-->

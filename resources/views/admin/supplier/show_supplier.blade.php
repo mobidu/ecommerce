@@ -54,7 +54,7 @@
 		                    
 		                  </ul>
 
-		                  <a href="{{ url('/dw-admin/supplier') }}" class="btn btn-primary btn-block"><b>Back</b></a>
+		                  <a href="{{ url('/admin/supplier') }}" class="btn btn-primary btn-block"><b>Back</b></a>
 		                </div><!-- /.box-body -->
 		              </div><!-- /.box -->
 		            <!-- End Detail -->
@@ -95,13 +95,13 @@
 					    		<td>{{ $item->contact }}</td>
 					    		<td>
 
-				    				{{ Form::open(array('method'=>'DELETE', 'route'=>array('dw-admin.supplier.destroy', $item->id))) }}
+				    				{{ Form::open(array('method'=>'DELETE', 'route'=>array('supplier.destroy', $item->id))) }}
 					    			<button type="submit"><i class="fa fa-trash"></i></button>
 					    			{{ Form::close() }}
 					    		</td>
 					    		<td>
-				    				<a href="{{ url('/dw-admin/supplier/'. $item->id) }}" title="Show Detail"><button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-folder-open"></i></button></a>
-					    			<a href="{{ url('/dw-admin/supplier/'. $item->id . '/edit') }}" title="Edit"><button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-pencil"></i></button></a>
+				    				<a href="{{ url('/admin/supplier/'. $item->id) }}" title="Show Detail"><button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-folder-open"></i></button></a>
+					    			<a href="{{ url('/admin/supplier/'. $item->id . '/edit') }}" title="Edit"><button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-pencil"></i></button></a>
 					    			
 					    		</td>
 				    		</tr>

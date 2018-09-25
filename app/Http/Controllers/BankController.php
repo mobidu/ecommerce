@@ -31,12 +31,12 @@ class BankController extends Controller
     	]);
 
     	Bank::create($request->all());
-    	return redirect('/dw-admin/payment');
+    	return redirect('/admin/payment');
     }
 
     public function destroy($id)
     {
     	Bank::findOrFail($id)->delete();
-    	return redirect('/dw-admin/payment');
+    	return redirect('/admin/payment');
     }
 }

@@ -16,7 +16,8 @@ class SupplierController extends Controller
     
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index()
@@ -72,7 +73,7 @@ class SupplierController extends Controller
         $s->contact = $request->contact;
         $s->save();
         
-        return redirect('/dw-admin/supplier');
+        return redirect('/admin/supplier');
     }
 
     public function show($id)
@@ -103,12 +104,12 @@ class SupplierController extends Controller
     {
         $data = Supplier::find($id);
         $data->update($request->all());
-        return redirect('/dw-admin/supplier');
+        return redirect('/admin/supplier');
     }
 
     public function destroy($id)
     {
         Supplier::findOrFail($id)->delete();
-        return redirect('/dw-admin/supplier');
+        return redirect('/admin/supplier');
     }
 }

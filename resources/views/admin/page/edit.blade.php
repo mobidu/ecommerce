@@ -38,7 +38,7 @@
     <section class="content">
         <div class="row">
 
-        {!! Form::model($page ,array('url'=>'/dw-admin/pages/' . $page->id, 'class'=>'form-horizontal', 'method' => 'PUT')) !!}
+        {!! Form::model($page ,array('url'=>'/admin/pages/' . $page->id, 'class'=>'form-horizontal', 'method' => 'PUT')) !!}
       	<div class="col-md-12">
 
             <!-- Profile Image -->

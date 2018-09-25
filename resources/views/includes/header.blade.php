@@ -18,6 +18,27 @@
                 <li><a href="#return">Retur Barang</a></li>
                 <li><a href="{{ url('/konfirmasi-pembayaran') }}">Konfirmasi Pembayaran</a></li>
                 <li><a href="#tentang">Tentang Kami</a></li>
+                @if(auth()->guard('customer')->check())
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>&nbsp;&nbsp;{{auth()->guard('customer')->user()->nama_lengkap}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{url('/profil')}}">Profil</a></li>
+                            <li>
+                                <a href="{{url('/logout')}}" onclick="event.preventDefault(); document.getElementById('customer_logout').submit()">Logout</a>
+                                <form id="customer_logout" action="{{url('/logout')}}" method="post">
+                                    {{csrf_field()}}
+                                </form>
+                            </li>
+
+                        </ul>
+
+                    </li>
+                @else
+                    <li><a href="{{url('/login')}}">Login Member</a></li>
+                @endif
+
+
             </ul>
         </div><!--/.nav-collapse -->
     </div>

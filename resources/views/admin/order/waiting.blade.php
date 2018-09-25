@@ -54,7 +54,7 @@
 
 				    	@foreach ($order as $item)
 				    		<tr>
-					    		<td><a href="{{ url('/dw-admin/order/' . $item->invoice) }}"><button class="btn btn-default btn-sm"><b>{{ $item->invoice }}</b></button></a></td>
+					    		<td><a href="{{ url('/admin/order/' . $item->invoice) }}"><button class="btn btn-default btn-sm"><b>{{ $item->invoice }}</b></button></a></td>
 					    		<td>{{ $item->customer->nama_lengkap }}</td>
 					    		<td>{{ $item->city }}</td>
 					    		<td>{{ $item->created_at }}</td>
@@ -77,7 +77,7 @@
 		            				@endif
 					    		</td>
 					    		<td>
-					    			<a href="{{ url('/dw-admin/order/' . $item->invoice) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-folder"></i></button></a>
+					    			<a href="{{ url('/admin/order/' . $item->invoice) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-folder"></i></button></a>
 					    		</td>
 					    		
 				    		</tr>

@@ -49,7 +49,7 @@
                     @endif
                 	<hr>
 
-                	{!! Form::open(array('url'=>'/dw-admin/slide', 'class'=>'form-horizontal', 'files' => true)) !!}
+                	{!! Form::open(array('url'=>'/admin/slide', 'class'=>'form-horizontal', 'files' => true)) !!}
 	                	<div class="form-group">
 	                      {!! Form::label('title', 'Title', ['class'=>'col-sm-offset-1 control-label']) !!}
 	                      <div class="col-sm-12"> 

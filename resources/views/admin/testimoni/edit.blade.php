@@ -38,7 +38,7 @@
     <section class="content">
         <div class="row">
 
-        {!! Form::model($testimoni, array('url'=>'/dw-admin/testimoni/' . $testimoni->id, 'class'=>'form-horizontal', 'method' => 'PUT')) !!}
+        {!! Form::model($testimoni, array('url'=>'/admin/testimoni/' . $testimoni->id, 'class'=>'form-horizontal', 'method' => 'PUT')) !!}
       	<div class="col-md-12">
 
             <!-- Profile Image -->

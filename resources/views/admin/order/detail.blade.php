@@ -187,7 +187,7 @@
         	<h4 class="modal-title">Ubah Status Order</h4>
       	</div>
       	<div class="modal-body">
-        	{!! Form::open(array('url' => '/dw-admin/status-order', 'class' => 'form-horizontal')) !!}
+        	{!! Form::open(array('url' => '/admin/status-order', 'class' => 'form-horizontal')) !!}
         		<label>Status Order</label>
         		<select class="form-control" name="status_order" required="">
         			<option value="">Pilih</option>

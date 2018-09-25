@@ -33,7 +33,7 @@
                                     <div class="col-md-3">
                                         <div class="thumbnail img-responsive">
                                             @if ($p->media_image_id != null)
-                                                <a href="{{ url('/produk/' . $p->slug) }}"><img src="{{ asset('upload/img/' . $p->media_image->name_photo) }}" alt="{{ $p->nama_produk }}" style="min-height:50px; height:250px; min-width:50px; width: 150px;" class="morph"></a>
+                                                <a href="{{ url('/produk/' . $p->slug) }}"><img src="{{ asset('upload/img/' . $p->media_image->name_photo) }}" alt="{{ $p->nama_produk }}" style="min-height:50px; height:150px; min-width:50px; width: 150px;" class="morph"></a>
                                             @else
                                                 <a href="{{ url('/produk/' . $p->slug) }}"><img src="{{ asset('img/not-available.jpg') }}" alt="{{ $p->nama_produk }}" style="min-height:50px; height:250px; min-width:50px; width: 150px;" class="morph"></a>
                                             @endif
@@ -48,7 +48,7 @@
                                                 <div class="col-md-12">
                                                     <p class="text-center harga">Rp. {{ $p->harga_jual }} <sup><s>{{ $p->harga }}</s></sup></p>
                                                 </div>
-                                                <div class="col-md-12 text-center">
+                                                <div class="col-md-12 text-center" style="padding: 10px;">
                                                     {!! Form::open(array('url' => '/cart', 'class' => 'form_submit')) !!}
                                                         <a href=""><button class="btn btn-default btn-sm">Detail</button></a>
                                                         <button type="submit" class="btn btn-success btn-sm" id="beli"><i class="fa fa-shopping-cart"></i> Beli</button>

@@ -30,8 +30,9 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">Form Konfirmasi Pembayaran</div>
                             <div class="panel-body">
-                                {!! Form::open(array('url' => '', 'class' => 'form-horizontal')) !!}
-                                
+                                <form action="{{url('/konfirmasi-pembayaran')}}" method="post" enctype="multipart/form-data">
+
+                                {{csrf_field()}}
                                 @if (session('status'))
                                 <div class="alert alert-success alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -51,68 +52,54 @@
                                 @endif
 
                                 <div class="form-group">
-                                  {!! Form::label('invoice', '#InvoiceID *', ['class'=>'control-label col-sm-3']) !!}
-                                  <div class="col-sm-9"> 
-                                    {!! Form::text('invoice', null, ['class'=>'form-control', 'id'=>'invoice', 'required'=>'required']) !!}
+                                    <label for="incoice">#InvoiceID</label>
+
+                                    <input type="text" class="form-control" name="invoice" id="invoice" required>
                                     <p id="pesan"></p>
-                                  </div>
                                 </div>
 
                                 <div class="form-group">
-                                  {!! Form::label('nama_pemilik', 'Nama Pengirim *', ['class'=>'control-label col-sm-3']) !!}
-                                  <div class="col-sm-9"> 
-                                    {!! Form::text('nama_pemilik', null, ['class'=>'form-control', 'id'=>'nama_pemilik', 'required'=>'required']) !!}
-                                  </div>
+                                    <label for="nama_pemilik" >Nama Pengirim *</label>
+                                    <input type="text" name="nama_pemilik" class="form-control" id="nama_pemilik" required />
                                 </div>
 
                                 <div class="form-group">
-                                  {!! Form::label('bank_from', 'Dari Bank *', ['class'=>'control-label col-sm-3']) !!}
-                                  <div class="col-sm-9"> 
-                                    {!! Form::text('bank_from', null, ['class'=>'form-control', 'id'=>'bank_from', 'required'=>'required']) !!}
-                                  </div>
+                                    <label for="bank_from" class="control-label col-sm-3">Dari Bank *</label>
+                                    <input type="text" class="form-control" name="bank_from">
                                 </div>
 
                                 <div class="form-group">
-                                  {!! Form::label('no_rekening', 'No Rekening *', ['class'=>'control-label col-sm-3']) !!}
-                                  <div class="col-sm-9"> 
-                                    {!! Form::text('no_rekening', null, ['class'=>'form-control', 'id'=>'no_rekening', 'required'=>'required']) !!}
-                                  </div>
+                                    <label for="no_rekening">No Rekening *</label>
+                                      <input type="text" name="no_rekening" id="no_rekening" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
-                                  {!! Form::label('bank_to', 'Bank Tujuan *', ['class'=>'control-label col-sm-3']) !!}
-                                  <div class="col-sm-9"> 
+                                    <label for="bak_to">Bank Tujuan *</label>
                                     <select name="bank_to" class="form-control" id="bank_to">
                                         <option value="">Pilih</option>
                                         @foreach ($bank as $b)
                                             <option value="{{ $b->nama_bank }}">{{ $b->nama_bank }}</option>
                                         @endforeach
                                     </select>
-                                  </div>
                                 </div>
 
                                 <div class="form-group">
-                                  {!! Form::label('jumlah', 'Jumlah *', ['class'=>'control-label col-sm-3']) !!}
-                                  <div class="col-sm-9"> 
-                                    {!! Form::number('jumlah', null, ['class'=>'form-control', 'id'=>'jumlah', 'required'=>'required']) !!}
-                                  </div>
+                                    <label for="jumlah">Jumlah *</label>
+                                    <input type="number" class="form-control" name="jumlah" id="jumlah" required>
                                 </div>
 
                                 <div class="form-group">
-                                  {!! Form::label('bukti_transfer', 'Bukti Transfer *', ['class'=>'control-label col-sm-3']) !!}
-                                  <div class="col-sm-9"> 
+                                    <label for="bukti_transfer">Bukti Transfer *</label>
                                     <input type="file" name="bukti_transfer" id="bukti_transfer" required="">
-                                  </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3"></label>
-                                    <div class="col-sm-9">
-                                        {!! Form::submit('Konfirmasi', ['class'=>'btn btn-primary', 'id'=>'simpan', 'disabled' => 'disabled']) !!}
-                                    </div>
+                                    <button type="submit" class="btn btn-primary" id="simpan" disabled>Konfirmasi Pembayaran</button>
                                 </div>
 
-                                {!! Form::close() !!}
+
+                                </form>
+
                             </div>
                             
                         </div>

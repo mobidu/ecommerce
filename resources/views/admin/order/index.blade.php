@@ -6,10 +6,10 @@
 @endsection
 
 @section('plugin')
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
-	<script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-	<script src="//cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+	{{--<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">--}}
+	<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 @endsection
 
 @section('content')
@@ -54,7 +54,7 @@
 
 				    	@foreach ($order as $item)
 				    		<tr>
-					    		<td><a href="{{ url('/dw-admin/order/' . $item->invoice) }}"><button class="btn btn-default btn-sm"><b>{{ $item->invoice }}</b></button></a></td>
+					    		<td><a href="{{ url('/admin/order/' . $item->invoice) }}"><button class="btn btn-default btn-sm"><b>{{ $item->invoice }}</b></button></a></td>
 					    		<td>{{ $item->customer->nama_lengkap }}</td>
 					    		<td>{{ $item->city }}</td>
 					    		<td>{{ $item->created_at }}</td>
@@ -77,7 +77,7 @@
 		            				@endif
 					    		</td>
 					    		<td>
-					    			<a href="{{ url('/dw-admin/order/' . $item->invoice) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-folder"></i></button></a>
+					    			<a href="{{ url('/admin/order/' . $item->invoice) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-folder"></i></button></a>
 					    		</td>
 					    		
 				    		</tr>

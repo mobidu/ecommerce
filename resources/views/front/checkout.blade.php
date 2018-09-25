@@ -21,93 +21,107 @@
     <div class="row" id="content">
         <div class="col-md-7">
             @if (count($cart))
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h5>Detail Informasi</h5>
-                </div>
-                <div class="panel-body">
-                    {!! Form::open(array('url' => '/checkout', 'class' => 'form-horizontal')) !!}
-                    
-                    @if (count($errors) > 0)
-                    <div class="alert alert-danger alert-dismissable">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h4><i class="icon fa fa-ban"></i> Notification</h4>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5>Detail Informasi</h5>
+                            </div>
+                            <div class="panel-body">
+                                {!! Form::open(array('url' => '/checkout', 'class' => 'form-horizontal')) !!}
 
-                    <div class="form-group">
-                        {!! Form::label('nama_lengkap', 'Nama Lengkap *', ['class'=>'control-label col-sm-3']) !!}
-                        <div class="col-sm-9"> 
-                        {!! Form::text('nama_lengkap', null, ['class'=>'form-control', 'id'=>'nama_lengkap', 'required'=>'required']) !!}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('no_hp', 'No Handphone *', ['class'=>'control-label col-sm-3']) !!}
-                        <div class="col-sm-9"> 
-                        {!! Form::text('no_hp', null, ['class'=>'form-control', 'id'=>'no_hp', 'required'=>'required']) !!}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('email', 'Email *', ['class'=>'control-label col-sm-3']) !!}
-                        <div class="col-sm-9"> 
-                        {!! Form::email('email', null, ['class'=>'form-control', 'id'=>'email', 'required'=>'required']) !!}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('bbm', 'PIN BBM (optional)', ['class'=>'control-label col-sm-3']) !!}
-                        <div class="col-sm-9"> 
-                        {!! Form::text('pinbbm', null, ['class'=>'form-control', 'id'=>'bbm']) !!}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('alamat', 'Alamat *', ['class'=>'control-label col-sm-3']) !!}
-                        <div class="col-sm-9"> 
-                        {!! Form::textarea('alamat', null, ['class'=>'form-control', 'id'=>'alamat', 'required'=>'required']) !!}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('provinsi', 'Provinsi *', ['class'=>'control-label col-sm-3']) !!}
-                        <div class="col-sm-9"> 
-                        <select class="form-control" name="provinsi" id="provinsi" required>
-                            <option value="0">Pilih</option>
-                            @for ($i=0; $i<count($provinsi); $i++)
-                                <option value="{{ $provinsi[$i]['province_id'] }}">{{ $provinsi[$i]['province'] }}</option>
-                            @endfor
-                        </select>
-                        {!! Form::hidden('province', null, ['class'=>'form-control', 'id'=>'province', 'required'=>'required']) !!}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('kota', 'Kota *', ['class'=>'control-label col-sm-3']) !!}
-                        <div class="col-sm-9"> 
-                        <select class="form-control" name="kota" id="kota" required >
-                            <option value="0">Pilih</option>
-                        </select>
-                        {!! Form::hidden('city', null, ['class'=>'form-control', 'id'=>'city', 'required'=>'required']) !!}
-                        </div>
-                    </div>
+                                @if (count($errors) > 0)
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <h4><i class="icon fa fa-ban"></i> Notification</h4>
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                @if(auth()->guard('customer')->check())
+                                    <input type="hidden" name="id_customer" value="{{auth()->guard('customer')->user()->id}}">
+                                @endif
 
-                    <div class="form-group">
-                        {!! Form::label('jne', 'JNE *', ['class'=>'control-label col-sm-3']) !!}
-                        <div class="col-sm-9"> 
-                        <select class="form-control" name="jne" id="jne">
-                            <option value="0">Pilih</option>
-                        </select>
+                                <div class="form-group">
+                                    <label for="nama_lengkap" class="control-label col-sm-3">Nama Lengkap</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="nama_lengkap" value="{{auth()->guard('customer')->check() ? auth()->guard('customer')->user()->nama_lengkap : old('nama_lengkap')}}" {{auth()->guard('customer')->check() ? 'readonly' : ''}} class="form-control" id="nama_lengkap" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="no_hp" class="control-label col-sm-3">No Handphone</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="no_hp" value="{{auth()->guard('customer')->check() ? auth()->guard('customer')->user()->no_hp : old('no_hp')}}" {{auth()->guard('customer')->check() ? 'readonly' : ''}} class="form-control" id="no_hp" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="email" class="col-sm-3 control-label">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" name="email" class="form-control" value="{{auth()->guard('customer')->check() ? auth()->guard('customer')->user()->email : old('email')}}" {{auth()->guard('customer')->check() ? 'readonly' : ''}}  id="email" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="bbm" class="col-sm-3 control-label">PIN BBM (optional)</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="pinbbm" value="{{auth()->guard('customer')->check() ? auth()->guard('customer')->user()->bbm : old('bbm')}}" {{auth()->guard('customer')->check() ? 'readonly' : ''}}  class="form-control" id="bbm">
+
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        {!! Form::label('kode_pos', 'Kode Pos *', ['class'=>'control-label col-sm-3']) !!}
-                        <div class="col-sm-9"> 
-                        {!! Form::text('kode_pos', null, ['class'=>'form-control', 'id'=>'kode_pos', 'required'=>'required']) !!}
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">INFORMASI ALAMAT</div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label>Alamat</label>
+                                    <textarea name="alamat" id="alamat"  class="form-control" rows="6"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Provinsi</label>
+                                    <select class="form-control" name="provinsi" id="provinsi" required>
+                                        <option value="0">Pilih</option>
+                                        @for ($i=0; $i<count($provinsi); $i++)
+                                            <option value="{{ $provinsi[$i]['province_id'] }}">{{ $provinsi[$i]['province'] }}</option>
+                                        @endfor
+                                    </select>
+                                    <input type="hidden" name="province" id="province" required>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Kota</label>
+                                    <select class="form-control" name="kota" id="kota" required >
+                                        <option value="0">Pilih</option>
+                                    </select>
+                                    <input type="hidden" name="city" id="city" required>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <div>JNE *</div>
+                                    <select class="form-control" name="jne" id="jne">
+                                        <option value="0">Pilih</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+
+                                    <label>Kode POS</label>
+                                    <input type="text" name="kode_pos" class="form-control" id="kode_post" required>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
             @else
                 <div class="alert alert-danger" role="alert">
                     <p>Belum ada barang yang ditambahkan ke keranjang belanja. <a href="{{ url('/') }}" class="btn btn-default btn-sm">Kembali</a></p>
@@ -165,10 +179,15 @@
                         <p class="pull-right">{!! Form::submit('Konfirmasi Pesanan', ['class'=>'btn btn-primary btn-sm']) !!}</p>
                     </div>
                     
-                    {!! Form::close() !!}
+
                 </div>
+
+
             </div>
         </div>
+
+
+        {!! Form::close() !!}
     </div>
 </div>
 

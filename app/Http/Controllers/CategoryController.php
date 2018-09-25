@@ -15,7 +15,8 @@ class CategoryController extends Controller
     
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index()
@@ -52,7 +53,7 @@ class CategoryController extends Controller
             'slug'          => $request->slug,
             'deskripsi'     => $request->input('deskripsi')
             ]);
-        return redirect('/dw-admin/category');
+        return redirect('/admin/category');
     }
 
     /**
@@ -98,6 +99,6 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::find($id)->delete();
-        return redirect('/dw-admin/category');
+        return redirect('/admin/category');
     }
 }

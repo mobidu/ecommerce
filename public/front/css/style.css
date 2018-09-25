@@ -9,6 +9,9 @@ body {
   	margin-bottom: 60px;
   	min-height: 100%;
     padding-top: 70px;
+    font-family:"Lato", sans-serif;
+    color:#212529;
+    font-weight:400;
 }
 
 /* SLIDE */
@@ -33,7 +36,8 @@ body {
     
     .harga {
       font-weight: bold;
-      font-size: 15px;
+      /*font-size: 15px;*/
+        font-size: 1.2rem;
       color: #2980b9;
 
     }
@@ -82,6 +86,8 @@ body {
     .navbar-custom {
         background-color: #0088cc;
         border-color: #0072ab;
+        font-family: "Lato", sans-serif;
+        font-weight: 600;
     }
     .navbar-custom .navbar-brand {
         color: #ffffff;
@@ -149,7 +155,7 @@ body {
         border-top-color: #ffffff;
         border-bottom-color: #ffffff;
     }
-    @media (max-width: 767) {
+    @media (max-width: 767px) {
       .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
         color: #ffffff;
       }
@@ -292,7 +298,8 @@ body {
 
 .breadcrumb {
   background: #bdc3c7;
-  font-size: 1.2em;
+  /*font-size: 1.2em;*/
+    font-size: 1.2em;
 }
 
 .breadcrumbs {
