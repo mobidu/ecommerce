@@ -59,7 +59,7 @@
                             <div class="panel-body">
                                 @foreach ($product as $p)
                                     @if ($p->publish == 1)
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 col-xs-6">
                                         <div class="thumbnail img-responsive">
                                             @if ($p->media_image_id != null)
                                                 <a href="{{ url('/produk/' . $p->slug) }}"><img src="{{ asset('upload/img/' . $p->media_image->name_photo) }}" alt="{{ $p->nama_produk }}" style="min-height:50px; height:150px; min-width:50px; width: 150px;" class="morph"></a>
