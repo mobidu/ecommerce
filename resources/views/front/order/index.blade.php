@@ -31,7 +31,7 @@
 
                     </div>
                     <div class="panel-body">
-                        <ul class="nav nav-tabs tabs-up" id="friends">
+                        <ul class="nav nav-pills" id="friends">
                             <li class="active">
                                 <a href="/order/data/aktif"
                                    data-target="#aktif"

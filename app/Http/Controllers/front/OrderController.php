@@ -39,14 +39,14 @@ class OrderController extends Controller
     public function order_data_selesai(Request $request)
     {
         $customer = auth()->guard('customer')->user();
-        $list_order = $customer->order()->where('status_order', '=', 'Complete')->get();
+        $list_order = $customer->order()->where('status_order', '=', 'Complete')->orderBy('created_at', 'desc')->get();
         return view('front.order.selesai', compact(['customer', 'list_order']));
     }
 
     public function order_data_batal(Request $request)
     {
         $customer = auth()->guard('customer')->user();
-        $list_order = $customer->order()->where('status_order', '=', 'batal')->get();
+        $list_order = $customer->order()->where('status_order', '=', 'Batal')->get();
         return view('front.order.batal', compact(['customer', 'list_order']));
     }
 
