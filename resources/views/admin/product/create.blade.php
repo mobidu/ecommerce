@@ -41,82 +41,102 @@
         {!! Form::open(array('url'=>'/admin/product', 'class'=>'form-horizontal', 'files' => true)) !!}
       	<div class="col-md-8">
 
-            <!-- Profile Image -->
-            <div class="box box-primary">
-                <div class="box-body box-profile">
-                	<h4>Add New Product</h4>
-                	@if (count($errors) > 0)
-                	<div class="alert alert-danger alert-dismissable">
-	                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-	                    <h4><i class="icon fa fa-ban"></i> Notification</h4>
-	                    <ul>
-	                    	@foreach ($errors->all() as $error)
-								<li>{{ $error }}</li>
-							@endforeach
-	                    </ul>
-                    </div>
-                    @endif
-                	<hr>
-                	
-	                	<div class="form-group">
-	                      {!! Form::label('nama_produk', 'Title Product *', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
-	                      	{!! Form::text('nama_produk', null, ['class'=>'form-control', 'id'=>'nama_produk', 'required'=>'required']) !!}
-	                      	<p id="pesan"></p>
-	                      </div>
-	                    </div>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Profile Image -->
+					<div class="box box-primary">
+						<div class="box-body box-profile">
+							<h4>Add New Product</h4>
+							@if (count($errors) > 0)
+								<div class="alert alert-danger alert-dismissable">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+									<h4><i class="icon fa fa-ban"></i> Notification</h4>
+									<ul>
+										@foreach ($errors->all() as $error)
+											<li>{{ $error }}</li>
+										@endforeach
+									</ul>
+								</div>
+							@endif
+							<hr>
 
-	                    <div class="form-group">
-	                      {!! Form::label('slug', 'Slug', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
-	                      	{!! Form::text('slug', null, ['class'=>'form-control', 'id'=>'slug', 'readonly'=>'readonly']) !!}
-	                      	
-	                      </div>
-	                    </div>
+							<div class="form-group">
+								{!! Form::label('nama_produk', 'Title Product *', ['class'=>'control-label col-sm-3']) !!}
+								<div class="col-sm-9">
+									{!! Form::text('nama_produk', null, ['class'=>'form-control', 'id'=>'nama_produk', 'required'=>'required']) !!}
+									<p id="pesan"></p>
+								</div>
+							</div>
 
-	                    <div class="form-group">
-	                      {!! Form::label('kode_produk', 'Code Product *', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
-	                      	{!! Form::text('kode_produk', null, ['class'=>'form-control', 'id'=>'kode_produk', 'required'=>'required']) !!}
-	                      		<div class="errkode"></div>
-	                      </div>
-	                    </div>
+							<div class="form-group">
+								{!! Form::label('slug', 'Slug', ['class'=>'control-label col-sm-3']) !!}
+								<div class="col-sm-9">
+									{!! Form::text('slug', null, ['class'=>'form-control', 'id'=>'slug', 'readonly'=>'readonly']) !!}
 
-	                    <div class="form-group">
-	                      {!! Form::label('kategori_id', 'Category', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
-	                      	<select class="form-control" name="kategori_id" id="kategori_id" style="width: 100%">
-	                      		<option value=""></option>
-			                    @foreach ($kategori as $kategori)
-			                    	<option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
-			                    @endforeach
-		                    </select>
-	                      </div>
-	                    </div>
+								</div>
+							</div>
 
-	                    <div class="form-group">
-	                      {!! Form::label('supplier_id', 'Category', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
-	                      	<select class="form-control" name="supplier_id" id="supplier_id" style="width: 100%">
-	                      		<option value=""></option>
-			                    @foreach ($supplier as $supplier)
-			                    	<option value="{{ $supplier->id }}">{{ $supplier->nama_supplier }}</option>
-			                    @endforeach
-		                    </select>
-	                      </div>
-	                    </div>
+							<div class="form-group">
+								{!! Form::label('kode_produk', 'Code Product *', ['class'=>'control-label col-sm-3']) !!}
+								<div class="col-sm-9">
+									{!! Form::text('kode_produk', null, ['class'=>'form-control', 'id'=>'kode_produk', 'required'=>'required']) !!}
+									<div class="errkode"></div>
+								</div>
+							</div>
 
-	                    <div class="form-group">
-	                      {!! Form::label('deskripsi', 'Description', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
+							<div class="form-group">
+								{!! Form::label('kategori_id', 'Category', ['class'=>'control-label col-sm-3']) !!}
+								<div class="col-sm-9">
+									<select class="form-control" name="kategori_id" id="kategori_id" style="width: 100%">
+										<option value=""></option>
+										@foreach ($kategori as $kategori)
+											<option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
+										@endforeach
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								{!! Form::label('supplier_id', 'Category', ['class'=>'control-label col-sm-3']) !!}
+								<div class="col-sm-9">
+									<select class="form-control" name="supplier_id" id="supplier_id" style="width: 100%">
+										<option value=""></option>
+										@foreach ($supplier as $supplier)
+											<option value="{{ $supplier->id }}">{{ $supplier->nama_supplier }}</option>
+										@endforeach
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								{!! Form::label('deskripsi', 'Description', ['class'=>'control-label col-sm-3']) !!}
+								<div class="col-sm-9">
 	                      	<textarea name="deskripsi" class="form-control" id="deskripsi" rows="10" cols="80" >
-				                
-				            </textarea>
-	                      </div>
-	                    </div>
 
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
+				            </textarea>
+								</div>
+							</div>
+
+						</div><!-- /.box-body -->
+					</div><!-- /.box -->
+				</div>
+				<div class="col-md-12">
+					<div class="box box-primary">
+						<div class="box-header">
+							<h3 class="box-title">Tambah Galeri Gambar</h3>
+						</div>
+						<div class="box-body box-profile">
+							<div id="drop-area" class="dm-uploader p-5 text-center">
+								<h3 class="mb-5 mt-5 text-muted">Drag and Drop Files Here</h3>
+									<div class="btn btn-primary btn-block mb-5">
+										<span>Open the file Browser</span>
+										<input type="file" title="Click to add Files" multiple />
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
         </div><!-- /.col -->
 
         <div class="col-md-4">
@@ -224,6 +244,8 @@
 		                </div>
 	            	</div>
 
+
+
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div><!-- /.col -->
@@ -232,12 +254,32 @@
     	</div><!-- /.row -->
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+<link href="{{url('/public/css/jquery.dm-uploader.min.js')}}" rel="stylesheet">
+<script src="{{url('/public/js/jquery.dm-uploader.min.js')}}"></script>
 
 <script>
     CKEDITOR.replace( 'deskripsi' );
 </script>
 
 <script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+	$(document).ready(function(){
+        $("#drop-area").dmUploader({
+            url: '/admin/product/image/upload',
+            //... More settings here...
+
+            onInit: function(){
+                console.log('Callback: Plugin initialized');
+            }
+
+            // ... More callbacks
+        });
+
+	});
   $('#kategori_id').select2({
   	placeholder: "Select a Category",
   	theme: "classic",

@@ -33,6 +33,7 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -156,6 +157,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ url('/admin/order') }}"><i class="fa fa-circle-o"></i> All Orders</a></li>
+                <li><a href="{{ url('/admin/pembayaran') }}"><i class="fa fa-circle-o"></i> Pembayaran</a></li>
                 <li><a href="{{ url('/admin/waiting-payment') }}"><i class="fa fa-circle-o"></i> Waiting Payment</a></li>
               </ul>
             </li>
@@ -376,6 +378,11 @@
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
       $.widget.bridge('uibutton', $.ui.button);
+      var sukses = "{{session()->has('sukses')}}";
+
+      if(sukses){
+          swal("Sukses!", "{{session()->get('sukses')}}", "success");
+      }
     </script>
     
 

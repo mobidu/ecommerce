@@ -23,4 +23,14 @@ class Customer extends Authenticable
     	return $this->hasManyThrough('App\Order_detail', 'App\Order');
     }
 
+    public function saldo()
+    {
+        return $this->hasMany('App\Saldo', 'customer_id', 'id');
+    }
+
+    public function referal()
+    {
+        return $this->hasOne(self::class, 'affiliate_id', 'referred_by');
+    }
+
 }

@@ -17,4 +17,9 @@ class Order extends Model
     {
     	return $this->hasMany('App\Order_detail');
     }
+
+    public function getProvinsi()
+    {
+        return \RajaOngkir::Provinsi()->find($this->id);
+    }
 }

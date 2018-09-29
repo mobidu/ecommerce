@@ -159,6 +159,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Yajra\Datatables\DatatablesServiceProvider::class,
+
     ],
 
     /*
@@ -208,6 +210,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
         'RajaOngkir' => rizalafani\rajaongkirlaravel\RajaOngkirFacade::class,
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
 
     ],
 

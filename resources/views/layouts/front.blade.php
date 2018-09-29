@@ -81,5 +81,6 @@
             interval:   3500
         });
     </script>
+    @yield('script')
 </body>
 </html>

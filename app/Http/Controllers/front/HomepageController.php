@@ -242,7 +242,7 @@ class HomepageController extends Controller
 
         $paid = new Paid();
         $paid->invoice = $request->get('invoice');
-        $paid->nama_pemilik = $request->get('invoice');
+        $paid->nama_pemilik = $request->get('nama_pemilik');
         $paid->bank_from = $request->get('bank_from');
         $paid->no_rekening = $request->get('no_rekening');
         $paid->bank_to = $request->get('bank_to');
@@ -251,10 +251,10 @@ class HomepageController extends Controller
 
         $paid->save();
 
-        if (!empty($paid->id)) {
-            $order = Order::where('invoice', '=', $paid->invoice)->first();
-            $order->update(['paid_id' => $paid->id]);
-        }
+//        if (!empty($paid->id)) {
+//            $order = Order::where('invoice', '=', $paid->invoice)->first();
+//            $order->update(['paid_id' => $paid->id]);
+//        }
 
         return redirect('/konfirmasi-pembayaran')->with('status', 'Konfirmasi Pembayaran Sukses');
     }

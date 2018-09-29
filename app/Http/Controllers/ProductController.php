@@ -233,4 +233,9 @@ class ProductController extends Controller
         $product->delete();
         return redirect('/admin/product');
     }
+
+    public function uploadImage(Request $request)
+    {
+        return $request->all();
+    }
 }

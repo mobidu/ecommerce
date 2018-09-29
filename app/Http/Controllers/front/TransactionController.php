@@ -21,16 +21,17 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
 //        dd($request->all());
-    	$this->validate($request, [
-    		'nama_lengkap'	=> 'required',
-    		'no_hp'			=> 'required|max:12',
-    		'email'			=> 'required',
-    		'pinbbm'		=> 'max:8',
-    		'alamat'		=> 'required',
-    		'province'		=> 'required',
-    		'city'			=> 'required',
-    		'kode_pos'		=> 'required'
-    		]);
+        $this->validate($request, [
+            'nama_lengkap'	=> 'required',
+            'no_hp'			=> 'required|max:12',
+            'email'			=> 'required',
+            'pinbbm'		=> 'max:8',
+            'alamat'		=> 'required',
+            'province'		=> 'required',
+            'city'			=> 'required',
+            'kode_pos'		=> 'required'
+        ]);
+
     	
     	DB::beginTransaction();
 
@@ -47,20 +48,19 @@ class TransactionController extends Controller
     				'pinbbm'		=> $request->pinbbm
     	    ]);
         }
-
-
-
-	    	if (!$customer)
-	    	{
-	    		DB::rollback();
-	    	}
+        if (!$customer)
+        {
+            DB::rollback();
+        }
 
 	    $lastInvoice = Order::orderBy('invoice', 'desc');
-	    	if ($lastInvoice->get()->count() == 0) {
-	    		$invoiceId = 1;
-	    	} else {
-	    		$invoiceId = $lastInvoice->first()->invoice + 1;
-	    	}
+
+        if ($lastInvoice->get()->count() == 0) {
+            $invoiceId = 1;
+        } else {
+            $invoiceId = $lastInvoice->first()->invoice + 1;
+        }
+
 	    $generateInvoice = str_pad($invoiceId, 5, "2100", STR_PAD_LEFT);
 
 	    $order = Order::create([
@@ -75,9 +75,11 @@ class TransactionController extends Controller
 	    	'catatan'		=> $request->input('catatan'),
 	    	'status_order'	=> 'Pending'
 	    ]);
-	    	if (!$order) {
-	    		DB::rollback();
-	    	}
+
+        if (!$order) {
+            DB::rollback();
+        }
+
 	    $cart = Cart::content();
 	    foreach ($cart as $keranjang) {
 	    	$data[] = ['kode_produk' 	=> $keranjang->id, 
@@ -98,6 +100,7 @@ class TransactionController extends Controller
 	    		'harga'			=> $data[$i]['harga']
 	    	]);
 	    }
+
 	    DB::commit();
 	    Cart::destroy();
 
@@ -133,13 +136,9 @@ class TransactionController extends Controller
 
         \Mail::to($data['emailto'])->send(new OrderRequest($data));
 
-//        Mail::send('front.email', $data, function ($message) use ($data) {
-//            $message->from($data['emailfrom'], $data['nama_toko'] . ' | Detail Pesanan');
-//            $message->to($data['emailto'])->subject('Detail Pesanan Anda #' . $data['invoice']);
-//            $message->bcc($data['emailfrom'], $data['nama_toko'] . ' | Detail Pesanan');
-//        });
 
 	    return redirect('/finish')->with(['invoice' => $order->invoice, 'customer' => $customer->nama_lengkap, 'email' => $customer->email]);
+
     }
 
     public function finishTransaction()
@@ -153,7 +152,9 @@ class TransactionController extends Controller
     }
 
     public function konfirmasi_pembayaran(Request $request)
-    {}
+    {
+
+    }
 
 
 }
