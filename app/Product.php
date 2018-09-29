@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['kode_produk', 'nama_produk', 'slug', 'kategori_id', 'supplier_id', 'deskripsi', 'berat', 'harga', 'stok', 'media_image_id', 'publish', 'diskon', 'harga_jual'];
+    protected $fillable = ['kode_produk', 'nama_produk', 'slug', 'kategori_id', 'supplier_id','komisi', 'deskripsi', 'berat', 'harga', 'stok', 'media_image_id', 'publish', 'diskon', 'harga_jual'];
 
     public function media_image() {
     	return $this->belongsTo('App\Media_image');

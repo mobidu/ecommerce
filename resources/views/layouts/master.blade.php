@@ -140,13 +140,13 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-th"></i>
-                <span>Catalog</span>
+                <span>Katalog</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ url('/admin/category') }}"><i class="fa fa-circle-o"></i> Categories</a></li>
-                <li><a href="{{ url('/admin/supplier') }}"><i class="fa fa-circle-o"></i> Suppliers</a></li>
-                <li><a href="{{ url('/admin/product') }}"><i class="fa fa-circle-o"></i> Products</a></li>
+                <li><a href="{{ url('/admin/category') }}"><i class="fa fa-circle-o"></i> Kategori</a></li>
+                <li><a href="{{ url('/admin/supplier') }}"><i class="fa fa-circle-o"></i> Supplier</a></li>
+                <li><a href="{{ url('/admin/product') }}"><i class="fa fa-circle-o"></i> Produk</a></li>
               </ul>
             </li>
             <li class="treeview">

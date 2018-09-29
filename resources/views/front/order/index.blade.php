@@ -32,9 +32,35 @@
                     </div>
                     <div class="panel-body">
                         <ul class="nav nav-tabs tabs-up" id="friends">
-                            <li class="active"><a href="/order/data/aktif" data-target="#aktif" id="aktif_tabs" data-toggle="tabajax" rel="tooltip"> <strong>Aktif </strong></a></li>
-                            <li><a href="/order/data/selesai" data-target="#selesai" class="media_node span" id="selesai_tabs" data-toggle="tabajax" rel="tooltip"> Selesai</a></li>
-                            <li><a href="/order/data/batal" data-target="#batal" class="media_node span" id="batal_tabs" data-toggle="tabajax" rel="tooltip"> Batal</a></li>
+                            <li class="active">
+                                <a href="/order/data/aktif"
+                                   data-target="#aktif"
+                                   id="aktif_tabs"
+                                   data-toggle="tabajax"
+                                   rel="tooltip">
+                                    <strong><i class="fa fa-plane"></i>&nbsp;&nbsp;Aktif </strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/order/data/selesai"
+                                   data-target="#selesai"
+                                   class="media_node span"
+                                   id="selesai_tabs"
+                                   data-toggle="tabajax"
+                                   rel="tooltip">
+                                    <strong><i class="fa fa-ship"></i>&nbsp;&nbsp;Selesai</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/order/data/batal"
+                                   data-target="#batal"
+                                   class="media_node span"
+                                   id="batal_tabs"
+                                   data-toggle="tabajax"
+                                   rel="tooltip">
+                                    <strong><i class="fa fa-recycle"></i>&nbsp;&nbsp;Batal</strong>
+                                </a>
+                            </li>
                         </ul>
 
                         <div class="tab-content">

@@ -42,7 +42,7 @@
             <!-- Profile Image -->
             <div class="box box-primary">
                 <div class="box-body box-profile">
-                	<h4>Add New Supplier</h4>
+                	<h4>Tambah Supplier</h4>
                 	@if (count($errors) > 0)
                 	<div class="alert alert-danger alert-dismissable">
 	                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -58,14 +58,14 @@
 
                 	{!! Form::open(array('url'=>'/admin/supplier', 'class'=>'form-horizontal')) !!}
 	                	<div class="form-group">
-	                      {!! Form::label('nama_supplier', 'Name Supplier', ['class'=>'col-sm-offset-1 control-label']) !!}
+	                      {!! Form::label('nama_supplier', 'Nama Supplier', ['class'=>'col-sm-offset-1 control-label']) !!}
 	                      <div class="col-sm-12"> 
 	                      	{!! Form::text('nama_supplier', null, ['class'=>'form-control', 'id'=>'nama_supplier', 'required'=>'required']) !!}
 	                      </div>
 	                    </div>
 
 	                    <div class="form-group">
-	                      {!! Form::label('id_kota', 'City', ['class'=>'control-label col-sm-offset-1']) !!}
+	                      {!! Form::label('id_kota', 'Kota', ['class'=>'control-label col-sm-offset-1']) !!}
 	                      <div class="col-sm-12"> 
 	                      	<select class="form-control" name="city_id" id="id_kota" style="width: 100%">
 	                      		<option value=""></option>
@@ -86,7 +86,7 @@
 	                    </div>
 
 	                    <div class="form-group">
-	                      {!! Form::label('contact', 'Contact', ['class'=>'col-sm-offset-1 control-label']) !!}
+	                      {!! Form::label('contact', 'Kontak', ['class'=>'col-sm-offset-1 control-label']) !!}
 	                      <div class="col-sm-12"> 
 	                      	{!! Form::text('contact', null, ['class'=>'form-control', 'id'=>'contact', 'required'=>'required']) !!}
 	                      	<p id="pesan"></p>
@@ -118,14 +118,14 @@
 					<table class="table table-striped table-bordered display" id="supplier">
 				    	<thead>
 				    		<tr>
-					    		<th rowspan="2">Name Supplier</th>
-					    		<th rowspan="2">City</th>
-					    		<th rowspan="2">Contact</th>
+					    		<th rowspan="2">Nama Supplier</th>
+					    		<th rowspan="2">Kota</th>
+					    		<th rowspan="2">Kontak</th>
 					    		<th colspan="2">Action</th>
 				    		</tr>
 				    		<tr>
 					         <th></th>
-					         <th></th>         
+					         <th></th>
 					       </tr>
 				    	</thead>
 				    	<tbody>

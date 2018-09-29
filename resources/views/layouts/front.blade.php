@@ -47,7 +47,7 @@
     @include('includes.header')
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container hidden-print">
         <div class="row">
             <div class="col-md-3">
                 <a href="{{ ('/') }}"><img src="{{ asset('/img/logo-front.png') }}" class="img-responsive"></a>

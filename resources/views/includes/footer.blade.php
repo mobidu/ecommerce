@@ -1,5 +1,5 @@
 <div id="footer">
-        <div class="container">
+        <div class="container hidden-print">
             <div class="row">
                 <div class="col-md-3">
                     <h3 ><strong>OFFICIAL</strong></h3>
@@ -51,7 +51,7 @@
                 <div class="col-md-3">Widget 4</div>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom hidden-print">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">

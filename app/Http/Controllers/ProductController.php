@@ -119,6 +119,7 @@ class ProductController extends Controller
             'media_image_id'=> $lastInsertId,
             'publish'       => $request->publish,
             'harga'         => $request->harga,
+            'komisi'         => $request->komisi,
             'diskon'        => $request->diskon,
             'harga_jual'    => $harga_jual,
             ]);
@@ -206,6 +207,7 @@ class ProductController extends Controller
             'berat'         => $request->berat,
             'stok'          => $request->stok,
             'media_image_id'=> $lastInsertId,
+            'komisi'         => $request->komisi,
             'publish'       => $request->publish,
             'harga'         => $request->harga,
             'diskon'        => $request->diskon,

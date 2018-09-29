@@ -46,7 +46,7 @@
 					<!-- Profile Image -->
 					<div class="box box-primary">
 						<div class="box-body box-profile">
-							<h4>Add New Product</h4>
+							<h4>Tambah Produk Baru</h4>
 							@if (count($errors) > 0)
 								<div class="alert alert-danger alert-dismissable">
 									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -61,7 +61,7 @@
 							<hr>
 
 							<div class="form-group">
-								{!! Form::label('nama_produk', 'Title Product *', ['class'=>'control-label col-sm-3']) !!}
+								{!! Form::label('nama_produk', 'Nama Produk *', ['class'=>'control-label col-sm-3']) !!}
 								<div class="col-sm-9">
 									{!! Form::text('nama_produk', null, ['class'=>'form-control', 'id'=>'nama_produk', 'required'=>'required']) !!}
 									<p id="pesan"></p>
@@ -77,7 +77,7 @@
 							</div>
 
 							<div class="form-group">
-								{!! Form::label('kode_produk', 'Code Product *', ['class'=>'control-label col-sm-3']) !!}
+								{!! Form::label('kode_produk', 'Kode Produk *', ['class'=>'control-label col-sm-3']) !!}
 								<div class="col-sm-9">
 									{!! Form::text('kode_produk', null, ['class'=>'form-control', 'id'=>'kode_produk', 'required'=>'required']) !!}
 									<div class="errkode"></div>
@@ -85,7 +85,7 @@
 							</div>
 
 							<div class="form-group">
-								{!! Form::label('kategori_id', 'Category', ['class'=>'control-label col-sm-3']) !!}
+								{!! Form::label('kategori_id', 'Kategori', ['class'=>'control-label col-sm-3']) !!}
 								<div class="col-sm-9">
 									<select class="form-control" name="kategori_id" id="kategori_id" style="width: 100%">
 										<option value=""></option>
@@ -97,7 +97,7 @@
 							</div>
 
 							<div class="form-group">
-								{!! Form::label('supplier_id', 'Category', ['class'=>'control-label col-sm-3']) !!}
+								{!! Form::label('supplier_id', 'Supplier', ['class'=>'control-label col-sm-3']) !!}
 								<div class="col-sm-9">
 									<select class="form-control" name="supplier_id" id="supplier_id" style="width: 100%">
 										<option value=""></option>
@@ -109,7 +109,7 @@
 							</div>
 
 							<div class="form-group">
-								{!! Form::label('deskripsi', 'Description', ['class'=>'control-label col-sm-3']) !!}
+								{!! Form::label('deskripsi', 'Deskripsi', ['class'=>'control-label col-sm-3']) !!}
 								<div class="col-sm-9">
 	                      	<textarea name="deskripsi" class="form-control" id="deskripsi" rows="10" cols="80" >
 
@@ -120,29 +120,13 @@
 						</div><!-- /.box-body -->
 					</div><!-- /.box -->
 				</div>
-				<div class="col-md-12">
-					<div class="box box-primary">
-						<div class="box-header">
-							<h3 class="box-title">Tambah Galeri Gambar</h3>
-						</div>
-						<div class="box-body box-profile">
-							<div id="drop-area" class="dm-uploader p-5 text-center">
-								<h3 class="mb-5 mt-5 text-muted">Drag and Drop Files Here</h3>
-									<div class="btn btn-primary btn-block mb-5">
-										<span>Open the file Browser</span>
-										<input type="file" title="Click to add Files" multiple />
-									</div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
         </div><!-- /.col -->
 
         <div class="col-md-4">
             <div class="box box-success box-solid">
                 <div class="box-header with-border">
-            	    <h3 class="box-title"><i class="fa fa-money"></i> Price of Product</h3>
+            	    <h3 class="box-title"><i class="fa fa-money"></i> Harga</h3>
                 	<div class="box-tools pull-right">
                     	<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   	</div><!-- /.box-tools -->
@@ -164,7 +148,7 @@
 	            	<hr>
                   	
                   	<div class="form-group">
-		                {!! Form::label('harga', 'Price (Rp) *', ['class'=>'control-label col-sm-3']) !!}
+		                {!! Form::label('harga', 'Harga (Rp) *', ['class'=>'control-label col-sm-3']) !!}
 		                <div class="col-sm-9"> 
 		                  	{!! Form::text('harga', null, ['class'=>'form-control', 'id'=>'harga', 'required'=>'required']) !!}	
 		                </div>
@@ -173,15 +157,23 @@
 	            	<hr>
 	            	
 	            	<div class="form-group">
-		                {!! Form::label('diskon', 'Discount %', ['class'=>'control-label col-sm-3']) !!}
+		                {!! Form::label('diskon', 'Diskon %', ['class'=>'control-label col-sm-3']) !!}
 		                <div class="col-sm-9"> 
 		                  	{!! Form::text('diskon', null, ['class'=>'form-control', 'id'=>'diskon', 'required'=>'required']) !!}
 		                	<p id="errpersen"></p>
 		                </div>
 	            	</div>
 
+					<div class="form-group">
+						{!! Form::label('komisi', 'Komisi Referral', ['class'=>'control-label col-sm-3']) !!}
+						<div class="col-sm-9">
+							{!! Form::text('komisi', null, ['class'=>'form-control', 'id'=>'komisi']) !!}
+							<p id="errpersen"></p>
+						</div>
+					</div>
+
 	            	<div class="form-group">
-		                {!! Form::label('hemat', 'Saving (Rp)', ['class'=>'control-label col-sm-3']) !!}
+		                {!! Form::label('hemat', 'Hemat (Rp)', ['class'=>'control-label col-sm-3']) !!}
 		                <div class="col-sm-9"> 
 		                  	{!! Form::text('hemat', null, ['class'=>'form-control', 'id'=>'hemat', 'readonly'=>'readonly']) !!}
 		                  	
@@ -191,7 +183,7 @@
 	            	<hr>
 
 	            	<div class="form-group">
-		                {!! Form::label('harga_jual', 'Selling Price', ['class'=>'control-label col-sm-3']) !!}
+		                {!! Form::label('harga_jual', 'Harga Jual', ['class'=>'control-label col-sm-3']) !!}
 		                <div class="col-sm-9"> 
 		                  	{!! Form::text('harga_jual', null, ['class'=>'form-control', 'id'=>'harga_jual', 'readonly'=>'readonly']) !!}
 		                </div>
@@ -202,7 +194,7 @@
 	            	<div class="form-group">
 	                    <label></label>
 		                <div class="col-sm-9">
-		                	{!! Form::submit('Add New Product', ['class'=>'btn btn-primary', 'id'=>'simpan']) !!}
+		                	{!! Form::submit('Simpan', ['class'=>'btn btn-primary', 'id'=>'simpan']) !!}
 		                </div>
 	                </div>
 
@@ -223,7 +215,7 @@
                 <div class="box-body">
 
                   	<div class="form-group">
-		                {!! Form::label('berat', 'Weight *', ['class'=>'control-label col-sm-3']) !!}
+		                {!! Form::label('berat', 'Berat *', ['class'=>'control-label col-sm-3']) !!}
 		                <div class="col-sm-9"> 
 		                  	{!! Form::text('berat', null, ['class'=>'form-control', 'id'=>'berat', 'required'=>'required']) !!}
 		                  	<p>(gram)</p>
@@ -231,14 +223,14 @@
 	            	</div>
 
 	            	<div class="form-group">
-		                {!! Form::label('stok', 'Stock *', ['class'=>'control-label col-sm-3']) !!}
+		                {!! Form::label('stok', 'Stok *', ['class'=>'control-label col-sm-3']) !!}
 		                <div class="col-sm-9"> 
 		                  	{!! Form::text('stok', null, ['class'=>'form-control', 'id'=>'stok', 'required'=>'required']) !!}
 		                </div>
 	            	</div>
 
 	            	<div class="form-group">
-		                {!! Form::label('media_image_id', 'Picture', ['class'=>'control-label col-sm-3']) !!}
+		                {!! Form::label('media_image_id', 'Gambar', ['class'=>'control-label col-sm-3']) !!}
 		                <div class="col-sm-9"> 
 		                  	{!! Form::file('media_image_id', ['id'=>'media_image_id']); !!}
 		                </div>

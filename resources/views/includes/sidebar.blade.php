@@ -1,5 +1,5 @@
 @if(auth()->guard('customer')->check())
-    <ul class="list-group">
+    <ul class="list-group hidden-print">
         <li class="list-group-item active">MENU CUSTOMER</li>
         <a href="{{url('/profil')}}" class="list-group-item"><span class="fa fa-user"></span>&nbsp;&nbsp;Profil</a>
         <a href="{{url('/order')}}" class="list-group-item"><span class="fa fa-cart-arrow-down"></span>&nbsp;&nbsp;Order</a>
@@ -7,7 +7,7 @@
         {{--<li><a href="#" class="">Profil</a></li>--}}
     </ul>
 @endif
-<div class="panel panel-primary">
+<div class="panel panel-primary hidden-print">
     <div class="panel-heading">KATEGORI</div>
         <div class="panel-body">
             <ul class="nav">
@@ -18,7 +18,7 @@
         </div>
 </div>
 
-<div class="panel panel-primary">
+<div class="panel panel-primary hidden-print">
     <div class="panel-heading">
         <h3 class="panel-title">TESTIMONI</h3>
     </div>
@@ -45,7 +45,7 @@
     </div>
 </div>
 
-<div class="panel panel-primary">
+<div class="panel panel-primary hidden-print">
     <div class="panel-heading">
         <h3 class="panel-title">PEMBAYARAN</h3>
     </div>
