@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -52,8 +53,18 @@ class AuthController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'password' => 'required|confirmed|min:6'
+
         ]);
+    }
+
+    public function messages()
+    {
+        return [
+            'g-recaptcha-response.required' => 'Centang Recaptcha dibutuhkan',
+            'g-recaptcha-response.captcha' => 'Perlu Validasi Recaptcha',
+
+        ];
     }
 
     /**
@@ -69,6 +80,15 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->username() => 'required',
+            'password' => 'required',
+            'g-recaptcha-response' => 'required|captcha'
+        ], $this->messages());
     }
 
     protected function guard()

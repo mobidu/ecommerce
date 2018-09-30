@@ -11,7 +11,7 @@
               <div class="alert alert-danger">
                   <ul>
                       @foreach ($errors->all() as $error)
-                          <p>Username/Password Incorrect</p>
+                          <p>{{$error}}</p>
                       @endforeach
                   </ul>
               </div>
@@ -43,9 +43,14 @@
                    <label>
                         <input type="checkbox" name="remember"> Remember Me
                     </label>
-                    {!! Form::submit('Log In',['class'=>'btn btn-success']) !!}
-                    <a class="btn btn-default" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                   </div>
+                    <div class="form-group">
+                        {!! NoCaptcha::display() !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::submit('Log In',['class'=>'btn btn-success']) !!}
+                        <a class="btn btn-default" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                    </div>
                  
                 </div>
               </div>

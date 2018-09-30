@@ -160,6 +160,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Yajra\Datatables\DatatablesServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
     ],
 
@@ -211,6 +212,7 @@ return [
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
         'RajaOngkir' => rizalafani\rajaongkirlaravel\RajaOngkirFacade::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
 
     ],
 

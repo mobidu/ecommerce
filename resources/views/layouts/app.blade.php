@@ -16,10 +16,12 @@
   <link rel="stylesheet" href="{{asset('/css/custom.css')}}">
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  {!! NoCaptcha::renderJs() !!}
   
 </head>
 
 <body role="login">
 @yield('content')
+
 </body>
 </html>
