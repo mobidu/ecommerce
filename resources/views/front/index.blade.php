@@ -24,28 +24,37 @@
 
         <div class="col-md-9">
             <div class="row carousel-holder">
+
                 <div class="col-md-12">
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <div id="carousel-produk-generic" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            <?php $pertama = 1; ?>
+                            @foreach($list_slide as $slide)
+                                <li data-target="#carousel-produk-generic" data-slide-to="{{$pertama}}" class="{{$pertama == 1 ? 'active' : '' }}"></li>
+                                <?php $pertama++; ?>
+                            @endforeach
+                            {{--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>--}}
+                            {{--<li data-target="#carousel-example-generic" data-slide-to="1"></li>--}}
+                            {{--<li data-target="#carousel-example-generic" data-slide-to="2"></li>--}}
                         </ol>
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                            </div>
+                            <?php $pertama2 = 1; ?>
+                            @foreach($list_slide as $slide)
+                                <div class="item {{$pertama2 == 1 ? 'active' : ''}}">
+                                    <img class="slide-image" src="{{asset('/upload/banner/' . $slide->banner_slide)}}" alt="{{$slide->deskripsi}}">
+                                    <div class="carousel-caption">
+                                        <h3><a href="{{$slide->url ? $slide->url : '#'}}">{{$slide->title}}</a></h3>
+                                        <p><a href="{{$slide->url ? $slide->url : '#'}}">{{$slide->deskripsi}}</a></p>
+                                    </div>
+                                </div>
+                                    <?php $pertama2++; ?>
+                            @endforeach
+
                         </div>
-                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <a class="left carousel-control" href="#carousel-produk-generic" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <a class="right carousel-control" href="#carousel-produk-generic" data-slide="next">
                             <span class="glyphicon glyphicon-chevron-right"></span>
                         </a>
                     </div>

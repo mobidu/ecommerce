@@ -22,30 +22,49 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Login Member Area</h3>
                     </div>
+                    <form id="form_login" action="{{url('/login')}}" method="post">
                     <div class="panel-body">
+                        @if(count($errors) > 0)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                                <li><strong>{{$error}}</strong></li>
+                                            @endforeach
 
-                        <form id="form_login" action="{{url('/login')}}" method="post">
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label >Username : </label>
-                                <input type="text" name="username" class="form-control" value="{{old('username')}}" placeholder="Masukan Username Anda">
+                                <input type="text" name="username"  class="form-control" value="{{old('username')}}" placeholder="Masukan Username Anda">
                             </div>
                             <div class="form-group">
                                 <label >Password : </label>
                                 <input type="password" name="password" class="form-control"  placeholder="Masukan Password Anda">
                             </div>
                             <div class="form-group">
+                                {!! NoCaptcha::display() !!}
+                            </div>
+                            <div class="form-group">
                                 <em>Tidak Mempunyai akun?</em> <a href="{{url('/register')}}">Daftar Sekarang</a>
                             </div>
-                        </form>
+
                     </div>
                     <div class="panel-footer">
                         <div class="row">
                             <div class="col-md-12">
-                                <button class="btn btn-primary pull-right" onclick="event.preventDefault(); document.getElementById('form_login').submit()">Login</button>
+                                <button class="btn btn-primary pull-right" type="submit">Login</button>
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

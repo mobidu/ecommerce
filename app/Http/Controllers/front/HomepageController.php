@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\front;
 
+use App\Slide;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -28,6 +29,7 @@ class HomepageController extends Controller
         $pengaturan = Setting::find(1);
         $product = Product::orderBy('created_at', 'desc')->with('media_image', 'category')->take(8)->paginate(8);
         $kategori = Category::all();
+        $list_slide = Slide::limit(4)->get();
         $testimoni = Testimoni::where('status', '=', 1)->orderBy('created_at', 'desc')->take(10)->get();
         $bank = Bank::all();
         return view('front.index', [
@@ -35,7 +37,8 @@ class HomepageController extends Controller
             'product'       => $product,
             'kategori'      => $kategori,
             'testimoni'     => $testimoni,
-            'bank'          => $bank
+            'bank'          => $bank,
+            'list_slide'    => $list_slide
             ]);
     }
 

@@ -10,6 +10,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -87,5 +88,25 @@ class AuthController extends Controller
     public function username()
     {
         return 'username';
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->username() => 'required',
+            'password' => 'required',
+            'g-recaptcha-response' => 'required|captcha'
+        ], $this->messages());
+    }
+
+    public function messages()
+    {
+        return [
+            'g-recaptcha-response.required' => 'Centang Recaptcha dibutuhkan',
+            'g-recaptcha-response.captcha' => 'Perlu Validasi Recaptcha',
+            'username.required'=>'Kolom Username Tidak Boleh Kosong',
+            'password.required'=>'Kolom Password Tidak Boleh Kosong'
+
+        ];
     }
 }
