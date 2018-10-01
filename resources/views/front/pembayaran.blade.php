@@ -78,7 +78,7 @@
                                     <select name="bank_to" class="form-control" id="bank_to">
                                         <option value="">Pilih</option>
                                         @foreach ($bank as $b)
-                                            <option value="{{ $b->nama_bank }}">{{ $b->nama_bank }}</option>
+                                            <option value="{{ $b->provider->nama }}">{{ $b->provider->nama}}</option>
                                         @endforeach
                                     </select>
                                 </div>
