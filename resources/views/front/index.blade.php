@@ -113,11 +113,13 @@
                                                     <p class="text-center harga">Rp. {{ $p->harga_jual }} @if ($p->diskon != 0)<sup><s>{{ $p->harga }}</s></sup>@endif</p>
                                                 </div>
                                                 <div class="col-md-12 text-center" style="padding: 20px;">
-                                                    {!! Form::open(array('url' => '/cart', 'class' => 'form_submit')) !!}
                                                         <a href="{{ url('/produk/' . $p->slug) }}"><button class="btn btn-default btn-sm">Detail</button></a>
-                                                        <button type="submit" class="btn btn-success btn-sm" id="beli"><i class="fa fa-shopping-cart"></i> Beli</button>
-                                                        <input type="hidden" name="kode_produk" id="kode_produk" value="{{ $p->kode_produk }}">
-                                                    {!! Form::close() !!}
+                                                        <button type="submit" onclick="submitForm({{$p->id}})" class="btn btn-success btn-sm" id="beli"><i class="fa fa-shopping-cart"></i> Beli</button>
+
+                                                    <form action="{{url('/cart')}}" id="form_submit_{{$p->id}}" method="post">
+                                                        {{csrf_field()}}
+                                                        <input type="hidden" name="kode_produk" id="kode_produk" value="{{$p->kode_produk}}">
+                                                    </form>
                                                 </div>
                                             </div>
                                             
@@ -166,41 +168,37 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $(".form_submit").submit(function(event) {
-            event.preventDefault();
+    function submitForm(id){
+        console.log('Submit 1');
+        event.preventDefault();
 
-            var formData = $(this).serialize(); 
-            var formAction = $(this).attr("action"); 
-            var formMethod = $(this).attr("method");
+        var formData = $('#form_submit_'+id).serialize();
+        var formAction = $('#form_submit_'+id).attr("action");
+        var formMethod = $('#form_submit_'+id).attr("method");
 
-            $.ajaxSetup({
-                headers: {
-                    "X-XSRF-Token": $("meta[name='csrf_token']").attr("content")
-                }
-            });
-
-            $.ajax({
-                type  : formMethod,
-                url   : formAction,
-                data  : formData,
-
-                success: function(data) {
-                
-                    waitingDialog.show('Menambahkan Ke keranjang, Silahkan Tunggu...');
-                    setTimeout(function(){
-                        waitingDialog.hide();
-                        $("#pesanmodal").modal();
-                    }, 1500);
-                
-                },
-                error : function() {
-
-                }
-            });
-            return false; 
+        $.ajaxSetup({
+            headers: {
+                "X-XSRF-Token": $("meta[name='csrf_token']").attr("content")
+            }
         });
-    });
+
+        $.ajax({
+            type  : formMethod,
+            url   : formAction,
+            data  : formData,
+            success: function(data) {
+                waitingDialog.show('Menambahkan Ke keranjang, Silahkan Tunggu...');
+                setTimeout(function(){
+                    waitingDialog.hide();
+                    $("#pesanmodal").modal();
+                }, 1500);
+            },
+            error : function() {
+
+            }
+        });
+        return false;
+    }
 </script>
 
 <script type="text/javascript">
