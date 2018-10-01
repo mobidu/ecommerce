@@ -188,6 +188,7 @@
               <ul class="treeview-menu">
                 <li><a href="{{ url('/admin/setting') }}"><i class="fa fa-circle-o"></i> General</a></li>
                 <li><a href="{{ url('/admin/payment') }}"><i class="fa fa-circle-o"></i> Payment Method</a></li>
+                <li><a href="{{ url('/admin/bank') }}"><i class="fa fa-circle-o"></i> Data Bank</a></li>
               </ul>
             </li>
 

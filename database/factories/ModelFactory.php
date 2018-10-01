@@ -30,3 +30,13 @@ $factory->define(App\Customer::class, function (Faker\Generator $faker) {
 //        'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\BankProvider::class, function (Faker\Generator $faker) {
+    $data_logo = ['logo-bni.png', 'logo-bca.png', 'logo-bri.png', 'logo-mandiri.png'];
+    return [
+        'kode' => $faker->countryCode,
+        'nama' => $faker->name,
+        'logo' => $faker->randomElement($data_logo),
+//        'remember_token' => str_random(10),
+    ];
+});

@@ -51,9 +51,9 @@
     </div>
     <div class="panel-body">
         @foreach ($bank as $b)
-            <img src="{{ asset('/img/logo-bri.png') }}" class="img-responsive center-block" width="150px" height="150px">
-            <p class="text-center">{{ $b->no_rekening }}</p>
-            <p class="text-center"><strong>{{ $b->nama_pemilik }}</strong></p>
+            <img src="{{ asset('/img/'.$b->provider->logo) }}" class="img-responsive center-block" width="150px" height="150px">
+            <p class="text-center">No Rekening : {{ $b->no_rekening }}</p>
+            <p class="text-center">Atas Nama : <strong>{{ $b->nama_pemilik }}</strong></p>
         @endforeach
     </div>
 </div>

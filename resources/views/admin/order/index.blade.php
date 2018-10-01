@@ -36,55 +36,57 @@
                 </div><!-- /.box-header -->
                 
                
-                <div class="table-responsive">
+                <div class="box-body">
+					<div class="table-responsive">
 
-					<table class="table table-striped table-bordered display" id="produk">
-				    	<thead>
-				    		<tr>
-					    		<th>Invoice</th>
-					    		<th>Customer</th>
-					    		<th>Shipping City</th>
-					    		<th>Date Time</th>
-					    		<th>Payment</th>
-					    		<th>Status Order</th>
-					    		<th></th>
-				    		</tr>
-				    	</thead>
-				    	<tbody>
+						<table class="table table-striped table-bordered display" id="produk">
+							<thead>
+							<tr>
+								<th>Invoice</th>
+								<th>Customer</th>
+								<th>Shipping City</th>
+								<th>Date Time</th>
+								<th>Payment</th>
+								<th>Status Order</th>
+								<th></th>
+							</tr>
+							</thead>
+							<tbody>
 
-				    	@foreach ($order as $item)
-				    		<tr>
-					    		<td><a href="{{ url('/admin/order/' . $item->invoice) }}"><button class="btn btn-default btn-sm"><b>{{ $item->invoice }}</b></button></a></td>
-					    		<td>{{ $item->customer->nama_lengkap }}</td>
-					    		<td>{{ $item->city }}</td>
-					    		<td>{{ $item->created_at }}</td>
-					    		<td>
-					    			@if ($item->paid_id == null)
-					    			<span class="label label-warning">Waiting</span>
-					    			@else
-					    			<span class="label label-success">Verified</span>
-					    			@endif
-					    		</td>
-					    		<td>
-					    			@if ($item->status_order == 'Complete') 
-		            					<span class="label label-success">{{ $item->status_order }}</span> 
-		            				@elseif ($item->status_order == 'Proses Pengiriman') 
-		            					<span class="label label-primary">{{ $item->status_order }}</span>
-		            				@elseif ($item->status_order == 'Pending')
-		            					<span class="label label-warning">{{ $item->status_order }}</span>
-		            				@elseif ($item->status_order == 'Batal')
-		            					<span class="label label-default">{{ $item->status_order }}</span>
-		            				@endif
-					    		</td>
-					    		<td>
-					    			<a href="{{ url('/admin/order/' . $item->invoice) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-folder"></i></button></a>
-					    		</td>
-					    		
-				    		</tr>
-				    	@endforeach
+							@foreach ($order as $item)
+								<tr>
+									<td><a href="{{ url('/admin/order/' . $item->invoice) }}"><button class="btn btn-default btn-sm"><b>{{ $item->invoice }}</b></button></a></td>
+									<td>{{ $item->customer->nama_lengkap }}</td>
+									<td>{{ $item->city }}</td>
+									<td>{{ $item->created_at }}</td>
+									<td>
+										@if ($item->paid_id == null)
+											<span class="label label-warning">Waiting</span>
+										@else
+											<span class="label label-success">Verified</span>
+										@endif
+									</td>
+									<td>
+										@if ($item->status_order == 'Complete')
+											<span class="label label-success">{{ $item->status_order }}</span>
+										@elseif ($item->status_order == 'Proses Pengiriman')
+											<span class="label label-primary">{{ $item->status_order }}</span>
+										@elseif ($item->status_order == 'Pending')
+											<span class="label label-warning">{{ $item->status_order }}</span>
+										@elseif ($item->status_order == 'Batal')
+											<span class="label label-default">{{ $item->status_order }}</span>
+										@endif
+									</td>
+									<td>
+										<a href="{{ url('/admin/order/' . $item->invoice) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-folder"></i></button></a>
+									</td>
 
-				    	</tbody>
-				    </table>
+								</tr>
+							@endforeach
+
+							</tbody>
+						</table>
+					</div>
 				</div>
 
             </div><!-- /.box -->

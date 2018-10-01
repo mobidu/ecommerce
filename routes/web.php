@@ -147,6 +147,9 @@ Route::get('/admin/pages/{id}/edit', ['as' => 'page.edit', 'uses' => 'PageContro
 Route::put('/admin/pages/{id}', ['as' => 'page.update', 'uses' => 'PageController@update']);
 
 //Route Bank
+Route::get('/admin/bank', ['as' => 'admin.index_provider', 'uses' => 'BankController@index_provider']);
+Route::post('/admin/bank', ['as' => 'admin.simpan_bank_provider', 'uses' => 'BankController@simpan_bank_provider']);
+Route::post('/admin/bank/hapus/{id}', ['as' => 'admin.hapus_bank_provider', 'uses' => 'BankController@hapus_bank_provider']);
 Route::get('/admin/payment', ['as' => 'payment.index', 'uses' => 'BankController@index']);
 Route::post('/admin/payment', ['as' => 'payment.store', 'uses' => 'BankController@store']);
 Route::delete('/admin/payment/{id}', ['as' => 'payment.destroy', 'uses' => 'BankController@destroy']);

@@ -18,7 +18,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Data Category<small></small></h1>
+        <h1>Data Bank<small></small></h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Bank</a></li>
@@ -49,45 +49,49 @@
                     @endif
                 	<hr>
 
-                	{!! Form::open(array('url'=>'/admin/payment', 'class'=>'form-horizontal')) !!}
+
+                    <form action="{{url('/admin/payment')}}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                        {{csrf_field()}}
 	                	<div class="form-group">
-	                      {!! Form::label('nama_pemilik', 'Nama Pemilik', ['class'=>'col-sm-offset-1 control-label']) !!}
-	                      <div class="col-sm-12"> 
-	                      	{!! Form::text('nama_pemilik', null, ['class'=>'form-control', 'id'=>'nama_pemilik', 'required'=>'required']) !!}
-	                      </div>
+                            <label for="nama_pemilik" class="col-sm-4 control-label">Nama Pemilik *</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="nama_pemilik" class="form-control" id="nama_pemilik" placeholder="Masukan Nama Pemilik" required>
+                            </div>
+
 	                    </div>
 
                         <div class="form-group">
-                          {!! Form::label('no_rekening', 'No Rekening', ['class'=>'col-sm-offset-1 control-label']) !!}
-                          <div class="col-sm-12"> 
-                            {!! Form::text('no_rekening', null, ['class'=>'form-control', 'id'=>'no_rekening', 'required'=>'required']) !!}
-                          </div>
+                            <label for="no_rekening" class="control-label col-sm-4">No Rekening</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="no_rekening" class="form-control" id="no_rekening" placeholder="Masukan Nomor Rekening" required>
+                            </div>
+
                         </div>
 
 	                    <div class="form-group">
-	                      {!! Form::label('nama_bank', 'Nama Bank', ['class'=>'col-sm-offset-1 control-label']) !!}
-	                      <div class="col-sm-12"> 
-	                      	<select name="nama_bank" class="form-control" id="nama_bank" required="">
-                                <option value="">Silahkan Pilih</option> 
-                                <option value="Bank Rakyat Indonesia">Bank Rakyat Indonesia</option>   
-                            </select>
-	                      </div>
+                            <label for="id_bank" class="control-label col-sm-4">Pilih Bank</label>
+                            <div class="col-sm-8">
+
+                                <select name="id_bank" class="form-control" id="nama_bank" required="">
+                                    <option value="">Silahkan Pilih</option>
+                                    @forelse($bank_provider as $b)
+                                        <option value="{{$b->id}}">{{$b->kode.' | '.$b->nama}}</option>
+
+                                    @empty
+
+                                    @endforelse
+                                </select>
+                            </div>
 	                    </div>
-
-                        <div class="form-group">
-                          {!! Form::label('kode_bank', 'Kode Bank', ['class'=>'col-sm-offset-1 control-label']) !!}
-                          <div class="col-sm-12"> 
-                            {!! Form::text('kode_bank', null, ['class'=>'form-control', 'id'=>'kode_bank', 'required'=>'required']) !!}
-                          </div>
-                        </div>
-	                    
+                    
 	                    <div class="form-group">
-	                    	<label></label>
-		                  	<div class="col-sm-12">
-		                    	{!! Form::submit('Tambah Data', ['class'=>'btn btn-primary', 'id'=>'simpan']) !!}
+	                    	<label class="col-sm-4"></label>
+		                  	<div class="col-sm-8">
+                                <button class="btn btn-primary btn-block" type="submit">Simpan</button>
+
 		                    </div>
 	                  	</div>
-	                {!! Form::close() !!}
+                    </form>
 
 
                 </div><!-- /.box-body -->
@@ -118,8 +122,8 @@
 				    		<tr>
 					    		<td>{{ $item->nama_pemilik }}</td>
 					    		<td>{{ $item->no_rekening }}</td>
-					    		<td>{{ $item->nama_bank }}</td>
-                                <td>{{ $item->kode_bank }}</td>
+					    		<td>{{ $item->provider ? $item->provider->nama : '' }}</td>
+                                <td>{{ $item->provider ? $item->provider->kode : ''}}</td>
 					    		<td>
 					    			{{ Form::open(array('method'=>'DELETE', 'route'=>array('payment.destroy', $item->id))) }}
 					    			{{ Form::submit('Delete', array('class'=>'btn btn-danger btn-sm')) }}

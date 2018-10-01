@@ -3,6 +3,35 @@
 @section('title')
     <title>Toko Fashion Online Indonesia | {{ $pengaturan->nama_toko }}</title>
     <meta name="csrf_token" content="{{ csrf_token() }}" />
+    <style>
+        /* original solution by https://codepen.io/Rowno/pen/Afykb */
+
+        .carousel-fade .carousel-inner .item {
+            -webkit-transition-property: opacity;
+            transition-property: opacity;
+        }
+        .carousel-fade .carousel-inner .item,
+        .carousel-fade .carousel-inner .active.left,
+        .carousel-fade .carousel-inner .active.right {
+            opacity: 0;
+        }
+        .carousel-fade .carousel-inner .active,
+        .carousel-fade .carousel-inner .next.left,
+        .carousel-fade .carousel-inner .prev.right {
+            opacity: 1;
+        }
+        .carousel-fade .carousel-inner .next,
+        .carousel-fade .carousel-inner .prev,
+        .carousel-fade .carousel-inner .active.left,
+        .carousel-fade .carousel-inner .active.right {
+            left: 0;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+        .carousel-fade .carousel-control {
+            z-index: 2;
+        }
+    </style>
 @endsection
 @section('content')
 <div class="container">
@@ -41,11 +70,8 @@
                             <?php $pertama2 = 1; ?>
                             @foreach($list_slide as $slide)
                                 <div class="item {{$pertama2 == 1 ? 'active' : ''}}">
-                                    <img class="slide-image" src="{{asset('/upload/banner/' . $slide->banner_slide)}}" alt="{{$slide->deskripsi}}">
-                                    <div class="carousel-caption">
-                                        <h3><a href="{{$slide->url ? $slide->url : '#'}}">{{$slide->title}}</a></h3>
-                                        <p><a href="{{$slide->url ? $slide->url : '#'}}">{{$slide->deskripsi}}</a></p>
-                                    </div>
+                                    <img class="slide-image" href="{{$slide->url}}" src="{{asset('/upload/banner/' . $slide->banner_slide)}}" alt="{{$slide->deskripsi}}">
+
                                 </div>
                                     <?php $pertama2++; ?>
                             @endforeach
