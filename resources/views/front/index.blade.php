@@ -115,7 +115,6 @@
                                                 <div class="col-md-12 text-center" style="padding: 20px;">
                                                         <a href="{{ url('/produk/' . $p->slug) }}"><button class="btn btn-default btn-sm">Detail</button></a>
                                                         <button type="submit" onclick="submitForm({{$p->id}})" class="btn btn-success btn-sm" id="beli"><i class="fa fa-shopping-cart"></i> Beli</button>
-
                                                     <form action="{{url('/cart')}}" id="form_submit_{{$p->id}}" method="post">
                                                         {{csrf_field()}}
                                                         <input type="hidden" name="kode_produk" id="kode_produk" value="{{$p->kode_produk}}">

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="be15ed81-8527-481f-8c60-ee59e948735c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/resources/views/front/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/kategori.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/kategori.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -70,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/front/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="235">
-              <caret line="116" column="106" selection-start-line="116" selection-start-column="106" selection-end-line="116" selection-end-column="106" />
+              <caret line="116" column="201" selection-start-line="116" selection-start-column="201" selection-end-line="116" selection-end-column="201" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -402,12 +401,12 @@
       <workItem from="1537515662522" duration="73454000" />
       <workItem from="1538034776085" duration="9549000" />
       <workItem from="1538151007502" duration="2433000" />
-      <workItem from="1538176176079" duration="44825000" />
+      <workItem from="1538176176079" duration="44917000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136763000" />
+    <option name="totallyTimeSpent" value="136855000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -418,10 +417,10 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.36633664" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.36633664" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="8" weight="0.22442244" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2193646" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2193646" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.24886535" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -871,7 +870,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/front/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
-          <caret line="116" column="106" selection-start-line="116" selection-start-column="106" selection-end-line="116" selection-end-column="106" />
+          <caret line="116" column="201" selection-start-line="116" selection-start-column="201" selection-end-line="116" selection-end-column="201" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
