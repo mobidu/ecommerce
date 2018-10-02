@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Mail\OrderRequest;
+use App\Product;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;

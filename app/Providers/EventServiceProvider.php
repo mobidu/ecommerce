@@ -16,6 +16,7 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\OrderShipment' => [
             'App\Listeners\SendShipmentNotification',
             'App\Listeners\TambahPointAffiliate',
+            'App\Listeners\ManageStok',
         ],
     ];
 

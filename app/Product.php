@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
 
 class Product extends Model
 {
@@ -19,4 +20,14 @@ class Product extends Model
     public function supplier() {
     	return $this->belongsTo('App\Supplier');
     }
+
+    static function editStokBarang($kode_barang, $jumlah_stok){
+        $product = self::where('kode_produk', '=', $kode_barang)->first();
+        $product->stok = $product->stok - $jumlah_stok;
+        if($product->save()){
+            \Log::info('Berhasil Merubah Data Stok Barang!');
+        }
+    }
+
+
 }

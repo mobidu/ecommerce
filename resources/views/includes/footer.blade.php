@@ -42,10 +42,10 @@
                 <div class="col-md-3">
                     <h3><strong>LAYANAN</strong></h3>
                         <ul class="list-group contact">
-                            <li><a href="{{ url('/cara-belanja') }}" style="text-decoration: none; color: #fff; a:hover: #C1AA9B;">Cara Belanja </a></li>
-                            <li><a href="{{ url('/metode-pembayaran') }}" style="text-decoration: none; color: #fff;">Cara Pembayaran</a></li>
-                            <li><a href="{{ url('/retur-barang') }}" style="text-decoration: none; color: #fff;"> Retur Barang</a></li>
-                            <li><a href="{{ url('/testimoni') }}" style="text-decoration: none; color: #fff;"> Testimoni</a></li>
+                            <li><a href="{{ url('/p/cara-belanja') }}" style="text-decoration: none; color: #fff; a:hover: #C1AA9B;">Cara Belanja </a></li>
+                            <li><a href="{{ url('/p/metode-pembayaran') }}" style="text-decoration: none; color: #fff;">Cara Pembayaran</a></li>
+                            <li><a href="{{ url('/p/retur-barang') }}" style="text-decoration: none; color: #fff;"> Retur Barang</a></li>
+                            <li><a href="{{ url('/p/testimoni') }}" style="text-decoration: none; color: #fff;"> Testimoni</a></li>
                         </ul>
                 </div>
                 <div class="col-md-3">Widget 4</div>
