@@ -54,6 +54,8 @@
             <img src="{{ asset('/img/'.$b->provider->logo) }}" class="img-responsive center-block" width="150px" height="150px">
             <p class="text-center">No Rekening : {{ $b->no_rekening }}</p>
             <p class="text-center">Atas Nama : <strong>{{ $b->nama_pemilik }}</strong></p>
+            <br />
+            <br />
         @endforeach
     </div>
 </div>

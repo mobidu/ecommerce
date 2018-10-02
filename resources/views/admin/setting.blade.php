@@ -79,6 +79,35 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Deskripsi Lengkap</label>
+                                        <div class="col-sm-10">
+                                            <textarea name="deskripsi_lengkap" id="deskripsi_lengkap" class="form-control" rows="4">{{$pengaturan->deskripsi_lengkap}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Url Map</label>
+                                        <div class="col-sm-10">
+                                            <textarea name="map" id="map" class="form-control" rows="4" placeholder="Masukan URL Lengkap dari iFrame Google Maps">{{$pengaturan->map}}</textarea>
+                                        </div>
+                                    </div>
+                                    @if($pengaturan->banner_toko)
+                                    <div class="form-group">
+                                        <div class="col-sm-2">
+
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <img src="{{url('/img/'.$pengaturan->banner_toko)}}" width="300" class="img-thumbnail" alt="">
+
+                                        </div>
+                                    </div>
+                                    @endif
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Foto Banner</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" class="form-control" name="banner_toko">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="tab-pane" id="contact" style="padding:20px;">
                                     <div class="form-group">
@@ -135,7 +164,16 @@
     </div><!-- /.content-wrapper -->
 
 
+
     <script type="text/javascript">
+
+        $(function(){
+            $("#deskripsi_lengkap").summernote( {
+                height: 200, toolbar: [ // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']], ['insert', ['picture', 'video', 'link', 'table']], ['font', ['strikethrough', 'superscript', 'subscript']], ['fontsize', ['fontsize']], ['color', ['color']], ['para', ['ul', 'ol', 'paragraph']], ['height', ['height']], ['misc', ['fullscreen']], ],
+            });
+        });
+
         $("#provinsi_id").change(function(){
             $.ajax({
                 url: "/admin/setting/kabupaten",
@@ -168,4 +206,12 @@
             });
         });
     </script>
+@endsection
+
+@section('script')
+
+    <script src="{{url('/plugins/summernote/dist/summernote.js')}}" type="text/javascript"></script>
+@endsection
+@section('style')
+    <link rel="stylesheet" href="{{url('/plugins/summernote/dist/summernote.css')}}">
 @endsection

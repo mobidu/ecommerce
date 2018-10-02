@@ -34,6 +34,8 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    @yield('style')
+
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -385,6 +387,8 @@
           swal("Sukses!", "{{session()->get('sukses')}}", "success");
       }
     </script>
+
+    @yield('script')
     
 
   </body>

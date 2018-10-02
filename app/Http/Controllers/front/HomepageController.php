@@ -278,5 +278,15 @@ class HomepageController extends Controller
             'bank'          => $bank
         ]);
     }
+
+    public function tentang()
+    {
+        $pengaturan = Setting::findOrFail(1);
+        $kategori = Category::all();
+        $testimoni = Testimoni::where('status', '=', 1)->orderBy('created_at', 'desc')->take(10)->get();
+        $bank = Bank::all();
+
+        return view('front.tentang', compact(['pengaturan', 'kategori', 'testimoni', 'bank']));
+    }
     
 }
