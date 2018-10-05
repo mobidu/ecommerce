@@ -64,6 +64,7 @@
                                     <div class="col-sm-9">
                                         <input type="email" name="email" class="form-control" value="{{auth()->guard('customer')->check() ? auth()->guard('customer')->user()->email : old('email')}}" {{auth()->guard('customer')->check() ? 'readonly' : ''}}  id="email" required>
                                     </div>
+
                                 </div>
                                 <div class="form-group">
 
@@ -74,16 +75,39 @@
                                     </div>
                                 </div>
 
+                                @if(!auth()->guard('customer')->check())
+                                    <div class="form-group">
+                                        <label for="username" class="col-sm-3 control-label">Username</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="username" value="{{old('username')}}" class="form-control" placeholder="Masukan Username Untuk Registrasi Customer">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-sm-3 control-label">Password</label>
+                                        <div class="col-sm-9">
+                                            <input type="password" name="password" value="{{old('password')}}" id="password" class="form-control" placeholder="Masukan Password">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="referral" class="col-sm-3 control-label">Referral (Opsional)</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="referral" value="{{old('referral')}}" id="referral" class="form-control" placeholder="Masukan Referral (Opsional)">
+                                        </div>
+                                    </div>
+                                @endif
+
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-12">
                         <div class="panel panel-primary">
                             <div class="panel-heading">INFORMASI ALAMAT</div>
                             <div class="panel-body">
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <textarea name="alamat" id="alamat"  class="form-control" rows="6"></textarea>
+                                    <textarea name="alamat" id="alamat"  class="form-control" rows="6">{{old('alamat')}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Provinsi</label>
@@ -174,7 +198,7 @@
                         <p id="biayapengiriman">Biaya Pengiriman : Rp. 0</p>
                         <hr>
                         <p class="pull-right" style="font-weight: bold;" id="total">Total : Rp. {{ $total }}</p>
-                        <textarea class="form-control" name="catatan" placeholder="Catatan"></textarea>
+                        <textarea class="form-control" name="catatan" placeholder="Catatan">{{old('catatan')}}</textarea>
                         <br>
                         <p class="pull-right">{!! Form::submit('Konfirmasi Pesanan', ['class'=>'btn btn-primary btn-sm']) !!}</p>
                     </div>

@@ -55,6 +55,9 @@
                                                     <form action="{{url('/cart')}}" id="form_submit_{{$p->id}}" method="post">
                                                         {{csrf_field()}}
                                                         <input type="hidden" name="kode_produk" id="kode_produk" value="{{$p->kode_produk}}">
+                                                        @if(request()->query('ref'))
+                                                            <input type="hidden" name="ref" value="{{request()->query('ref')}}">
+                                                        @endif
                                                     </form>
                                                 </div>
                                             </div>

@@ -97,6 +97,12 @@
                         </div>
                     </div>
                 </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        Sudah Mempunyai Akun ? <a href="{{url('/login')}}" class="label label-primary">ke Halaman Login</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

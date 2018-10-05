@@ -67,6 +67,9 @@
                                     <div class="col-md-6">
                                         {!! Form::open(array('url' => '/cart', 'class' => 'form_submit')) !!}
                                             <button type="submit" class="btn btn-success btn-sm" id="beli"><i class="fa fa-shopping-cart"></i> Beli Sekarang</button>
+                                            @if(request()->query('ref'))
+                                            <input type="hidden" name="ref" value="{{request()->query('ref')}}">
+                                            @endif
                                             <input type="hidden" name="kode_produk" id="kode_produk" value="{{ $product->kode_produk }}">
                                         {!! Form::close() !!}
                                     </div>

@@ -59,18 +59,26 @@ class HomepageController extends Controller
     {
         $kode_produk = $request->get('kode_produk');
         $product = Product::where('kode_produk', '=', $kode_produk)->with('media_image','supplier')->first();
-        $name_photo = $product->media_image_id != null ? $product->media_image->name_photo : ""; 
-            Cart::add(array(
-                        'id'        => $kode_produk, 
-                        'name'      => $product->nama_produk, 
-                        'qty'       => 1, 
-                        'price'     => $product->harga_jual,
-                        'options'   => array (
-                                        'berat'         => $product->berat, 
-                                        'name_photo'    => $name_photo,
-                                        'totalberat'    => 0
-                                        )
-                ));
+        $name_photo = $product->media_image_id != null ? $product->media_image->name_photo : "";
+        $ref = '';
+        if($request->has('ref')){
+            $ref = $request->get('ref');
+        }
+        $data_cart = array(
+            'id'        => $kode_produk,
+            'name'      => $product->nama_produk,
+            'qty'       => 1,
+            'price'     => $product->harga_jual,
+            'options'   => array (
+                'berat'         => $product->berat,
+                'name_photo'    => $name_photo,
+                'totalberat'    => 0
+            )
+        );
+        if($ref){
+            array_push($data_cart, ['ref'=>$ref]);
+        }
+            Cart::add($data_cart);
         $cart = Cart::content();
         $nama_produk = $product->nama_produk;
         return response()->json([
@@ -133,7 +141,6 @@ class HomepageController extends Controller
         $pengaturan = Setting::find(1);
         $cart = Cart::content();
         $total = Cart::total();
-        
         return view('front.checkout', [
             'provinsi'      => $provinsi,
             'pengaturan'    => $pengaturan,

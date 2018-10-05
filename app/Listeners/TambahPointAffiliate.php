@@ -37,6 +37,7 @@ class TambahPointAffiliate
                     $komisi = $o->product->komisi ? $o->product->komisi+$komisi : 0;
                 }
             }
+
             $saldo_referral = $saldo_referral + $komisi;
 
             $referral->saldo = $saldo_referral;

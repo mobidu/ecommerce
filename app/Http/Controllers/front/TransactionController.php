@@ -14,6 +14,8 @@ use App\Order_detail;
 use Cart;
 use DB;
 use App\Setting;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Session;
 use Mail;
 
@@ -22,18 +24,35 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
 //        dd($request->all());
-        $this->validate($request, [
+
+        $valid = [
             'nama_lengkap'	=> 'required',
             'no_hp'			=> 'required|max:12',
-            'email'			=> 'required',
+            'email'			=> 'required|email|unique:customers',
             'pinbbm'		=> 'max:8',
             'alamat'		=> 'required',
             'province'		=> 'required',
             'city'			=> 'required',
-            'kode_pos'		=> 'required'
-        ]);
+            'kode_pos'		=> 'required',
+            'username'		=> 'required|unique:customers',
+            'password'		=> 'required'
+        ];
 
-    	
+        if(auth()->guard('customer')->check()){
+            $valid = [
+                'nama_lengkap'	=> 'required',
+                'no_hp'			=> 'required|max:12',
+                'email'			=> 'required|email|unique:customers',
+                'pinbbm'		=> 'max:8',
+                'alamat'		=> 'required',
+                'province'		=> 'required',
+                'city'			=> 'required',
+                'kode_pos'		=> 'required'
+            ];
+        }
+        $this->validate($request, $valid);
+
+//        dd($request->all());
     	DB::beginTransaction();
 
 
@@ -46,8 +65,14 @@ class TransactionController extends Controller
     				'nama_lengkap'	=> $request->nama_lengkap,
     				'no_hp'			=> $request->no_hp,
     				'email'			=> $request->email,
-    				'pinbbm'		=> $request->pinbbm
+    				'pinbbm'		=> $request->pinbbm,
+    				'username'		=> $request->username,
+    				'reffered_by'		=> $request->referral,
+    				'affiliate_id'		=> str_random(10),
+    				'password'		=> bcrypt($request->password)
     	    ]);
+
+            $this->guard()->login($customer);
         }
         if (!$customer)
         {
@@ -142,6 +167,14 @@ class TransactionController extends Controller
 
     }
 
+    protected function messages()
+    {
+        return [
+            'email.unique' => 'Email Sudah Terdaftar!',
+            ''=>''
+        ];
+    }
+
     public function finishTransaction()
     {
     	$pengaturan = Setting::find(1);
@@ -155,6 +188,11 @@ class TransactionController extends Controller
     public function konfirmasi_pembayaran(Request $request)
     {
 
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('customer');
     }
 
 

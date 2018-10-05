@@ -15,8 +15,9 @@ class CheckReferral
      */
     public function handle($request, Closure $next)
     {
+        $referral = '';
 
-//        dd($request);
+
         if( $request->hasCookie('referral')) {
             return $next($request);
         }
