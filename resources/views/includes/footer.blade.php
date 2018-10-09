@@ -44,7 +44,6 @@
                         <ul class="list-group contact">
                             <li><a href="{{ url('/p/cara-belanja') }}" style="text-decoration: none; color: #fff; a:hover: #C1AA9B;">Cara Belanja </a></li>
                             <li><a href="{{ url('/p/metode-pembayaran') }}" style="text-decoration: none; color: #fff;">Cara Pembayaran</a></li>
-                            <li><a href="{{ url('/p/retur-barang') }}" style="text-decoration: none; color: #fff;"> Retur Barang</a></li>
                             <li><a href="{{ url('/p/testimoni') }}" style="text-decoration: none; color: #fff;"> Testimoni</a></li>
                         </ul>
                 </div>
