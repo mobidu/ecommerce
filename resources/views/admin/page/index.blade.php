@@ -43,10 +43,9 @@
 						<table class="table table-striped table-bordered display" id="kategori">
 							<thead>
 							<tr>
-								<th>Title</th>
+								<th>Judul</th>
 								<th>Slug</th>
-								<th>Content</th>
-								<th>Action</th>
+								<th>Aksi</th>
 							</tr>
 							</thead>
 							<tbody>
@@ -54,7 +53,6 @@
 								<tr>
 									<td><a href="{{ url('/admin/pages/' . $item->id . '/edit') }}"><strong>{{ $item->judul }}</strong></a></td>
 									<td>{{ $item->slug }}</td>
-									<td>{{ str_limit($item->content, 30) }}</td>
 									<td>
 										{!! Form::open(array('url' => '/admin/pages/' . $item->id, 'method' => 'DELETE')) !!}
 										{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
