@@ -23,6 +23,21 @@
                         <h3 class="panel-title">Login Member Area</h3>
                     </div>
                     <div class="panel-body">
+                        @if(count($errors) > 0)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                                <li><strong>{{$error}}</strong></li>
+                                            @endforeach
+
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
 
                         <form id="form_login" action="{{url('/register')}}" method="post">
                             {{csrf_field()}}
@@ -86,6 +101,9 @@
                                 <label for="password-confirm"">Konfirmasi Password </label>
 
                                     <input id="password-confirm" type="password" placeholder="Konfirmasi Password" class="form-control" name="password_confirmation" required>
+                            </div>
+                            <div class="form-group">
+                                {!! NoCaptcha::display() !!}
                             </div>
                         </form>
                     </div>

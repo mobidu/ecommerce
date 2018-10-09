@@ -55,7 +55,8 @@ class RegisterController extends Controller
             'no_hp' => 'required|max:255',
             'email' => 'required|max:255|unique:customers',
             'password' => 'required|min:6|confirmed',
-        ]);
+            'g-recaptcha-response' => 'required|captcha'
+        ], $this->messages());
     }
 
     /**
@@ -98,6 +99,17 @@ class RegisterController extends Controller
 //        dd($data);
         Log::info('Insert Data : '.json_encode($data));
         return Customer::create($data);
+    }
+
+    public function messages()
+    {
+        return [
+            'g-recaptcha-response.required' => 'Centang Recaptcha dibutuhkan',
+            'g-recaptcha-response.captcha' => 'Perlu Validasi Recaptcha',
+            'username.required'=>'Kolom Username Tidak Boleh Kosong',
+            'password.required'=>'Kolom Password Tidak Boleh Kosong'
+
+        ];
     }
 
     protected function guard()
