@@ -15,7 +15,6 @@
 	</style>
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
 	<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
 	<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 @endsection
@@ -38,7 +37,10 @@
     <section class="content">
         <div class="row">
 
-        {!! Form::model($page ,array('url'=>'/admin/pages/' . $page->id, 'class'=>'form-horizontal', 'method' => 'PUT')) !!}
+
+		<form action="{{url('/admin/pages/'.$page->id)}}" class="form-horizontal" method="post">
+			{{csrf_field()}}
+			<input type="hidden" name="id" value="{{$page->id}}">
       	<div class="col-md-12">
 
             <!-- Profile Image -->
@@ -59,26 +61,27 @@
                 	<hr>
                 	
 	                	<div class="form-group">
-	                      {!! Form::label('judul', 'Title *', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
-	                      	{!! Form::text('judul', null, ['class'=>'form-control', 'id'=>'judul', 'required'=>'required']) !!}
-	                      </div>
+							<label for="judul" class="control-label col-sm-3">Judul *</label>
+							<div class="col-sm-9">
+								<input type="text" id="judul" class="form-control" name="judul" value="{{$page->judul}}" required>
+							</div>
 	                    </div>
 
 	                    <div class="form-group">
-	                      {!! Form::label('slug', 'Slug *', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
-	                      	{!! Form::text('slug', null, ['class'=>'form-control', 'id'=>'slug']) !!}
-	                      </div>
+							<label for="slug" class="control-label col-sm-3">Slug *</label>
+							<div class="col-sm-9">
+								<input type="text" name="slug" id="slug" value="{{$page->slug}}" class="form-control">
+							</div>
 	                    </div>
 
 	                    <div class="form-group">
-	                      {!! Form::label('content', 'Content *', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
-	                      	<textarea name="content" class="form-control" id="content" rows="10" cols="80" >
-				                {{ $page->content }}
+
+							<label for="content" class="control-label col-sm-3">Konten</label>
+							<div class="col-sm-9">
+	                      	<textarea name="content" class="form-control" id="konten" rows="10" cols="80" >
+				                {!! $page->content !!}
 				            </textarea>
-	                      </div>
+							</div>
 	                    </div>
 
 	                    <div class="form-group">
@@ -92,14 +95,25 @@
             </div><!-- /.box -->
         </div><!-- /.col -->
 
-        {!! Form::close() !!}
+		</form>
 
     	</div><!-- /.row -->
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 
 <script>
-    CKEDITOR.replace( 'content' );
+    $(function(){
+        $("#konten").summernote( {
+            height: 200, toolbar: [ // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']], ['insert', ['picture', 'video', 'link', 'table']], ['font', ['strikethrough', 'superscript', 'subscript']], ['fontsize', ['fontsize']], ['color', ['color']], ['para', ['ul', 'ol', 'paragraph']], ['height', ['height']], ['misc', ['fullscreen']], ],
+        });
+    });
 </script>
 
+@endsection
+@section('script')
+	<script src="{{url('/plugins/summernote/dist/summernote.js')}}" type="text/javascript"></script>
+@endsection
+@section('style')
+	<link rel="stylesheet" href="{{url('/plugins/summernote/dist/summernote.css')}}">
 @endsection

@@ -15,7 +15,6 @@
                 <li><a href="{{ url('/testimoni') }}">Testimoni</a></li>
                 <li><a href="{{url('/p/cara-belanja')}}">Cara Belanja</a></li>
                 <li><a href="{{url('/p/metode-pembayaran')}}">Metode Pembayaran</a></li>
-                <li><a href="#return">Retur Barang</a></li>
                 <li><a href="{{ url('/konfirmasi-pembayaran') }}">Konfirmasi Pembayaran</a></li>
                 <li><a href="{{url('/tentang')}}">Tentang Kami</a></li>
                 @if(auth()->guard('customer')->check())

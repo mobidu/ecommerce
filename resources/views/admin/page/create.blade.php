@@ -15,7 +15,6 @@
 	</style>
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
 	<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
 	<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 @endsection
@@ -38,68 +37,81 @@
     <section class="content">
         <div class="row">
 
-        {!! Form::open(array('url'=>'/admin/pages/create', 'class'=>'form-horizontal')) !!}
-      	<div class="col-md-12">
 
-            <!-- Profile Image -->
-            <div class="box box-primary">
-                <div class="box-body box-profile">
-                	<h4>Add New Page</h4>
-                	@if (count($errors) > 0)
-                	<div class="alert alert-danger alert-dismissable">
-	                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-	                    <h4><i class="icon fa fa-ban"></i> Notification</h4>
-	                    <ul>
-	                    	@foreach ($errors->all() as $error)
-								<li>{{ $error }}</li>
-							@endforeach
-	                    </ul>
-                    </div>
-                    @endif
-                	<hr>
-                	
-	                	<div class="form-group">
-	                      {!! Form::label('judul', 'Title *', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
-	                      	{!! Form::text('judul', null, ['class'=>'form-control', 'id'=>'judul', 'required'=>'required']) !!}
-	                      </div>
-	                    </div>
+		<form action="{{url('/admin/pages/create')}}" class="form-horizontal" method="post">
+			{{csrf_field()}}
+			<div class="col-md-12">
 
-	                    <div class="form-group">
-	                      {!! Form::label('slug', 'Slug *', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
-	                      	{!! Form::text('slug', null, ['class'=>'form-control', 'id'=>'slug']) !!}
-	                      </div>
-	                    </div>
+				<!-- Profile Image -->
+				<div class="box box-primary">
+					<div class="box-body box-profile">
+						<h4>Add New Page</h4>
+						@if (count($errors) > 0)
+						<div class="alert alert-danger alert-dismissable">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+							<h4><i class="icon fa fa-ban"></i> Notification</h4>
+							<ul>
+								@foreach ($errors->all() as $error)
+									<li>{{ $error }}</li>
+								@endforeach
+							</ul>
+						</div>
+						@endif
+						<hr>
 
-	                    <div class="form-group">
-	                      {!! Form::label('content', 'Content *', ['class'=>'control-label col-sm-3']) !!}
-	                      <div class="col-sm-9"> 
-	                      	<textarea name="content" class="form-control" id="content" rows="10" cols="80" >
-				                
-				            </textarea>
-	                      </div>
-	                    </div>
+							<div class="form-group">
 
-	                    <div class="form-group">
-		                    <label></label>
-			                <div class="col-sm-9 pull-right">
-			                	{!! Form::submit('Add New Page', ['class'=>'btn btn-primary', 'id'=>'simpan']) !!}
-			                </div>
-		                </div>
+								<label for="judul" class="control-label col-sm-3">Judul *</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="judul" name="judul" required placeholder="Masukan Judul Page">
+								</div>
+							</div>
 
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-        </div><!-- /.col -->
+							<div class="form-group">
+								<label for="slug" class="control-label col-sm-3">Slug *</label>
+								<div class="col-sm-9">
+									<input type="text" name="slug" class="form-control" id="slug">
+								</div>
+							</div>
 
-        {!! Form::close() !!}
+							<div class="form-group">
+
+								<label for="content" class="control-label col-sm-3">Konten *</label>
+								<div class="col-sm-9">
+									<textarea name="content" class="form-control" id="konten" rows="10" cols="80" ></textarea>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label></label>
+								<div class="col-sm-9 pull-right">
+									<button type="submit" class="btn btn-primary" id="simpan">Tambah</button>
+								</div>
+							</div>
+
+					</div><!-- /.box-body -->
+				</div><!-- /.box -->
+			</div><!-- /.col -->
+		</form>
 
     	</div><!-- /.row -->
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 
 <script>
-    CKEDITOR.replace( 'content' );
+    $(function(){
+        $("#konten").summernote( {
+            height: 200, toolbar: [ // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']], ['insert', ['picture', 'video', 'link', 'table']], ['font', ['strikethrough', 'superscript', 'subscript']], ['fontsize', ['fontsize']], ['color', ['color']], ['para', ['ul', 'ol', 'paragraph']], ['height', ['height']], ['misc', ['fullscreen']], ],
+        });
+    });
 </script>
 
+@endsection
+
+@section('script')
+	<script src="{{url('/plugins/summernote/dist/summernote.js')}}" type="text/javascript"></script>
+@endsection
+@section('style')
+	<link rel="stylesheet" href="{{url('/plugins/summernote/dist/summernote.css')}}">
 @endsection

@@ -145,7 +145,7 @@ Route::get('/admin/pages/create', ['as' => 'pages.create', 'uses' => 'PageContro
 Route::post('/admin/pages/create', ['as' => 'pages.store', 'uses' => 'PageController@store']);
 Route::delete('/admin/pages/{id}', ['as' => 'page.delete', 'uses' => 'PageController@destroy']);
 Route::get('/admin/pages/{id}/edit', ['as' => 'page.edit', 'uses' => 'PageController@edit']);
-Route::put('/admin/pages/{id}', ['as' => 'page.update', 'uses' => 'PageController@update']);
+Route::post('/admin/pages/{id}', ['as' => 'page.update', 'uses' => 'PageController@update']);
 
 //Route Bank
 Route::get('/admin/bank', ['as' => 'admin.index_provider', 'uses' => 'BankController@index_provider']);

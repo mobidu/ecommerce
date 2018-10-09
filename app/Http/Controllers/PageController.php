@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Setting;
 use App\Page;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class PageController extends Controller
 {
@@ -61,8 +63,52 @@ class PageController extends Controller
     		'content'	=> 'required'
     	]);
 
-    	Page::create($request->all());
-    	return redirect('/admin/pages');
+        $content = $request->content;
+        $dom = new \DomDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHtml('<?xml encoding="utf-8" ?>'.$content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+
+        $gambar = [];
+
+        foreach($images as $k => $img){
+            $data = $img->getAttribute('src');
+            if(preg_match('/data:image/', $data)){
+                // get the mimetype
+                preg_match('/data:image\/(?<mime>.*?)\;/', $data, $groups);
+                $mimetype = $groups['mime'];
+                // Generating a random filename
+                $filename = Auth::Id().'_'.md5(time().$k.Auth()->Id());
+                $filepath = "/img/$filename.$mimetype";
+                // @see http://image.intervention.io/api/
+                $image = Image::make($data)
+                    // resize if required
+                    /* ->resize(300, 200) */
+                    ->encode($mimetype, 100)  // encode file to the specified mimetype
+                    ->save(public_path($filepath),50);
+
+                array_push($gambar, $filepath);
+
+                $new_src = asset($filepath);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $new_src);
+            } // <!--endif
+        }
+        $content = $dom->saveHTML();
+        $page = new Page();
+
+        if($request->get('id')){
+            $page = Page::findOrFail($request->get('id'));
+        }
+
+        $page->judul = $request->get('judul');
+        $page->slug = $request->get('slug');
+        $page->content = $content;
+
+    	if($page->save()){
+            return redirect('/admin/pages')->with('sukses', 'Berhasil Menyimpan Page');
+        }
+
     }
 
     public function edit($id)
@@ -77,14 +123,51 @@ class PageController extends Controller
 
     public function update(Request $request, $id)
     {
-    	$this->validate($request, [
-    		'judul'	=> 'required',
-    		'slug'	=> 'required',
-    		'content'	=> 'required'
-    	]);
-    	$page = Page::findOrFail($id);
-    	$page->update($request->all());
-    	return redirect('/admin/pages');
+        $content = $request->content;
+        $dom = new \DomDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHtml('<?xml encoding="utf-8" ?>'.$content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+
+        $gambar = [];
+
+        foreach($images as $k => $img){
+            $data = $img->getAttribute('src');
+            if(preg_match('/data:image/', $data)){
+                // get the mimetype
+                preg_match('/data:image\/(?<mime>.*?)\;/', $data, $groups);
+                $mimetype = $groups['mime'];
+                // Generating a random filename
+                $filename = Auth::Id().'_'.md5(time().$k.Auth()->Id());
+                $filepath = "/img/$filename.$mimetype";
+                // @see http://image.intervention.io/api/
+                $image = Image::make($data)
+                    // resize if required
+                    /* ->resize(300, 200) */
+                    ->encode($mimetype, 100)  // encode file to the specified mimetype
+                    ->save(public_path($filepath),50);
+
+                array_push($gambar, $filepath);
+
+                $new_src = asset($filepath);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $new_src);
+            } // <!--endif
+        }
+        $content = $dom->saveHTML();
+        $page = new Page();
+
+        if($request->get('id')){
+            $page = Page::findOrFail($request->get('id'));
+        }
+
+        $page->judul = $request->get('judul');
+        $page->slug = $request->get('slug');
+        $page->content = $content;
+
+        if($page->save()){
+            return redirect('/admin/pages')->with('sukses', 'Berhasil Menyimpan Page');
+        }
     }
 
     public function destroy($id)
