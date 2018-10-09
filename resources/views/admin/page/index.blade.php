@@ -54,7 +54,7 @@
 								<tr>
 									<td><a href="{{ url('/admin/pages/' . $item->id . '/edit') }}"><strong>{{ $item->judul }}</strong></a></td>
 									<td>{{ $item->slug }}</td>
-									<td>{!! str_limit($item->content, 30) !!}</td>
+									<td>{{ str_limit($item->content, 30) }}</td>
 									<td>
 										{!! Form::open(array('url' => '/admin/pages/' . $item->id, 'method' => 'DELETE')) !!}
 										{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
