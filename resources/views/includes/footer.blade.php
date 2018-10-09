@@ -47,7 +47,7 @@
                             <li><a href="{{ url('/p/testimoni') }}" style="text-decoration: none; color: #fff;"> Testimoni</a></li>
                         </ul>
                 </div>
-                <div class="col-md-3">Widget 4</div>
+                <div class="col-md-3"></div>
             </div>
         </div>
         <div class="footer-bottom hidden-print">
