@@ -9,6 +9,7 @@ node_modules/
 
 # Laravel 4 specific
 bootstrap/compiled.php
+public/.htaccess
 app/storage/
 
 # Laravel 5 & Lumen specific
