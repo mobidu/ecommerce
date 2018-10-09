@@ -85,9 +85,9 @@
 	                    </div>
 
 	                    <div class="form-group">
-		                    <label></label>
+		                    <label class="col-sm-3"></label>
 			                <div class="col-sm-9 pull-right">
-			                	{!! Form::submit('Add New Page', ['class'=>'btn btn-primary', 'id'=>'simpan']) !!}
+			                	<button type="submit" class="btn btn-primary" id="simpan">Simpan Halaman</button>
 			                </div>
 		                </div>
 
