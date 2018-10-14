@@ -111,6 +111,7 @@ Route::get('/admin/pembayaran', 'PembayaranController@index');
 Route::get('/admin/pembayaran/data', 'PembayaranController@data');
 Route::get('/admin/pembayaran/{invoice}', 'PembayaranController@detile');
 Route::post('/admin/pembayaran/konfirmasi/{invoice}', 'PembayaranController@konfirmasi');
+Route::get('/admin/pembayaran/tolak/{invoice}', 'PembayaranController@tolak_pembayaran');
 
 //Route categori
 Route::get('/admin/category', ['as' => 'kategori', 'uses' => 'CategoryController@index']);

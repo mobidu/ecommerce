@@ -182,10 +182,10 @@ class HomepageController extends Controller
     public function ongkir(Request $request)
     {
 
-        $kota_asal = Supplier::first();
+        $kota_asal = Setting::first();
 
         $data = RajaOngkir::Cost([
-            'origin'        => $kota_asal->origin, 
+            'origin'        => $kota_asal->kabupaten_id,
             'destination'   => $request->destination, 
             'weight'        => $request->weight, 
             'courier'       => 'jne', 
