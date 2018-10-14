@@ -36,10 +36,10 @@
                                     @endif     
                                 </div>
                             </div>  
-                            <div class="7">
+                            <div class="col-md-7" style="margin-bottom: 20px;">
                                 <h3 class="text-capitalize">{{ $product->nama_produk }}</h3>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <table class="table">
                                             <thead>
                                             <tr>
@@ -62,35 +62,37 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        
-                                    </div>
-                                    <div class="col-md-6">
-                                        {!! Form::open(array('url' => '/cart', 'class' => 'form_submit')) !!}
-                                            <button type="submit" class="btn btn-success btn-sm" id="beli"><i class="fa fa-shopping-cart"></i> Beli Sekarang</button>
-                                            @if(request()->query('ref'))
-                                            <input type="hidden" name="ref" value="{{request()->query('ref')}}">
-                                            @endif
-                                            <input type="hidden" name="kode_produk" id="kode_produk" value="{{ $product->kode_produk }}">
-                                        {!! Form::close() !!}
+
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                    <ul class="nav nav-tabs">
-                                                        <li class="active"><a href="#tab1default" data-toggle="tab"><i class="fa fa-bookmark"></i> Deskripsi Produk</a></li>
-                                                    </ul>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="tab-content">
-                                                    <div class="tab-pane fade in active" id="tab1default">
-                                                        {!! $product->deskripsi !!}
-                                                    </div>
-                                                </div>
+                                        <form action="{{url('/cart')}}" method="post" class="form_submit">
+                                            {{csrf_field()}}
+                                            <button type="submit" class="btn btn-success btn-sm" id="beli"><i class="fa fa-shopping-cart"></i> Beli Sekarang</button>
+                                            @if(request()->query('ref'))
+                                                <input type="hidden" name="ref" value="{{request()->query('ref')}}">
+                                            @endif
+                                            <input type="hidden" name="kode_produk" id="kode_produk" value="{{ $product->kode_produk }}">
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#tab1default" data-toggle="tab"><i class="fa fa-bookmark"></i> Deskripsi Produk</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade in active" id="tab1default">
+                                                {!! $product->deskripsi !!}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>      
+                            </div>
                         </div>
                     </div>
                 </div>
