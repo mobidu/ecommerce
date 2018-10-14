@@ -76,6 +76,7 @@
                                 </div>
 
                                 @if(!auth()->guard('customer')->check())
+
                                     <div class="form-group">
                                         <label for="username" class="col-sm-3 control-label">Username</label>
                                         <div class="col-sm-9">
@@ -107,7 +108,7 @@
                             <div class="panel-body">
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <textarea name="alamat" id="alamat"  class="form-control" rows="6">{{old('alamat')}}</textarea>
+                                    <textarea name="alamat" id="alamat"  class="form-control" rows="6" placeholder="Tuliskan alamat sampai tingkat kecamatan">{{old('alamat')}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Provinsi</label>
@@ -118,6 +119,7 @@
                                         @endfor
                                     </select>
                                     <input type="hidden" name="province" id="province" required>
+                                    <span class="text-muted" id="pesan_get_province">Mohon Tunggu Sedang Mengambil Data Kota...</span>
                                 </div>
 
 
@@ -127,6 +129,7 @@
                                         <option value="0">Pilih</option>
                                     </select>
                                     <input type="hidden" name="city" id="city" required>
+                                    <span class="text-muted" id="pesan_get_jne">Mohon Tunggu Sedang Mengambil Data Biaya...</span>
 
                                 </div>
 
@@ -195,7 +198,7 @@
                     </table>
                     <div class="pull-right">
                         <p>Sub Total : <strong class="pull-right">Rp. {{ $total }}</strong></p>
-                        <p id="biayapengiriman">Biaya Pengiriman : Rp. 0</p>
+                        <p id="biayapengiriman">Biaya Pengiriman : <strong class="pull-right">Rp. 0</strong></p>
                         <hr>
                         <p class="pull-right" style="font-weight: bold;" id="total">Total : Rp. {{ $total }}</p>
                         <textarea class="form-control" name="catatan" placeholder="Catatan">{{old('catatan')}}</textarea>
@@ -229,7 +232,12 @@
 </script>
 
 <script type="text/javascript">
+    $(function(){
+       $('#pesan_get_province').hide();
+       $('#pesan_get_jne').hide();
+    });
     $("#provinsi").change(function(){
+        $('#pesan_get_province').show();
         $.ajax({
             url: "/city",
             type:"POST",
@@ -243,16 +251,17 @@
             data: { province : $("#provinsi").val() },
             dataType: 'json',
             success: function(data) {
+                $('#pesan_get_province').hide();
                 var city = $("#kota"), options = '';
+                clear_kalkulasi();
                 city.empty();
-
+                options += "<option value=''>Pilih</option>";
                 for(var i=0;i<data.length; i++)
                 {
                     options += "<option value='"+data[i].id+"'>"+ data[i].city_name +"</option>";
                 }
 
                 city.append(options);
-                city.fadeIn();
 
             },error:function(){ 
                 alert("error!!!!");
@@ -262,7 +271,9 @@
 </script>
 
 <script type="text/javascript">
+    var total_order = {{$total}};
     $("#kota").change(function(){
+        $('#pesan_get_jne').show();
         $.ajax({
             url: "/ongkir",
             type:"POST",
@@ -276,12 +287,17 @@
             data: { destination: $("#kota").val(), weight: $(".berat").val() },
             dataType: 'json',
             success: function(data) {
+                $('#pesan_get_jne').hide();
                 var ongkir = $("#jne"), options = '';
                 ongkir.empty();
-
+                var first = 1;
                 for(var i=0;i<data.length; i++)
                 {
+                    if(first === 1){
+                        kalkulasi_biaya(data[i].biaya, total_order);
+                    }
                     options += "<option value='"+data[i].biaya+"'>"+ data[i].service + ": " + data[i].biaya + "</option>";
+                    first++;
                 }
 
                 ongkir.append(options);
@@ -291,15 +307,23 @@
             }
         }); 
     });
-</script>
 
-<script type="text/javascript">
     $("#jne").change(function(){
         var biayakirim = $("#jne").val();
-        var totalorder = {{ $total }};
-        var total = parseInt(biayakirim) + parseInt(totalorder);
-        $("#biayapengiriman").text("Biaya Pengiriman : Rp. "+biayakirim);
-        $("#total").text("Total : Rp. "+total);
+        kalkulasi_biaya(biayakirim, total_order);
+
     });
+
+    function kalkulasi_biaya(biaya_kirim, total_order) {
+        var total = parseInt(biaya_kirim) + parseInt(total_order);
+        $("#biayapengiriman").html("Biaya Pengiriman : <strong class='pull-right'>Rp. "+biaya_kirim+"</strong>");
+        $("#total").text("Total : Rp. "+total);
+    }
+
+    function clear_kalkulasi(){
+        $("#biayapengiriman").html("Biaya Pengiriman : <strong class='pull-right'>Rp. 0</strong>");
+        $("#total").text("Total : Rp. "+total_order);
+    }
 </script>
+
 @endsection

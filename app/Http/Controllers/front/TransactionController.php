@@ -38,19 +38,15 @@ class TransactionController extends Controller
             'password'		=> 'required'
         ];
 
-        if(auth()->guard('customer')->check()){
+        if(Auth::guard('customer')->check()){
             $valid = [
-                'nama_lengkap'	=> 'required',
-                'no_hp'			=> 'required|max:12',
-                'email'			=> 'required|email|unique:customers',
-                'pinbbm'		=> 'max:8',
                 'alamat'		=> 'required',
                 'province'		=> 'required',
                 'city'			=> 'required',
                 'kode_pos'		=> 'required'
             ];
         }
-        $this->validate($request, $valid);
+        $this->validate($request, $valid, $this->messages());
 
 //        dd($request->all());
     	DB::beginTransaction();
@@ -58,7 +54,8 @@ class TransactionController extends Controller
 
     	$customer = null;
 
-    	if(auth()->guard('customer')->check()){
+    	if(Auth::guard('customer')->check()){
+//    	    dd(auth()->guard('customer')->user());
     	    $customer = Customer::findOrFail(auth()->guard('customer')->user()->id);
         }else{
             $customer = Customer::create([
@@ -72,7 +69,7 @@ class TransactionController extends Controller
     				'password'		=> bcrypt($request->password)
     	    ]);
 
-            $this->guard()->login($customer);
+            $this->guard('customer')->login($customer);
         }
         if (!$customer)
         {
@@ -171,7 +168,6 @@ class TransactionController extends Controller
     {
         return [
             'email.unique' => 'Email Sudah Terdaftar!',
-            ''=>''
         ];
     }
 

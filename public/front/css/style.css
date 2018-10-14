@@ -368,3 +368,9 @@ body {
   background: #1BBC9B;
 }
 
+@media (max-width: 700px) {
+    .tbl_cart_column_qty {
+        width: 50px;
+    }
+}
+
