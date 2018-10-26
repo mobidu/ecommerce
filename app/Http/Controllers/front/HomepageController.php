@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\front;
 
+use App\Diskusi;
 use App\Slide;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,15 @@ use App\Page;
 
 class HomepageController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('auth:customer', ['except'=>[
+            'index', 'cart', 'proses_cart', 'delete_cart', 'kategori', 'show',
+            'checkout', 'update_cart', 'getCity', 'ongkir', 'ConfirmPembayaran', 'cekInvoice',
+            'simpanInvoice', 'frontPage', 'tentang'
+        ]]);
+    }
+
     public function index()
     {
         $pengaturan = Setting::find(1);
@@ -123,6 +132,15 @@ class HomepageController extends Controller
         $pengaturan = Setting::find(1);
         $product = Product::where('slug', '=', $id)->with('media_image', 'category')->first();
         $kategori = Category::all();
+        $stars = [
+            '1'=>$product->ulasan()->where('rating', '=', 1)->count(),
+            '2'=>$product->ulasan()->where('rating', '=', 2)->count(),
+            '3'=>$product->ulasan()->where('rating', '=', 3)->count(),
+            '4'=>$product->ulasan()->where('rating', '=', 4)->count(),
+            '5'=>$product->ulasan()->where('rating', '=', 5)->count()
+        ];
+
+//        dd($stars);
         $testimoni = Testimoni::where('status', '=', 1)->orderBy('created_at', 'desc')->take(10)->get();
         $bank = Bank::all();
         return view('front.produk', [
@@ -130,7 +148,8 @@ class HomepageController extends Controller
             'product'       => $product,
             'kategori'      => $kategori,
             'testimoni'     => $testimoni,
-            'bank'          => $bank
+            'bank'          => $bank,
+            'stars'         => $stars
             ]);
     }
 
@@ -294,6 +313,21 @@ class HomepageController extends Controller
         $bank = Bank::all();
 
         return view('front.tentang', compact(['pengaturan', 'kategori', 'testimoni', 'bank']));
+    }
+
+    public function simpan_diskusi($id_barang, Request $request)
+    {
+        $this->validate($request, [
+            'komentar'=> 'required|min:5'
+        ]);
+
+        $diskusi = new Diskusi();
+        $diskusi->deskripsi = $request->get('komentar');
+        $diskusi->id_barang = $id_barang;
+        $diskusi->id_customer = auth()->guard('customer')->user()->id;
+        if($diskusi->save()){
+            return redirect()->back()->with('sukses', 'Berhasil Menambahkan Diskusi!');
+        }
     }
     
 }

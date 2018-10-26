@@ -33,4 +33,9 @@ class Customer extends Authenticable
         return $this->hasOne(self::class, 'affiliate_id', 'referred_by');
     }
 
+    public function affiliasi()
+    {
+        return $this->hasMany(self::class, 'referred_by', 'affiliate_id');
+    }
+
 }

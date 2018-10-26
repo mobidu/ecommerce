@@ -81,6 +81,10 @@ class AuthController extends Controller
 
     public function showLoginForm()
     {
+        if(!session()->has('url.intended'))
+        {
+            session(['url.intended' => url()->previous()]);
+        }
         $pengaturan = Setting::first();
         return view('front.login', compact('pengaturan'));
     }

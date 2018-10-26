@@ -26,7 +26,9 @@ $factory->define(App\Customer::class, function (Faker\Generator $faker) {
         'no_hp' => $faker->phoneNumber,
         'username' => $faker->userName,
         'password' => bcrypt('user'),
-        'affiliate_id'=>str_random(10)
+        'affiliate_id'=>str_random(10),
+        'referred_by'=>'hB9jh4lfiR'
+
 //        'remember_token' => str_random(10),
     ];
 });
@@ -40,3 +42,33 @@ $factory->define(App\BankProvider::class, function (Faker\Generator $faker) {
 //        'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Ulasan::class, function (Faker\Generator $faker) {
+    $list_barang = \App\Product::all()->pluck('id')->toArray();
+    $rating = [3, 4, 5];
+    $list_customer = \App\Customer::all()->pluck('id')->toArray();
+    return [
+        'id_barang' => $faker->randomElement($list_barang),
+        'id_customer' => $faker->randomElement($list_customer),
+        'rating'=> $faker->randomElement($rating),
+        'deskripsi'=>$faker->paragraphs(3, true)
+
+//        'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Diskusi::class, function (Faker\Generator $faker) {
+    $list_barang = \App\Product::all()->pluck('id')->toArray();
+    $list_customer = \App\Customer::all()->pluck('id')->toArray();
+    $list_diskusi = \App\Diskusi::all()->pluck('id')->toArray();
+    $user_select = $faker->randomElement($list_barang);
+    $list_diskusi = \Illuminate\Support\Facades\DB::table('diskusi')->whereNull('parent')->pluck('id')->toArray();
+    return [
+        'id_barang' => $faker->randomElement($list_barang),
+//        'id_customer' => $faker->randomElement($list_customer),
+        'parent' => $faker->randomElement($list_diskusi),
+        'deskripsi'=>$faker->paragraphs(3, true)
+
+    ];
+});
+

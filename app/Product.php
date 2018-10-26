@@ -29,5 +29,17 @@ class Product extends Model
         }
     }
 
+    public function ulasan()
+    {
+        return $this->hasMany('App\Ulasan', 'id_barang', 'id');
+    }
+
+    public function diskusi()
+    {
+        return $this->hasMany('App\Diskusi', 'id_barang', 'id');
+    }
+
+
+
 
 }

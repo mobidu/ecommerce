@@ -4,6 +4,80 @@
     <title>{{ $product->nama_produk }} | {{ $pengaturan->nama_toko }}</title>
     <meta name="csrf_token" content="{{ csrf_token() }}" />
 @endsection
+
+@section('plugins')
+    <script src="{{url('/plugins/jquery-stars/dist/stars.min.js')}}"></script>
+    <style>
+
+
+        .heading {
+            font-size: 25px;
+            margin-right: 25px;
+        }
+
+        .fa-rating {
+            font-size: 25px;
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        /* Three column layout */
+        .side {
+            float: left;
+            width: 15%;
+            margin-top:10px;
+        }
+
+        .middle {
+            margin-top:10px;
+            float: left;
+            width: 70%;
+        }
+
+        /* Place text to the right */
+        .right {
+            text-align: right;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* The bar container */
+        .bar-container {
+            width: 100%;
+            background-color: #f1f1f1;
+            text-align: center;
+            color: white;
+        }
+
+        /* Individual bars */
+        .bar-5 {width: 60%; height: 18px; background-color: #4CAF50;}
+        .bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
+        .bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
+        .bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
+        .bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+
+        /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+        @media (max-width: 400px) {
+            .side, .middle {
+                width: 100%;
+            }
+            .right {
+                display: none;
+            }
+        }
+
+
+
+    </style>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -80,14 +154,217 @@
                             <div class="col-md-12">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <ul class="nav nav-tabs">
-                                            <li class="active"><a href="#tab1default" data-toggle="tab"><i class="fa fa-bookmark"></i> Deskripsi Produk</a></li>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#tab1default" aria-controls="tab1default" role="tab" data-toggle="tab"><i class="fa fa-bookmark"></i>&nbsp;&nbsp;&nbsp;Deskripsi Produk</a></li>
+                                            <li role="presentation"><a href="#ulasan" data-toggle="tab" aria-controls="ulasan" role="tab"><i class="fa fa-bullhorn"></i>&nbsp;&nbsp;&nbsp;Ulasan</a></li>
+                                            <li role="presentation"><a href="#diskusi" data-toggle="tab" aria-controls="diskusi" role="tab"><i class="fa fa-comment"></i>&nbsp;&nbsp;&nbsp;Diskusi</a></li>
                                         </ul>
                                     </div>
-                                    <div class="panel-body">
-                                        <div class="tab-content">
-                                            <div class="tab-pane fade in active" id="tab1default">
+                                    <div class="panel-body" style="height: 800px; overflow-y: auto;">
+                                        <div class="tab-content" style="padding: 20px;">
+                                            <div class="tab-pane active" id="tab1default">
                                                 {!! $product->deskripsi !!}
+                                            </div>
+                                            <div class="tab-pane" id="ulasan">
+                                                <div class="panel">
+                                                    <div class="panel-body">
+                                                        <span class="heading">User Rating</span>
+                                                        <span class="fa fa-rating fa-star checked"></span>
+                                                        <span class="fa fa-rating fa-star checked"></span>
+                                                        <span class="fa fa-rating fa-star checked"></span>
+                                                        <span class="fa fa-rating fa-star checked"></span>
+                                                        <span class="fa fa-rating fa-star"></span>
+                                                        <p>{{floatval($product->ulasan()->avg('rating'))}} average based on {{$product->ulasan()->count()}} reviews.</p>
+                                                        <hr style="border:3px solid #f1f1f1">
+
+                                                        <div class="row">
+                                                            <div class="side">
+                                                                <div>5 star</div>
+                                                            </div>
+                                                            <div class="middle">
+                                                                <div class="bar-container">
+                                                                    <div class="bar-5"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="side right">
+                                                                <div>{{$stars['5']}}</div>
+                                                            </div>
+                                                            <div class="side">
+                                                                <div>4 star</div>
+                                                            </div>
+                                                            <div class="middle">
+                                                                <div class="bar-container">
+                                                                    <div class="bar-4"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="side right">
+                                                                <div>{{$stars['4']}}</div>
+                                                            </div>
+                                                            <div class="side">
+                                                                <div>3 star</div>
+                                                            </div>
+                                                            <div class="middle">
+                                                                <div class="bar-container">
+                                                                    <div class="bar-3"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="side right">
+                                                                <div>{{$stars['3']}}</div>
+                                                            </div>
+                                                            <div class="side">
+                                                                <div>2 star</div>
+                                                            </div>
+                                                            <div class="middle">
+                                                                <div class="bar-container">
+                                                                    <div class="bar-2"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="side right">
+                                                                <div>{{$stars['2']}}</div>
+                                                            </div>
+                                                            <div class="side">
+                                                                <div>1 star</div>
+                                                            </div>
+                                                            <div class="middle">
+                                                                <div class="bar-container">
+                                                                    <div class="bar-1"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="side right">
+                                                                <div>{{$stars['1']}}</div>
+                                                            </div>
+                                                        </div>
+                                                        <br />
+                                                        <br />
+                                                        @forelse($product->ulasan as $ulasan)
+                                                            <div class="media">
+                                                                <div class="media-left">
+                                                                    <a href="#">
+                                                                        <img alt="{{$ulasan->customer->nama_lengkap}}" class="media-object" src="{{url('/img/user-blank.jpg')}}"  data-holder-rendered="true" style="width: 64px; height: 64px;">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="media-body">
+                                                                    <div class="panel panel-default">
+                                                                        <div class="panel-heading">
+                                                                            <h4 class="panel-title">
+                                                                                {{$ulasan->customer->nama_lengkap}}
+
+                                                                                <div class="pull-right">
+                                                                                    <span class="fa  fa-star checked"></span> <b>{{$ulasan->rating}}</b>
+                                                                                </div>
+                                                                            </h4>
+
+                                                                        </div>
+                                                                        <div class="panel-body">
+                                                                            {{$ulasan->deskripsi}}
+                                                                        </div>
+
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                        @empty
+
+                                                        @endforelse
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="diskusi">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="panel">
+
+                                                            <div class="panel-body">
+                                                                @if(session()->has('sukses'))
+                                                                    <div class="alert alert-success">
+                                                                        {{session('sukses')}}
+                                                                    </div>
+                                                                @endif
+                                                                <form action="{{route('produk.simpan_diskusi', ['id_barang'=>$product->id])}}" method="post" enctype="multipart/form-data">
+                                                                    {{csrf_field()}}
+                                                                    <div class="form-group">
+                                                                        <textarea name="komentar" class="form-control" rows="6" placeholder="Masukan yang ingin anda tanyakan tentang produk ini"></textarea>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <button type="submit" class="btn btn-primary">Komentar</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                @forelse($product->diskusi()->whereNull('parent')->orderBy('created_at', 'desc')->get() as $diskusi)
+                                                    <div class="media">
+                                                        <div class="media-left">
+                                                            <a href="#">
+                                                                <img class="media-object" src="{{url('/img/user-blank.jpg')}}"  data-holder-rendered="true" style="width: 64px; height: 64px;">
+                                                            </a>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <h4 class="panel-title">
+                                                                        {{$diskusi->customer ? $diskusi->customer->nama_lengkap : 'admin'}}<br />
+                                                                        <small class="text-muted">{{$diskusi->created_at->diffForHumans()}}</small>
+                                                                    </h4>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                    {{$diskusi->deskripsi}}
+                                                                </div>
+                                                                @if(Auth::guard('admin')->check())
+                                                                    <form action="{{route('produk.simpan_balasan_diskusi', ['id_barang'=>$product->id, 'id_parent'=>$diskusi->id])}}" method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <div class="panel-footer">
+                                                                            <div class="row">
+                                                                                <div class="col-md-10">
+                                                                                    <div class="form-group">
+                                                                                    <textarea name="komentar" id="komentar" rows="4"
+                                                                                              class="form-control"></textarea>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <div class="pull-right">
+                                                                                        <button class="btn btn-primary btn-sm"><i class="fa fa-reply"></i>&nbsp;&nbsp;&nbsp;Balas</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+
+                                                                @endif
+                                                            </div>
+
+                                                            @forelse($diskusi->child as $balasan)
+                                                                <div class="media">
+                                                                    <div class="media-left">
+                                                                        <a href="#">
+                                                                            <img class="media-object" src="{{url('/img/user-blank.jpg')}}"  data-holder-rendered="true" style="width: 64px; height: 64px;">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="media-body">
+                                                                        <div class="panel panel-default">
+                                                                            <div class="panel-heading">
+                                                                                <h4 class="panel-title">
+                                                                                    {{$balasan->customer ? $balasan->customer->nama_lengkap : 'Admin'}}<br />
+                                                                                    <small class="text-muted">{{$balasan->created_at->diffForHumans()}}</small>
+                                                                                </h4>
+                                                                            </div>
+                                                                            <div class="panel-body">
+                                                                                {{$balasan->deskripsi}}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @empty
+                                                            @endforelse
+                                                        </div>
+                                                    </div>
+                                                @empty
+
+                                                @endforelse
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +407,9 @@
 </div>
 
 <script>
+
     $(document).ready(function() {
+        $('.rating-pembeli').stars({ color:'#73AD21' });
         $(".form_submit").submit(function(event) {
             event.preventDefault();
 

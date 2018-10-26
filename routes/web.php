@@ -73,6 +73,9 @@ Route::get('/kategori/{slug}', 'front\HomepageController@kategori');
 //Product Detail
 Route::get('/produk/{id}', 'front\HomepageController@show');
 
+Route::post('/produk/{id}/diskusi/{id_diskusi}', 'ProductController@simpan_balasan_diskusi')->name('produk.simpan_balasan_diskusi');
+Route::post('/produk/{id}/diskusi/', 'front\HomepageController@simpan_diskusi')->name('produk.simpan_diskusi');
+
 //Checkout
 Route::get('/checkout', 'front\HomepageController@checkout');
 Route::post('/city', 'front\HomepageController@getCity');

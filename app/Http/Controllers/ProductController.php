@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Diskusi;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -239,5 +240,24 @@ class ProductController extends Controller
     public function uploadImage(Request $request)
     {
         return $request->all();
+    }
+
+    public function simpan_balasan_diskusi($id_barang, $id_parent, Request $request)
+    {
+
+        $this->validate($request, [
+            'komentar'=>'required|min:5'
+        ]);
+
+        $diskusi = new Diskusi();
+        $diskusi->parent = $id_parent;
+        $diskusi->id_barang = $id_barang;
+        $diskusi->deskripsi = $request->get('komentar');
+
+        if($diskusi->save()){
+            return redirect()->back()->with('sukses', 'Berhasil Menambalas Komentar');
+        }
+
+
     }
 }
