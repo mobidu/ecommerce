@@ -76,6 +76,52 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Riwayat Penarikan Saldo</div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Tanggal</th>
+                                            <th class="text-center">Jumlah</th>
+                                            <th class="text-center">Status</th>
+                                            <th class="text-center" style="width: 10%;">#</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php $urut = 1; ?>
+                                        @forelse(auth()->guard('customer')->user()->penarikan as $penarikan)
+                                            <tr>
+                                                <td align="center">{{$urut}}</td>
+                                                <td align="center">{{date('d-m-Y', strtotime($penarikan->created_at))}}</td>
+                                                <td align="center">{{$penarikan->jumlah}}</td>
+                                                <td align="center">{!! $penarikan->status == 'menunggu' ?  "<span class='label label-danger'>Menunggu</span>" : "<span class='label label-success'>Selesai</span>"!!}</td>
+                                                <td align="center">
+                                                    <a href="#" class="btn btn-xs btn-primary"><i class="fa fa-eye"></i>&nbsp;&nbsp;Detail</a>
+                                                </td>
+                                            </tr>
+                                            <?php $urut++; ?>
+                                        @empty
+                                            <tr>
+                                                <td align="center" colspan="5">Tidak Terdapat Data Riwayat Penarikan</td>
+                                            </tr>
+                                        @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="text-center">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

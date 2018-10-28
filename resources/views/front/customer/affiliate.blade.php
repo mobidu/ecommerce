@@ -108,7 +108,7 @@
         $(document).ready(function(){
             var saldo = {{auth()->guard('customer')->user()->saldo ? auth()->guard('customer')->user()->saldo : 0}};
             $('.btn-cairkan').on('click', function(){
-               if(saldo < 1){
+               if(saldo < 50000){
                    event.preventDefault();
                    alert("Saldo Tidak Mencukupi!");
                }

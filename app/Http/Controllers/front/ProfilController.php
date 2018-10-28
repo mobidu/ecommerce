@@ -38,4 +38,9 @@ class ProfilController extends Controller
         return view('front.customer.affiliate', compact(['pengaturan', 'product', 'kategori', 'testimoni', 'bank']));
     }
 
+    public function update_profil()
+    {
+
+    }
+
 }

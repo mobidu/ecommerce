@@ -42,7 +42,9 @@ Route::get('/password/reset/{token?}', 'front\PasswordController@showResetForm')
 Route::get('/', 'front\HomepageController@index');
 Route::get('/tentang', 'front\HomepageController@tentang');
 Route::get('/profil', 'front\ProfilController@index');
+Route::get('/update-profil', 'front\ProfilController@update_profil');
 Route::get('/affiliate', 'front\ProfilController@affiliate');
+Route::get('/affiliate/{id}', 'front\ProfilController@affiliate');
 
 Route::get('/cart', 'front\HomepageController@cart');
 Route::post('/cart', 'front\HomepageController@proses_cart');

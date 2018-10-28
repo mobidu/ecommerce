@@ -32,7 +32,7 @@ class OrderController extends Controller
     public function order_data_aktif(Request $request)
     {
         $customer = auth()->guard('customer')->user();
-        $list_order = $customer->order()->where('status_order', '=', 'pending')->orderBy('created_at', 'desc')->get();
+        $list_order = $customer->order()->where('status_order', '=', 'pending')->orWhere('status_order', '=', 'Proses Pengiriman')->orderBy('created_at', 'desc')->get();
         return view('front.order.aktif', compact(['customer', 'list_order']));
     }
 

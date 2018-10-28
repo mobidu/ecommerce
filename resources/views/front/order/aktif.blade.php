@@ -28,7 +28,19 @@
                                         <td align="center">{{$order->invoice}}</td>
                                         <td align="center">{{date('d-m-Y', strtotime($order->created_at))}}</td>
                                         <td align="center">Rp. {{number_format($order->order_detail()->sum('harga')+$order->jne)}},-</td>
-                                        <td align="center">{!! $order->status_order == 'Pending' ? '<span class="label label-warning">Pending</span>' : ''!!}</td>
+                                        <td align="center">
+                                            <?php
+                                                switch ($order->status_order){
+                                                    case 'pending' :
+                                                        echo "<span class='label label-warning'>Pending</span>";
+                                                        break;
+                                                    case 'Proses Pengiriman' :
+                                                        echo "<span class='label label-warning'>Proses Pengiriman</span>";
+                                                        break;
+                                                    default : echo "Error";
+                                                }
+                                            ?>
+                                        </td>
                                         <td align="center">
                                             <a href="{{url('/order/detail/'.$order->invoice)}}" class="btn btn-primary btn-sm"><span class="fa fa-file-text"></span>&nbsp;&nbsp;Detail</a>
                                             <a href="#" class="btn btn-warning btn-sm"><span class="fa fa-close"></span>&nbsp;&nbsp;Batal</a>

@@ -72,3 +72,25 @@ $factory->define(App\Diskusi::class, function (Faker\Generator $faker) {
     ];
 });
 
+
+
+$factory->define(App\PenarikanSaldo::class, function (Faker\Generator $faker) {
+    $affiliate_id = $faker->randomElement(\App\Customer::all()->pluck('affiliate_id')->toArray());
+
+    return [
+        'id_affiliate' => $affiliate_id,
+        'jumlah' => 50000,
+        'status'=>$faker->randomElement(['menunggu', 'selesai'])
+    ];
+});
+
+$factory->define(App\PencairanSaldo::class, function (Faker\Generator $faker) {
+    $affiliate_id = $faker->randomElement(\App\Customer::all()->pluck('affiliate_id')->toArray());
+
+    return [
+        'id_penarikan' => factory('App\PenarikanSaldo')->create(),
+        'jumlah' => 50000,
+        'bukti'=>'/img/not-available.jpg',
+        'id_rekening'=>$faker->randomElement(\App\Bank::all()->pluck('id')->toArray())
+    ];
+});
