@@ -132,7 +132,8 @@ class TransactionController extends Controller
 	    	$detailorder[] = ['nama_produk' => $lo->nama_produk,
 	    						'qty' => $lo->qty,
 	    						'harga' => $lo->harga,
-	    						'berat' => $lo->berat
+	    						'berat' => $lo->berat,
+                                'gambar'=> $lo->product->media_image_id ? asset('upload/img/' . $lo->product->media_image->name_photo) : asset('img/not-available.jpg')
 	    					];
 	    }
 
