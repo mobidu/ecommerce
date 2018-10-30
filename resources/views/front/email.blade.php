@@ -81,7 +81,8 @@
 
 <!-- Start Background -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#D2D7D3">
-    <tbody><tr>
+    <tbody>
+    <tr>
         <td width="100%" valign="top" align="center">
 
             <table width="100%" data-module="Notif7.1" data-thumb="thumbnails/Notif7.1.png" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color5">
@@ -89,7 +90,8 @@
                 <tr>
                     <td height="50" style="font-family: OpenSans, Arial, sans-serif; font-size:10px; line-height:10px;"></td>
                 </tr>
-                </tbody></table>
+                </tbody>
+            </table>
 
 
             <table width="100%" data-module="Notif7.2" data-thumb="thumbnails/Notif7.2.png" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color5">
@@ -104,8 +106,10 @@
                                 <td align="center" bgcolor="#42729B" style=" border-top-left-radius:4px; border-top-right-radius:4px; font-size: 35px; line-height: 30px; color: #ffffff; font-weight: 700;"></td>
                             </tr>
                             <tr>
-                                <td align="center" class="mobile" style="font-size:12px; line-height:24px;"><table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#42729B" data-bgcolor="BlueBoxBG_Color">
-                                        <tbody><tr>
+                                <td align="center" class="mobile" style="font-size:12px; line-height:24px;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#42729B" data-bgcolor="BlueBoxBG_Color">
+                                        <tbody>
+                                        <tr>
                                             <td height="40"></td>
                                         </tr>
                                         <tr>
@@ -137,14 +141,18 @@
                                         <tr>
                                             <td height="40"></td>
                                         </tr>
-                                        </tbody></table></td>
+                                        </tbody>
+                                    </table>
+                                </td>
                             </tr>
-                            </tbody></table>
+                            </tbody>
+                        </table>
                         <!-- End Container -->
 
                     </td>
                 </tr>
-                </tbody></table>
+                </tbody>
+            </table>
 
             <table width="100%" data-module="Notif7.3" data-thumb="thumbnails/Notif7.3.png" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color5">
                 <tbody>
@@ -161,14 +169,17 @@
                                 <td height="30"></td>
                             </tr>
                             <tr>
-                                <td align="center" class="mobile" style="font-size:12px; line-height:24px;"><table width="550" cellpadding="0" cellspacing="0" border="0" class="container">
-                                        <tbody><tr>
+                                <td align="center" class="mobile" style="font-size:12px; line-height:24px;">
+                                    <table width="550" cellpadding="0" cellspacing="0" border="0" class="container">
+                                        <tbody>
+                                        <tr>
                                             <td height="20" style="" class="mobileOn"></td>
                                             <td width="50%" align="center" valign="top" class="mobile" style="font-size:12px; line-height:24px;">
                                                 <!-- Start Content -->
                                                 <table width="100%" cellpadding="0" cellspacing="0" border="0" class="container">
-                                                    <tbody><tr>
-                                                        <td width="330" style="font-family: Montserrat, Arial, sans-serif; font-size:16px; letter-spacing:1px; line-height:25px; color: #333333; font-weight:400" data-color="H4 Color" data-size="H4 Size" data-min="12" data-max="30" mc:edit=""><multiline label="content">INVOICE#2455</multiline></td>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="330" style="font-family: Montserrat, Arial, sans-serif; font-size:16px; letter-spacing:1px; line-height:25px; color: #333333; font-weight:400" data-color="H4 Color" data-size="H4 Size" data-min="12" data-max="30" mc:edit=""><multiline label="content">INVOICE#{{$invoice}}</multiline></td>
                                                     </tr>
                                                     <tr>
                                                         <td height="10"></td>
@@ -181,28 +192,35 @@
                                                 <!-- End Content -->
                                             </td>
                                             <td height="20" style="" class="mobileOn"></td>
-                                            <td width="50%" align="center" valign="top" class="mobile"><table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                            <td width="50%" align="center" valign="top" class="mobile">
+                                                <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
                                                     <tbody>
                                                     <tr>
-                                                        <td style="font-family: Montserrat, Arial, sans-serif; font-size:16px; letter-spacing:1px; line-height:25px; color: #42729B; font-weight:400" data-color="H4blue Color" data-size="H4blue Size" data-min="12" data-max="30" mc:edit=""><multiline label="content">SHIPING ADDRES</multiline></td>
+                                                        <td style="font-family: Montserrat, Arial, sans-serif; font-size:16px; letter-spacing:1px; line-height:25px; color: #42729B; font-weight:400" data-color="H4blue Color" data-size="H4blue Size" data-min="12" data-max="30" mc:edit=""><multiline label="content">Alamat Pengiriman</multiline></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="center" height="10"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8D8D8D; line-height:23px; font-weight:400;" data-color="H6 Color" data-size="H6 Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Mr.Michael</multiline></td>
+                                                        <td style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8D8D8D; line-height:23px; font-weight:400;" data-color="H6 Color" data-size="H6 Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">{{ $name }}</multiline></td>
                                                     </tr>
                                                     <tr>
                                                         <td height="10"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8D8D8D; line-height:23px; font-weight:400;" data-color="H6 Color" data-size="H6 Size" data-min="10" data-max="24" mc:edit="">LA, 1234 street</td>
+                                                        <td style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8D8D8D; line-height:23px; font-weight:400;" data-color="H6 Color" data-size="H6 Size" data-min="10" data-max="24" mc:edit="">{{ $alamat }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8D8D8D; line-height:23px; font-weight:400;" data-color="H6 Color" data-size="H6 Size" data-min="10" data-max="24" mc:edit="">{{ $no_telp }}</td>
                                                     </tr>
                                                     </tbody>
-                                                </table></td>
+                                                </table>
+                                            </td>
                                             <td align="center" class="mobile" height="20"></td>
                                         </tr>
-                                        </tbody></table></td>
+                                        </tbody>
+                                    </table>
+                                </td>
                             </tr>
                             <tr>
                                 <td align="center" height="30" class="mobile"></td>
@@ -222,9 +240,11 @@
 
                         <!-- Start Container -->
                         <table width="600" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="border-bottom:1px #ececec solid; border-top:1px #ececec solid" class="container">
-                            <tbody><tr>
+                            <tbody>
+                            <tr>
                                 <td height="20" style="" class="mobileOn"></td>
-                                <td width="40%" align="center" class="mobile"><table width="80%" align="center" cellspacing="0" cellpadding="0">
+                                <td width="40%" align="center" class="mobile">
+                                    <table width="80%" align="center" cellspacing="0" cellpadding="0">
                                         <tbody>
                                         <tr>
                                             <td height="10"></td>
@@ -238,7 +258,8 @@
                                         </tbody>
                                     </table></td>
                                 <td height="10" style="" class="mobileOn"></td>
-                                <td width="60%" align="" class="mobile"><table width="100%" cellspacing="0" cellpadding="0">
+                                <td width="60%" align="" class="mobile">
+                                    <table width="100%" cellspacing="0" cellpadding="0">
                                         <tbody>
                                         <tr>
                                             <td height="10"></td>
@@ -247,11 +268,9 @@
                                             <td height="10"><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="padding:15px;" class="container">
                                                     <tbody><tr>
                                                         <td height="20" style="" class="mobileOn"></td>
-                                                        <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Price</multiline></td>
+                                                        <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Quantity</multiline></td>
                                                         <td height="20" style="" class="mobileOn"></td>
-                                                        <td width="34%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Quantity</multiline></td>
-                                                        <td height="20" style="" class="mobileOn"></td>
-                                                        <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Amount</multiline></td>
+                                                        <td width="34%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Price</multiline></td>
                                                     </tr>
                                                     </tbody></table></td>
                                         </tr>
@@ -259,7 +278,8 @@
                                             <td height="10"></td>
                                         </tr>
                                         </tbody>
-                                    </table></td>
+                                    </table>
+                                </td>
                                 <td height="20" style="" class="mobileOn"></td>
                             </tr>
                             </tbody></table>
@@ -267,275 +287,115 @@
 
                     </td>
                 </tr>
-                </tbody></table>
+                </tbody>
+            </table>
+
+            @for ($i=0; $i<count($detailorder); $i++)
+                <table width="100%" data-module="Notif7.5" data-thumb="thumbnails/Notif7.5.png" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color5">
+                    <tbody>
+                    <tr>
+                        <td align="center">
+
+                            <!-- Start Container -->
+                            <table width="600" border="0" cellspacing="0" cellpadding="0" class="container" bgcolor="#ffffff">
+                                <tr>
+                                    <td height="20"></td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+
+                                        <!-- Start Container -->
+                                        <table width="600" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" class="container">
+                                            <tbody>
+                                            <tr>
+                                                <td height="20" style="" class="mobileOn"></td>
+                                                <td width="40%" align="center" valign="top" class="mobile"><table width="190" align="center" cellspacing="0" cellpadding="0">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td height="10"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                    <tbody><tr>
+                                                                        <td width="50"><img mc:edit="" editable="" src="images/50x50.png" width="50" height="50"></td>
+                                                                        <td width="15" height="10"></td>
+                                                                        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                                <tbody>
+                                                                                <tr>
+                                                                                    <td style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">{{ $detailorder[$i]['nama_produk'] }}</multiline></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td height="5"></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8d8d8d; line-height:23px; font-weight:400;" data-color="H62b Color" data-size="H62b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">( {{ $detailorder[$i]['berat'] }} gram)</multiline></td>
+                                                                                </tr>
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="10"></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table></td>
+                                                <td height="10" style="" class="mobileOn"></td>
+                                                <td width="60%" align="" valign="top" class="mobile">
+                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td height="10"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="10">
+                                                                <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="padding:15px;" class="container">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td height="20" style="" class="mobileOn"></td>
+                                                                        <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">{{ $detailorder[$i]['qty'] }}</multiline></td>
+                                                                        <td height="20" style="" class="mobileOn"></td>
+                                                                        <td width="34%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">{{ $detailorder[$i]['harga'] }}</multiline></td>
+
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="10"></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td height="20" style="" class="mobileOn"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- End Container -->
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="20"></td>
+                                </tr>
+                            </table>
+
+                            <!-- End Container -->
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            @endfor
 
 
-            <table width="100%" data-module="Notif7.5" data-thumb="thumbnails/Notif7.5.png" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color5">
-                <tbody>
-                <tr>
-                    <td align="center">
 
-                        <!-- Start Container -->
-                        <table width="600" border="0" cellspacing="0" cellpadding="0" class="container" bgcolor="#ffffff">
-                            <tr>
-                                <td height="20"></td>
-                            </tr>
-                            <tr>
-                                <td align="center">
-
-                                    <!-- Start Container -->
-                                    <table width="600" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" class="container">
-                                        <tbody><tr>
-                                            <td height="20" style="" class="mobileOn"></td>
-                                            <td width="40%" align="center" valign="top" class="mobile"><table width="190" align="center" cellspacing="0" cellpadding="0">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td valign="top">
-                                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                <tbody><tr>
-                                                                    <td width="50"><img mc:edit="" editable="" src="images/50x50.png" width="50" height="50"></td>
-                                                                    <td width="15" height="10"></td>
-                                                                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                            <tbody><tr>
-                                                                                <td style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Product Name</multiline></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td height="5"></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8d8d8d; line-height:23px; font-weight:400;" data-color="H62b Color" data-size="H62b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">#45656234</multiline></td>
-                                                                            </tr>
-                                                                            </tbody></table></td>
-                                                                </tr>
-                                                                </tbody></table>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table></td>
-                                            <td height="10" style="" class="mobileOn"></td>
-                                            <td width="60%" align="" valign="top" class="mobile"><table width="100%" cellspacing="0" cellpadding="0">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="10"><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="padding:15px;" class="container">
-                                                                <tbody><tr>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$99</multiline></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="34%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">5Pcs</multiline></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$470</multiline></td>
-                                                                </tr>
-                                                                </tbody></table></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table></td>
-                                            <td height="20" style="" class="mobileOn"></td>
-                                        </tr>
-                                        </tbody></table>
-                                    <!-- End Container -->
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td height="20"></td>
-                            </tr>
-                        </table>
-
-                        <!-- End Container -->
-
-                    </td>
-                </tr>
-                </tbody></table>
-
-            <table width="100%" data-module="Notif7.6" data-thumb="thumbnails/Notif7.6.png" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color5">
-                <tbody>
-                <tr>
-                    <td align="center">
-
-                        <!-- Start Container -->
-                        <table width="600" border="0" cellspacing="0" cellpadding="0" class="container" bgcolor="#ffffff" style="border-bottom:1px #ececec solid; border-top:1px #ececec solid">
-                            <tr>
-                                <td height="20"></td>
-                            </tr>
-                            <tr>
-                                <td align="center">
-
-                                    <!-- Start Container -->
-                                    <table width="600" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" class="container">
-                                        <tbody><tr>
-                                            <td height="20" style="" class="mobileOn"></td>
-                                            <td width="40%" align="center" valign="top" class="mobile"><table width="190" align="center" cellspacing="0" cellpadding="0">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td valign="top">
-                                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                <tbody><tr>
-                                                                    <td width="50"><img mc:edit="" editable="" src="images/50x50.png" width="50" height="50"></td>
-                                                                    <td width="15" height="10"></td>
-                                                                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                            <tbody><tr>
-                                                                                <td style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Product Name</multiline></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td height="5"></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8d8d8d; line-height:23px; font-weight:400;" data-color="H62b Color" data-size="H62b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">#45656234</multiline></td>
-                                                                            </tr>
-                                                                            </tbody></table></td>
-                                                                </tr>
-                                                                </tbody></table>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table></td>
-                                            <td height="10" style="" class="mobileOn"></td>
-                                            <td width="60%" align="" valign="top" class="mobile"><table width="100%" cellspacing="0" cellpadding="0">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="10"><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="padding:15px;" class="container">
-                                                                <tbody><tr>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$99</multiline></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="34%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">5Pcs</multiline></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$470</multiline></td>
-                                                                </tr>
-                                                                </tbody></table></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table></td>
-                                            <td height="20" style="" class="mobileOn"></td>
-                                        </tr>
-                                        </tbody></table>
-                                    <!-- End Container -->
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td height="20"></td>
-                            </tr>
-                        </table>
-
-                        <!-- End Container -->
-
-                    </td>
-                </tr>
-                </tbody></table>
-
-            <table width="100%" data-module="Notif7.7" data-thumb="thumbnails/Notif7.7.png" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color5">
-                <tbody>
-                <tr>
-                    <td align="center">
-
-                        <!-- Start Container -->
-                        <table width="600" border="0" cellspacing="0" cellpadding="0" class="container" bgcolor="#ffffff">
-                            <tr>
-                                <td height="20"></td>
-                            </tr>
-                            <tr>
-                                <td align="center">
-
-                                    <!-- Start Container -->
-                                    <table width="600" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" class="container">
-                                        <tbody><tr>
-                                            <td height="20" style="" class="mobileOn"></td>
-                                            <td width="40%" align="center" valign="top" class="mobile"><table width="190" align="center" cellspacing="0" cellpadding="0">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td valign="top">
-                                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                <tbody><tr>
-                                                                    <td width="50"><img mc:edit="" editable="" src="images/50x50.png" width="50" height="50"></td>
-                                                                    <td width="15" height="10"></td>
-                                                                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                            <tbody><tr>
-                                                                                <td style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Product Name</multiline></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td height="5"></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8d8d8d; line-height:23px; font-weight:400;" data-color="H62b Color" data-size="H62b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">#45656234</multiline></td>
-                                                                            </tr>
-                                                                            </tbody></table></td>
-                                                                </tr>
-                                                                </tbody></table>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table></td>
-                                            <td height="10" style="" class="mobileOn"></td>
-                                            <td width="60%" align="" valign="top" class="mobile"><table width="100%" cellspacing="0" cellpadding="0">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="10"><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="padding:15px;" class="container">
-                                                                <tbody><tr>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$99</multiline></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="34%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">5Pcs</multiline></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$470</multiline></td>
-                                                                </tr>
-                                                                </tbody></table></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="10"></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table></td>
-                                            <td height="20" style="" class="mobileOn"></td>
-                                        </tr>
-                                        </tbody></table>
-                                    <!-- End Container -->
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td height="20"></td>
-                            </tr>
-                        </table>
-
-                        <!-- End Container -->
-
-                    </td>
-                </tr>
-                </tbody></table>
 
             <table width="100%" data-module="Notif7.8" data-thumb="thumbnails/Notif7.8.png" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color5">
                 <tbody>
@@ -566,18 +426,26 @@
                                                                     <td height="20" style="" class="mobileOn"></td>
                                                                     <td width="13%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content"></multiline></td>
                                                                     <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="54%" align=""><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                            <tbody><tr>
-                                                                                <td height="10"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                                        <tbody><tr>
-                                                                                            <td align="right" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Item Subtotal :</multiline></td>
+                                                                    <td width="54%" align="">
+                                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                            <tbody>
+                                                                            <tr>
+                                                                                <td height="10">
+                                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                                        <tbody>
+                                                                                        <tr>
+                                                                                            <td align="right" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Subtotal :</multiline></td>
                                                                                             <td align="right" width="20"></td>
                                                                                         </tr>
-                                                                                        </tbody></table></td>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
                                                                             </tr>
-                                                                            </tbody></table></td>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
                                                                     <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$470</multiline></td>
+                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Rp. {{ number_format($belanja) }}</multiline></td>
                                                                 </tr>
                                                                 </tbody></table></td>
 
@@ -587,88 +455,47 @@
 
                                                     </tr>
                                                     <tr>
-                                                        <td><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="container">
+                                                        <td>
+                                                            <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="container">
                                                                 <tbody>
                                                                 <tr>
                                                                     <td height="20" style="" class="mobileOn"></td>
                                                                     <td width="13%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content"></multiline></td>
                                                                     <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="54%" align=""><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                            <tbody><tr>
-                                                                                <td height="10"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                                        <tbody><tr>
-                                                                                            <td align="right" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Shipping :</multiline></td>
+                                                                    <td width="54%" align="">
+                                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                            <tbody>
+                                                                            <tr>
+                                                                                <td height="10">
+                                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                                        <tbody>
+                                                                                        <tr>
+                                                                                            <td align="right" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Biaya Kirim :</multiline></td>
                                                                                             <td align="right" width="20"></td>
                                                                                         </tr>
-                                                                                        </tbody></table></td>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
                                                                             </tr>
-                                                                            </tbody></table></td>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
                                                                     <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$470</multiline></td>
+                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Rp. {{number_format($biayakirim)}}</multiline></td>
                                                                 </tr>
-                                                                </tbody></table></td>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
 
                                                     </tr>
                                                     <tr>
                                                         <td height="5"></td>
 
                                                     </tr>
-                                                    <tr>
-                                                        <td><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="container">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="13%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content"></multiline></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="54%" align=""><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                            <tbody><tr>
-                                                                                <td height="10"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                                        <tbody><tr>
-                                                                                            <td align="right" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Total Before Tax :</multiline></td>
-                                                                                            <td align="right" width="20"></td>
-                                                                                        </tr>
-                                                                                        </tbody></table></td>
-                                                                            </tr>
-                                                                            </tbody></table></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$470</multiline></td>
-                                                                </tr>
-                                                                </tbody></table></td>
 
-                                                    </tr>
                                                     <tr>
-                                                        <td height="5"></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="container">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="13%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content"></multiline></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="54%" align=""><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                            <tbody><tr>
-                                                                                <td height="10"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                                        <tbody><tr>
-                                                                                            <td align="right" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Sales Tax Collected :</multiline></td>
-                                                                                            <td align="right" width="20"></td>
-                                                                                        </tr>
-                                                                                        </tbody></table></td>
-                                                                            </tr>
-                                                                            </tbody></table></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$470</multiline></td>
-                                                                </tr>
-                                                                </tbody></table></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="20"></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="border-top:1px #ececec solid" class="container">
+                                                        <td>
+                                                            <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="border-top:1px #ececec solid" class="container">
                                                                 <tbody>
                                                                 <tr>
                                                                     <td height="20" style="" class="mobileOn"></td>
@@ -687,97 +514,59 @@
                                                                     <td height="20" style="" class="mobileOn"></td>
                                                                     <td width="33%" align=""></td>
                                                                 </tr>
-                                                                </tbody></table></td>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
 
                                                     </tr>
                                                     <tr>
-                                                        <td><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="container">
+                                                        <td>
+                                                            <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="container">
                                                                 <tbody>
                                                                 <tr>
                                                                     <td height="20" style="" class="mobileOn"></td>
                                                                     <td width="13%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content"></multiline></td>
                                                                     <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="54%" align=""><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                            <tbody><tr>
-                                                                                <td height="10"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                                        <tbody><tr>
+                                                                    <td width="54%" align="">
+                                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                            <tbody>
+                                                                            <tr>
+                                                                                <td height="10">
+                                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                                        <tbody>
+                                                                                        <tr>
                                                                                             <td align="right" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Total :</multiline></td>
                                                                                             <td align="right" width="20"></td>
                                                                                         </tr>
-                                                                                        </tbody></table></td>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
                                                                             </tr>
-                                                                            </tbody></table></td>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
                                                                     <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$470</multiline></td>
+                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">{{ number_format($belanja+$biayakirim) }}</multiline></td>
                                                                 </tr>
-                                                                </tbody></table></td>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
 
                                                     </tr>
                                                     <tr>
                                                         <td height="5"></td>
 
                                                     </tr>
-                                                    <tr>
-                                                        <td><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="container">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="13%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content"></multiline></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="54%" align=""><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                            <tbody><tr>
-                                                                                <td height="10"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                                        <tbody><tr>
-                                                                                            <td align="right" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Amount Paid :</multiline></td>
-                                                                                            <td align="right" width="20"></td>
-                                                                                        </tr>
-                                                                                        </tbody></table></td>
-                                                                            </tr>
-                                                                            </tbody></table></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$470</multiline></td>
-                                                                </tr>
-                                                                </tbody></table></td>
 
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="5"></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="container">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="13%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content"></multiline></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="54%" align=""><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                            <tbody><tr>
-                                                                                <td height="10"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                                        <tbody><tr>
-                                                                                            <td align="right" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #333333; line-height:26px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Payment Due :</multiline></td>
-                                                                                            <td align="right" width="20"></td>
-                                                                                        </tr>
-                                                                                        </tbody></table></td>
-                                                                            </tr>
-                                                                            </tbody></table></td>
-                                                                    <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">$470</multiline></td>
-                                                                </tr>
-                                                                </tbody></table></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="40"></td>
-
-                                                    </tr>
 
 
                                                     </tbody>
-                                                </table></td>
+                                                </table>
+                                            </td>
                                             <td height="20" style="" class="mobileOn"></td>
                                         </tr>
-                                        </tbody></table>
+                                        </tbody>
+                                    </table>
                                     <!-- End Container -->
 
                                 </td>
@@ -791,7 +580,8 @@
 
                     </td>
                 </tr>
-                </tbody></table>
+                </tbody>
+            </table>
 
 
             <table width="100%" data-module="Notif7.9" data-thumb="thumbnails/Notif7.9.png" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color22">
@@ -814,14 +604,17 @@
                                             <td align="center" height="20">
                                                 <!-- Start Content -->
                                                 <table align="center" width="150" border="0" cellspacing="0" cellpadding="0">
-                                                    <tbody><tr>
+                                                    <tbody>
+                                                    <tr>
                                                         <td width="25%" align="center"><a href="#"><img mc:edit="" editable="" src="images/facebookwht.png" width="16" height="16" alt="facebook"></a></td>
                                                         <td width="25%" align="center"><a href="#"><img mc:edit="" editable="" src="images/twitterwht.png" width="16" height="16" alt="twitter"></a></td>
                                                         <td width="25%" align="center"><a href="#"><img mc:edit="" editable="" src="images/pinterestwht.png" width="16" height="16" alt="dribble"></a></td>
                                                         <td width="25%" align="center"><a href="#"><img mc:edit="" editable="" src="images/dribbblewht.png" width="16" height="16" alt="youtube"></a></td>
                                                     </tr>
-                                                    </tbody></table>
-                                                <!-- End Content --></td>
+                                                    </tbody>
+                                                </table>
+                                                <!-- End Content -->
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>                                        <!-- End Container -->
@@ -836,7 +629,7 @@
                                     <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="container">
                                         <tbody>
                                         <tr>
-                                            <td align="center" height="20" class="mobile" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #ececec; line-height:23px; font-weight:400;" data-color="H7 Color" data-size="H7 Size" data-min="10" data-max="24" mc:edit=""><multiline>copyright © 2016 note @admin.com</multiline></td>
+                                            <td align="center" height="20" class="mobile" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #ececec; line-height:23px; font-weight:400;" data-color="H7 Color" data-size="H7 Size" data-min="10" data-max="24" mc:edit=""><multiline>copyright © {{date('Y')}} note {{$nama_toko}}</multiline></td>
                                         </tr>
                                         </tbody></table>                                        <!-- End Container -->
                                 </td>
@@ -855,37 +648,44 @@
                                                 <table width="380" border="0" align="center" cellpadding="0" cellspacing="0" class="container">
                                                     <tbody>
                                                     <tr>
-                                                        <td align="center" height="20"><table align="center" width="100%" border="0" cellspacing="0" cellpadding="0" class="container">
+                                                        <td align="center" height="20">
+                                                            <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0" class="container">
                                                                 <tbody>
                                                                 <tr>
                                                                     <td align="center" height="20" style="font-family: OpenSans, Arial, sans-serif; text-decoration:none; font-size: 13px; color: #ececec; line-height:23px; font-weight:400;" data-link-color="UnsubscribeLink_Color" data-size="Unsubscribe_Size" data-min="8" data-max="24"><a href="sr_unsubscribe" style="font-family: OpenSans, Arial, sans-serif; text-decoration:none; font-size: 13px; color: #ececec; line-height:23px; font-weight:400;" data-link-color="UnsubscribeLink_Color" data-size="Unsubscribe_Size" data-min="8" data-max="24">Unsubscribe</a></td>
                                                                 </tr>
                                                                 </tbody>
-                                                            </table></td>
+                                                            </table>
+                                                        </td>
                                                     </tr>
-                                                    </tbody></table>                                        <!-- End Container -->
+                                                    </tbody>
+                                                </table>                                        <!-- End Container -->
                                             </td>
                                         </tr>
-                                        </tbody></table>                                        <!-- End Container -->
+                                        </tbody>
+                                    </table>                                        <!-- End Container -->
                                 </td>
                             </tr>
                             <tr>
                                 <td align="center" height="40"></td>
                             </tr>
-                            </tbody></table>
+                            </tbody>
+                        </table>
 
                         <!-- End Container -->
 
                     </td>
                 </tr>
-                </tbody></table>
+                </tbody>
+            </table>
 
             <table width="100%" data-module="Notif7.10" data-thumb="thumbnails/Notif7.10.png" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color5">
                 <tbody>
                 <tr>
                     <td height="50" style="font-family: OpenSans, Arial, sans-serif; font-size:10px; line-height:10px;"></td>
                 </tr>
-                </tbody></table>
+                </tbody>
+            </table>
 
 
 

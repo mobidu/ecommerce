@@ -140,14 +140,18 @@ class TransactionController extends Controller
 	    	$totalblj[] = $detailorder[$l]['harga'];
 	    }
 
+	    $biayakirim = $order->jne;
+
 	    $totalbelanja = array_sum($totalblj);
 	    $emailadmin = Setting::findOrFail(1);
+
 
 	    $data = array(
             'name' 			=> $customer->nama_lengkap,
             'alamat'		=> $order->alamat,
             'no_telp'		=> $customer->no_hp,
             'emailto' 		=> $customer->email,
+            'biayakirim' 	=> $order->jne,
             'invoice' 		=> $order->invoice,
             'belanja' 		=> $totalbelanja,
             'detailorder'	=> $detailorder,
