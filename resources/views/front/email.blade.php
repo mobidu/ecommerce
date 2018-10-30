@@ -126,12 +126,12 @@
                                                     <tbody>
                                                     <tr>
                                                         <td width="100" height="22" class="mobile50" align="center" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; text-decoration:none; color: #FFFFFF; line-height:23px; font-weight:400;" data-color="H8Linkwht Color" data-size="H8Linkwht Size" data-min="8" data-max="24">
-                                                            <a href="" target="_blank" alias="" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; text-decoration:none; color: #FFFFFF; line-height:23px; font-weight:400;" data-color="H8Linkwht Color" data-size="H8Linkwht Size" data-min="8" data-max="24" mc:edit=""><multiline>Home</multiline></a>
+                                                            <a href="{{url('/')}}" target="_blank" alias="" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; text-decoration:none; color: #FFFFFF; line-height:23px; font-weight:400;" data-color="H8Linkwht Color" data-size="H8Linkwht Size" data-min="8" data-max="24" mc:edit=""><multiline>Beranda</multiline></a>
                                                         </td>
                                                         <td width="100" height="22" class="mobile50" align="center" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; text-decoration:none; color: #FFFFFF; line-height:23px; font-weight:400;" data-color="H8Linkwht Color" data-size="H8Linkwht Size" data-min="8" data-max="24">
-                                                            <a href="" target="_blank" alias="" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; text-decoration:none; color: #FFFFFF; line-height:23px; font-weight:400;" data-color="H8Linkwht Color" data-size="H8Linkwht Size" data-min="8" data-max="24" mc:edit=""><multiline>About</multiline></a></td>
+                                                            <a href="{{url('/tentang')}}" target="_blank" alias="" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; text-decoration:none; color: #FFFFFF; line-height:23px; font-weight:400;" data-color="H8Linkwht Color" data-size="H8Linkwht Size" data-min="8" data-max="24" mc:edit=""><multiline>Tentang</multiline></a></td>
                                                         <td width="100" height="22" class="mobile50" align="center" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; text-decoration:none; color: #FFFFFF; line-height:23px; font-weight:400;" data-color="H8Linkwht Color" data-size="H8Linkwht Size" data-min="8" data-max="24">
-                                                            <a href="" target="_blank" alias="" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; text-decoration:none; color: #FFFFFF; line-height:23px; font-weight:400;" data-color="H8Linkwht Color" data-size="H8Linkwht Size" data-min="8" data-max="24" mc:edit=""><multiline>Help</multiline></a></td>
+                                                            <a href="{{url('/p/cara-belanja')}}" target="_blank" alias="" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; text-decoration:none; color: #FFFFFF; line-height:23px; font-weight:400;" data-color="H8Linkwht Color" data-size="H8Linkwht Size" data-min="8" data-max="24" mc:edit=""><multiline>Cara Belanja</multiline></a></td>
                                                     </tr>
                                                     </tbody></table>
                                                 <!-- End Container -->
@@ -540,7 +540,7 @@
                                                                         </table>
                                                                     </td>
                                                                     <td height="20" style="" class="mobileOn"></td>
-                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">{{ number_format($belanja+$biayakirim) }}</multiline></td>
+                                                                    <td width="33%" align="" style="font-family: OpenSans, Arial, sans-serif; font-size: 14px; color: #8d8d8d; line-height:26px; font-weight:400;" data-color="H6wht Color" data-size="H6wht Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Rp. {{ number_format($belanja+$biayakirim) }}</multiline></td>
                                                                 </tr>
                                                                 </tbody>
                                                             </table>
@@ -590,40 +590,12 @@
                                 <td align="center" height="40"></td>
                             </tr>
                             <tr>
-                                <td width="200" class="mobile" style="font-family: OpenSans, Arial, sans-serif; font-size:12px; line-height:24px;" align="center">
-                                    <!-- Start Content -->
-                                    <table align="center" width="150" border="0" cellspacing="0" cellpadding="0" class="container">
-                                        <tbody>
-                                        <tr>
-                                            <td align="center" height="20">
-                                                <!-- Start Content -->
-                                                <table align="center" width="150" border="0" cellspacing="0" cellpadding="0">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="25%" align="center"><a href="#"><img mc:edit="" editable="" src="images/facebookwht.png" width="16" height="16" alt="facebook"></a></td>
-                                                        <td width="25%" align="center"><a href="#"><img mc:edit="" editable="" src="images/twitterwht.png" width="16" height="16" alt="twitter"></a></td>
-                                                        <td width="25%" align="center"><a href="#"><img mc:edit="" editable="" src="images/pinterestwht.png" width="16" height="16" alt="dribble"></a></td>
-                                                        <td width="25%" align="center"><a href="#"><img mc:edit="" editable="" src="images/dribbblewht.png" width="16" height="16" alt="youtube"></a></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                                <!-- End Content -->
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>                                        <!-- End Container -->
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center" height="20"></td>
-                            </tr>
-                            <tr>
                                 <td align="center" class="mobile" style="font-family: OpenSans, Arial, sans-serif; font-size:12px; line-height:24px;">
                                     <!-- Start Content -->
                                     <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="container">
                                         <tbody>
                                         <tr>
-                                            <td align="center" height="20" class="mobile" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #ececec; line-height:23px; font-weight:400;" data-color="H7 Color" data-size="H7 Size" data-min="10" data-max="24" mc:edit=""><multiline>copyright © {{date('Y')}} note {{$nama_toko}}</multiline></td>
+                                            <td align="center" height="20" class="mobile" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #ececec; line-height:23px; font-weight:400;" data-color="H7 Color" data-size="H7 Size" data-min="10" data-max="24" mc:edit=""><multiline>Copyright © {{date('Y')}} By. {{$nama_toko}}</multiline></td>
                                         </tr>
                                         </tbody></table>                                        <!-- End Container -->
                                 </td>
