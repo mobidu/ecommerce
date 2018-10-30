@@ -552,6 +552,66 @@
 
                                                     </tr>
 
+                                                    <tr>
+                                                        <td align="center">
+
+                                                            <!-- Start Container -->
+                                                            <table width="500" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff" class="container">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td align="center" bgcolor="#42729B" style="font-size: 35px; line-height: 30px; color: #ffffff; font-weight: 700;"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td height="50"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" class="mobile" style="font-size:12px; line-height:24px;"><table width="400" cellpadding="0" cellspacing="0" border="0" class="container">
+                                                                            <tbody><tr>
+                                                                                <td width="350" align="center" class="mobile" style="font-size:12px; line-height:24px;">
+                                                                                    <!-- Start Content -->
+                                                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="container">
+                                                                                        <tbody>
+                                                                                        <tr>
+                                                                                            <td align="center" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #333333; line-height:23px; font-weight:600;" data-color="H6b Color" data-size="H6b Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">Silahkan Melakukan Pembayaran dengan Menekan Tombol Dibawah</multiline></td>
+                                                                                        </tr>
+
+                                                                                        <tr>
+                                                                                            <td align="center" class="mobile" style="font-size:14px; line-height:24px;"><table width="125px" border="0" align="center" cellpadding="0" cellspacing="0" class="container">
+                                                                                                    <tbody><tr>
+                                                                                                        <td><!-- Start Button -->
+                                                                                                            <table width="125" cellpadding="0" cellspacing="0" align="center" border="0">
+                                                                                                                <tbody><tr>
+                                                                                                                    <td width="130" height="45" bgcolor="#42729B" data-bgcolor="ButonBGcolor" align="center" valign="middle" style="font-size: 14px; color: #ffffff; line-height:24px;border-radius: 4px;">
+                                                                                                                        <a href="{{url('/konfirmasi-pembayaran/'.$invoice)}}" target="_blank" alias="" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; text-decoration:none; color: #FFFFFF; line-height:22px; font-weight:400;" data-color="H8Linkwht Color" data-size="H8Linkwht Size" data-min="8" data-max="24" mc:edit=""><multiline>Reset</multiline></a>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                            <!-- End Button --></td>
+                                                                                                    </tr>
+                                                                                                    </tbody></table>
+
+
+
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        </tbody></table>
+                                                                                    <!-- End Content -->
+                                                                                </td>
+                                                                            </tr>
+                                                                            </tbody></table></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" height="50" class="mobile"></td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <!-- End Container -->
+
+                                                        </td>
+                                                    </tr>
+
+
 
 
                                                     </tbody>
