@@ -54,7 +54,7 @@
                                 <div class="form-group">
                                     <label for="incoice">#InvoiceID</label>
 
-                                    <input type="text" class="form-control" name="invoice" id="invoice" required>
+                                    <input type="text" value="{{old('invoice') ? old('invoice') : request()->has('inv') ? request()->get('inv') : ''}}" class="form-control" name="invoice" id="invoice" required>
                                     <p id="pesan"></p>
                                 </div>
 
