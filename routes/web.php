@@ -45,6 +45,7 @@ Route::get('/profil', 'front\ProfilController@index');
 Route::get('/update-profil', 'front\ProfilController@update_profil');
 Route::get('/affiliate', 'front\ProfilController@affiliate');
 Route::get('/affiliate/penarikan', 'front\ProfilController@penarikan_saldo');
+Route::get('/affiliate/penarikan/{id}', 'front\ProfilController@detail_penarikan');
 Route::post('/affiliate/penarikan', 'front\ProfilController@simpan_penarikan_saldo');
 
 Route::get('/cart', 'front\HomepageController@cart');
@@ -179,6 +180,7 @@ Route::delete('/admin/testimoni/{id}', ['as' => 'testimoni.destroy', 'uses' => '
 Route::get('/admin/request_penarikan', ['as' => 'request_penarikan.index', 'uses' => 'PenarikanController@index']);
 Route::get('/admin/request_penarikan/data',  'PenarikanController@data');
 Route::get('/admin/request_penarikan/konfirmasi/{id}',  'PenarikanController@konfirmasi');
+Route::get('/admin/request_penarikan/konfirmasi/{id}/detail',  'PenarikanController@detail');
 Route::post('/admin/request_penarikan/konfirmasi',  'PenarikanController@konfirmasi_pembayaran');
 
 

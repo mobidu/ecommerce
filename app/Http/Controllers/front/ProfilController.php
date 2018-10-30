@@ -71,4 +71,15 @@ class ProfilController extends Controller
         }
     }
 
+    public function detail_penarikan($id, Request $request)
+    {
+        $pengaturan = Setting::find(1);
+        $product = Product::orderBy('created_at', 'desc')->with('media_image', 'category')->take(8)->paginate(8);
+        $kategori = Category::all();
+        $testimoni = Testimoni::where('status', '=', 1)->orderBy('created_at', 'desc')->take(10)->get();
+        $bank = Bank::all();
+        $penarikan = PenarikanSaldo::findOrFail($id);
+        return view('front.customer.detail_penarikan', compact(['pengaturan', 'product', 'kategori', 'testimoni', 'bank', 'penarikan']));
+    }
+
 }

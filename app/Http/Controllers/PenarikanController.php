@@ -97,4 +97,10 @@ class PenarikanController extends Controller
         }
     }
 
+    public function detail($id, Request $request){
+        $penarikan = PenarikanSaldo::findOrFail($id);
+        $pengaturan = Setting::first();
+        return view('admin.penarikan.detail', compact(['penarikan', 'pengaturan']));
+    }
+
 }

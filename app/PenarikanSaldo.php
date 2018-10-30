@@ -14,4 +14,9 @@ class PenarikanSaldo extends Model
     {
         return $this->hasOne('App\Customer', 'affiliate_id', 'id_affiliate');
     }
+
+    public function pencairan()
+    {
+        return $this->hasOne('App\PencairanSaldo', 'id_penarikan', 'id');
+    }
 }

@@ -12,4 +12,9 @@ class PencairanSaldo extends Model
     {
         return $this->hasOne('App\PenarikanSaldo', 'id', 'id_penarikan');
     }
+
+    public function rekening()
+    {
+        return $this->hasOne('App\Bank', 'id', 'id_rekening');
+    }
 }

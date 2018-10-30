@@ -70,9 +70,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-center">
-                                {{ $product->links() }}
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -102,7 +99,7 @@
                                                 <td align="center">{{$penarikan->jumlah}}</td>
                                                 <td align="center">{!! $penarikan->status == 'menunggu' ?  "<span class='label label-danger'>Menunggu</span>" : "<span class='label label-success'>Selesai</span>"!!}</td>
                                                 <td align="center">
-                                                    <a href="#" class="btn btn-xs btn-primary"><i class="fa fa-eye"></i>&nbsp;&nbsp;Detail</a>
+                                                    <a href="{{url('/affiliate/penarikan/'.$penarikan->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-eye"></i>&nbsp;&nbsp;Detail</a>
                                                 </td>
                                             </tr>
                                             <?php $urut++; ?>
