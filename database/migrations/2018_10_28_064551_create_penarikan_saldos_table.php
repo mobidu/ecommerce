@@ -17,6 +17,8 @@ class CreatePenarikanSaldosTable extends Migration
             Schema::create('penarikan_saldo', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('id_affiliate');
+                $table->string('no_rek');
+                $table->string('nama_pemilik');
                 $table->double('jumlah');
                 $table->enum('status', ['menunggu', 'selesai']);
                 $table->timestamps();

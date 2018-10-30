@@ -51,7 +51,7 @@
                                         <td><h2>Rp. {{auth()->guard('customer')->user() ? number_format(auth()->guard('customer')->user()->saldo) : '0'}},-</h2></td>
                                     </tr>
                                 </table>
-                                <a href="#" class="btn btn-success btn-cairkan" onclick=""><i class="fa fa-money"></i>&nbsp;&nbsp;&nbsp;Ajukan Pencairan</a>
+                                <a href="{{url('/affiliate/penarikan')}}" class="btn btn-success btn-cairkan" onclick=""><i class="fa fa-money"></i>&nbsp;&nbsp;&nbsp;Ajukan Pencairan</a>
                             </div>
                         </div>
                     </div>

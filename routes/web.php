@@ -44,7 +44,8 @@ Route::get('/tentang', 'front\HomepageController@tentang');
 Route::get('/profil', 'front\ProfilController@index');
 Route::get('/update-profil', 'front\ProfilController@update_profil');
 Route::get('/affiliate', 'front\ProfilController@affiliate');
-Route::get('/affiliate/{id}', 'front\ProfilController@affiliate');
+Route::get('/affiliate/penarikan', 'front\ProfilController@penarikan_saldo');
+Route::post('/affiliate/penarikan', 'front\ProfilController@simpan_penarikan_saldo');
 
 Route::get('/cart', 'front\HomepageController@cart');
 Route::post('/cart', 'front\HomepageController@proses_cart');
@@ -91,6 +92,13 @@ Route::get('/finish', 'front\TransactionController@finishTransaction');
 //});
 
 //Route Login
+Route::get('/admin', function(){
+    if(auth()->guard('admin')->check()){
+       return redirect('/admin/home');
+    }else{
+        return redirect('/admin/login');
+    }
+});
 Route::get('/admin/login', 'Auth\AuthController@showLoginForm');
 Route::post('/admin/login', 'Auth\AuthController@login');
 Route::get('/admin/logout', 'Auth\AuthController@logout');
