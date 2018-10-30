@@ -291,7 +291,7 @@
             </table>
 
             @for ($i=0; $i<count($detailorder); $i++)
-                <table width="100%" data-module="Notif7.5" data-thumb="thumbnails/Notif7.5.png" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color5">
+                <table width="100%" data-module="Notif7.5" data-thumb="{{$p->media_image_id ? asset('upload/img/' . $p->media_image->name_photo) : asset('img/not-available.jpg')}}" align="center" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#ececec" data-bgcolor="MainBG_Color5">
                     <tbody>
                     <tr>
                         <td align="center">
