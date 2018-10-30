@@ -175,4 +175,11 @@ Route::get('/admin/testimoni/{id}/edit', ['as' => 'testimoni.edit', 'uses' => 'T
 Route::put('/admin/testimoni/{id}', ['as' => 'testimoni.update', 'uses' => 'TestimoniController@update']);
 Route::delete('/admin/testimoni/{id}', ['as' => 'testimoni.destroy', 'uses' => 'TestimoniController@destroy']);
 
+// Route Request Penarikan
+Route::get('/admin/request_penarikan', ['as' => 'request_penarikan.index', 'uses' => 'PenarikanController@index']);
+Route::get('/admin/request_penarikan/data',  'PenarikanController@data');
+Route::get('/admin/request_penarikan/konfirmasi/{id}',  'PenarikanController@konfirmasi');
+Route::post('/admin/request_penarikan/konfirmasi',  'PenarikanController@konfirmasi_pembayaran');
+
+
 //});

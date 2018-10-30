@@ -161,6 +161,7 @@
                 <li><a href="{{ url('/admin/order') }}"><i class="fa fa-circle-o"></i> All Orders</a></li>
                 <li><a href="{{ url('/admin/pembayaran') }}"><i class="fa fa-circle-o"></i> Pembayaran</a></li>
                 <li><a href="{{ url('/admin/waiting-payment') }}"><i class="fa fa-circle-o"></i> Waiting Payment</a></li>
+                <li><a href="{{ url('/admin/request_penarikan') }}"><i class="fa fa-circle-o"></i> Request Penarikan</a></li>
               </ul>
             </li>
             <li class="treeview">
