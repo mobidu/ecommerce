@@ -185,7 +185,7 @@
                                                         <td height="10"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td height="20" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8D8D8D; line-height:23px; font-weight:400;" data-color="H6 Color" data-size="H6 Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">MR.MICHAEL</multiline></td>
+                                                        <td height="20" style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8D8D8D; line-height:23px; font-weight:400;" data-color="H6 Color" data-size="H6 Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">{{ $name }}</multiline></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -200,12 +200,6 @@
                                                     </tr>
                                                     <tr>
                                                         <td align="center" height="10"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8D8D8D; line-height:23px; font-weight:400;" data-color="H6 Color" data-size="H6 Size" data-min="10" data-max="24" mc:edit=""><multiline label="content">{{ $name }}</multiline></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td height="10"></td>
                                                     </tr>
                                                     <tr>
                                                         <td style="font-family: OpenSans, Arial, sans-serif; font-size: 13px; color: #8D8D8D; line-height:23px; font-weight:400;" data-color="H6 Color" data-size="H6 Size" data-min="10" data-max="24" mc:edit="">{{ $alamat }}</td>
