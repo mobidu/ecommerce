@@ -16,7 +16,6 @@
 	</style>
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
 	<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
 	<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 @endsection
@@ -254,8 +253,20 @@
 </div><!-- /.content-wrapper -->
 
 <script>
-    CKEDITOR.replace( 'deskripsi' );
+    $(function(){
+        $("#deskripsi").summernote( {
+            height: 200, toolbar: [ // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']], ['insert', ['picture', 'video', 'link', 'table']], ['font', ['strikethrough', 'superscript', 'subscript']], ['fontsize', ['fontsize']], ['color', ['color']], ['para', ['ul', 'ol', 'paragraph']], ['height', ['height']], ['misc', ['fullscreen']], ],
+        });
+    });
 </script>
+
+@section('script')
+	<script src="{{url('/plugins/summernote/dist/summernote.js')}}" type="text/javascript"></script>
+@endsection
+@section('style')
+	<link rel="stylesheet" href="{{url('/plugins/summernote/dist/summernote.css')}}">
+@endsection
 
 <script type="text/javascript">
   $('#kategori_id').select2({

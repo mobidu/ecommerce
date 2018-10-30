@@ -13,6 +13,8 @@ use App\Category;
 use App\Supplier;
 use App\Media_image;
 use File;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -108,13 +110,46 @@ class ProductController extends Controller
             $lastInsertId = $media->id;
         }
 
+        $content = $request->get('deskripsi');
+        $dom = new \DomDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHtml('<?xml encoding="utf-8" ?>'.$content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+
+        $gambar = [];
+
+        foreach($images as $k => $img){
+            $data = $img->getAttribute('src');
+            if(preg_match('/data:image/', $data)){
+                // get the mimetype
+                preg_match('/data:image\/(?<mime>.*?)\;/', $data, $groups);
+                $mimetype = $groups['mime'];
+                // Generating a random filename
+                $filename = Auth::guard('admin')->Id().'_'.md5(time().$k.Auth::guard('admin')->Id());
+                $filepath = "/img/$filename.$mimetype";
+                // @see http://image.intervention.io/api/
+                $image = Image::make($data)
+                    // resize if required
+                    /* ->resize(300, 200) */
+                    ->encode($mimetype, 100)  // encode file to the specified mimetype
+                    ->save(public_path($filepath),50);
+
+                array_push($gambar, $filepath);
+
+                $new_src = asset($filepath);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $new_src);
+            } // <!--endif
+        }
+        $content = $dom->saveHTML();
+
         Product::create([
             'kode_produk'   => $request->kode_produk,
             'nama_produk'   => $request->nama_produk,
             'slug'          => $request->slug,
             'kategori_id'   => $request->kategori_id,
             'supplier_id'   => $request->supplier_id,
-            'deskripsi'     => $request->input('deskripsi'),
+            'deskripsi'     => $content,
             'berat'         => $request->berat,
             'stok'          => $request->stok,
             'media_image_id'=> $lastInsertId,
@@ -183,9 +218,9 @@ class ProductController extends Controller
             ]);
         $hemat = $request->harga * $request->diskon / 100;
         $harga_jual = $request->harga - $hemat;
-        
+        $update_data = Product::find($id);
         if (!$request->hasFile('media_image_id')) {
-            $lastInsertId = null;
+            $lastInsertId = $update_data->media_image_id;
         } else {
             $photo = $request->file('media_image_id');
             $filename = str_random(6) . "." . $photo->getClientOriginalExtension();
@@ -199,12 +234,45 @@ class ProductController extends Controller
                 ]);
             $lastInsertId = $media->id;
         }
-        $update_data = Product::find($id);
+
+        $content = $request->get('deskripsi');
+        $dom = new \DomDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHtml('<?xml encoding="utf-8" ?>'.$content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+
+        $gambar = [];
+
+        foreach($images as $k => $img){
+            $data = $img->getAttribute('src');
+            if(preg_match('/data:image/', $data)){
+                // get the mimetype
+                preg_match('/data:image\/(?<mime>.*?)\;/', $data, $groups);
+                $mimetype = $groups['mime'];
+                // Generating a random filename
+                $filename = Auth::guard('admin')->Id().'_'.md5(time().$k.Auth::guard('admin')->Id());
+                $filepath = "/img/$filename.$mimetype";
+                // @see http://image.intervention.io/api/
+                $image = Image::make($data)
+                    // resize if required
+                    /* ->resize(300, 200) */
+                    ->encode($mimetype, 100)  // encode file to the specified mimetype
+                    ->save(public_path($filepath),50);
+
+                array_push($gambar, $filepath);
+
+                $new_src = asset($filepath);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $new_src);
+            } // <!--endif
+        }
+        $content = $dom->saveHTML();
+
         $update_data->update([
             'nama_produk'   => $request->nama_produk,
             'kategori_id'   => $request->kategori_id,
             'supplier_id'   => $request->supplier_id,
-            'deskripsi'     => $request->input('deskripsi'),
+            'deskripsi'     => $content,
             'berat'         => $request->berat,
             'stok'          => $request->stok,
             'media_image_id'=> $lastInsertId,
