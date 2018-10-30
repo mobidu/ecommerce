@@ -113,7 +113,7 @@
                                             <td height="40"></td>
                                         </tr>
                                         <tr>
-                                            <td height="20" align="center"><img mc:edit="" editable="" src="{{url('/img/logo.png')}}" width="100" height="50"></td>
+                                            <td height="20" align="center"><img mc:edit="" editable="" src="{{url('/img/logo.png')}}" width="150" height="50"></td>
                                         </tr>
                                         <tr>
                                             <td height="20"></td>

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be15ed81-8527-481f-8c60-ee59e948735c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/front/TransactionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/front/TransactionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/email.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,8 +83,8 @@
       <file leaf-file-name="email.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/front/email.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="213" column="270" selection-start-line="213" selection-start-column="270" selection-end-line="213" selection-end-column="270" />
+            <state relative-caret-position="115">
+              <caret line="115" column="143" selection-start-line="115" selection-start-column="143" selection-end-line="115" selection-end-column="143" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -485,12 +484,12 @@
       <workItem from="1540381801958" duration="737000" />
       <workItem from="1540389670783" duration="21586000" />
       <workItem from="1540537879167" duration="5458000" />
-      <workItem from="1540707563649" duration="16211000" />
+      <workItem from="1540707563649" duration="16324000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251172000" />
+    <option name="totallyTimeSpent" value="251285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -930,8 +929,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/front/email.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="213" column="270" selection-start-line="213" selection-start-column="270" selection-end-line="213" selection-end-column="270" />
+        <state relative-caret-position="115">
+          <caret line="115" column="143" selection-start-line="115" selection-start-column="143" selection-end-line="115" selection-end-column="143" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
