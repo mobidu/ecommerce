@@ -43,4 +43,9 @@ class Customer extends Authenticable
         return $this->hasMany('App\PenarikanSaldo', 'id_affiliate', 'affiliate_id');
     }
 
+    public function ulasan()
+    {
+        return $this->hasMany('App\Ulasan', 'id_customer', 'id');
+    }
+
 }

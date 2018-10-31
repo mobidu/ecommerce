@@ -29,13 +29,14 @@
                                         <td align="center">{{date('d-m-Y', strtotime($order->created_at))}}</td>
                                         <td align="center">Rp. {{number_format($order->order_detail()->sum('harga')+$order->jne)}},-</td>
                                         <td align="center">
+
                                             <?php
                                                 switch ($order->status_order){
-                                                    case 'pending' :
-                                                        echo "<span class='label label-warning'>Pending</span>";
+                                                    case 'Pending' :
+                                                        echo "<span class='label label-danger'>Menunggu Proses Pembayaran</span>";
                                                         break;
                                                     case 'Proses Pengiriman' :
-                                                        echo "<span class='label label-warning'>Proses Pengiriman</span>";
+                                                        echo "<span class='label label-info'>Proses Pengiriman</span>";
                                                         break;
                                                     default : echo "Error";
                                                 }

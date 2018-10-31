@@ -8,6 +8,7 @@ use App\Order;
 use App\Product;
 use App\Setting;
 use App\Testimoni;
+use App\Ulasan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -59,6 +60,28 @@ class OrderController extends Controller
         $testimoni = Testimoni::where('status', '=', 1)->orderBy('created_at', 'desc')->take(10)->get();
         $bank = Bank::all();
         return view('front.order.detail', compact(['order', 'pengaturan', 'product', 'kategori', 'testimoni', 'bank']));
+    }
+
+    public function submit_rating($invoice, $id_barang, Request $request)
+    {
+        $this->validate($request, [
+            'rating'=>'required',
+            'ulasan'=>'required'
+        ]);
+
+        $order = Order::where('invoice', '=', $invoice)->first();
+
+        $ulasan = new Ulasan();
+        $ulasan->id_order = $order->id;
+        $ulasan->id_barang = $id_barang;
+        $ulasan->id_customer = auth()->guard('customer')->user()->id;
+        $ulasan->rating = $request->get('rating');
+        $ulasan->deskripsi = $request->get('ulasan');
+
+        if($ulasan->save())
+        {
+            return redirect()->back()->with('sukses', 'Terima Kasih telah Menambahkan Ulasan Terhadap Produk!');
+        }
     }
 
 

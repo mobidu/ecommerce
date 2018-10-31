@@ -22,4 +22,5 @@ class Order extends Model
     {
         return \RajaOngkir::Provinsi()->find($this->id);
     }
+
 }

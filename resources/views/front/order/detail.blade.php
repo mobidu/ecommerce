@@ -143,6 +143,11 @@
             </div>
 
             <div class="col-md-9 col-sm-12 col-xs-12">
+                @if(session()->has('sukses'))
+                    <div class="alert allert-success">
+                        <p>{{session()->get('sukses')}}</p>
+                    </div>
+                @endif
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-info-circle"></i> &nbsp;&nbsp;Informasi Order</h3>
@@ -168,6 +173,30 @@
                                 <th>Tujuan Pengiriman</th>
                                 <td>:</td>
                                 <td>{{$order->alamat.', Kabupaten '.$order->city.', Provinsi'.$order->province}}</td>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td>:</td>
+                                <td>
+                                    <?php
+                                        switch ($order->status_order){
+                                            case "Pending" :
+                                                echo "<span class='label label-danger'>Menunggu Proses Pembayaran</span>";
+                                                break;
+                                            case "Proses Pengiriman" :
+                                                echo "<span class='label label-info'>Proses Pengiriman</span>";
+                                                break;
+                                            case "Complete" :
+                                                echo '<span class="label label-success">Selesai</span>';
+                                                break;
+                                            case "Batal" :
+                                                echo '<span class="label label-danger">Batal</span>';
+                                                break;
+                                            default :
+                                                echo '<span class="label label-danger">Error</span>';
+                                        }
+                                    ?>
+                                </td>
                             </tr>
                         </table>
 
@@ -221,6 +250,112 @@
                                 </tbody>
                             </table>
 
+
+
+                        </div>
+                        @if($order->status_order == 'Complete')
+                            <br />
+                            <br />
+                            <h3>Rating Barang</h3>
+                            <hr />
+                            @forelse($order->order_detail as $detail)
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-2 col-xs-4">
+                                                <img src="{{asset('upload/img/' . $detail->product->media_image->name_photo)}}" alt="" width="100%">
+                                            </div>
+                                            <div class="col-md-10 col-xs-8">
+                                                <h5>{{'('.$detail->product->kode_produk.') '.$detail->product->nama_produk}}</h5>
+                                                <p>
+                                                    Jumlah : {{$detail->qty}}
+                                                </p>
+                                                <p>
+                                                    Harga : Rp. {{number_format($detail->harga)}},-
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                @if($detail->product->ulasan()->where('id_order', '=', $order->id)->count() < 1)
+
+                                                    <form action="{{url('/order/detail/'.$order->invoice.'/ulasan/'.$detail->product->id)}}" method="post">
+                                                        {{csrf_field()}}
+                                                        <div class="form-group" id="rating-ability-wrapper">
+                                                            <input type="hidden" id="selected_rating" name="rating" required="required">
+                                                            <h4 class="bold rating-header" style="">
+                                                                <span class="selected-rating">0</span><small> / 5</small>
+                                                            </h4>
+                                                            <button type="button" class="btnrating btn btn-default btn-xs" data-attr="1" id="rating-star-1">
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                            </button>
+                                                            <button type="button" class="btnrating btn btn-default btn-xs" data-attr="2" id="rating-star-2">
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                            </button>
+                                                            <button type="button" class="btnrating btn btn-default btn-xs" data-attr="3" id="rating-star-3">
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                            </button>
+                                                            <button type="button" class="btnrating btn btn-default btn-xs" data-attr="4" id="rating-star-4">
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                            </button>
+                                                            <button type="button" class="btnrating btn btn-default btn-xs" data-attr="5" id="rating-star-5">
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <textarea name="ulasan" class="form-control" rows="4" placeholder="Masukan Ulasan Terhadap Produk"></textarea>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button class="btn btn-primary pull-right">Submit Ulasan</button>
+                                                        </div>
+                                                    </form>
+                                                @else
+                                                    <?php
+                                                        $ulasan = $detail->product->ulasan()->where('id_order', '=', $order->id)->first();
+                                                        $banyak = 5;
+                                                        ?>
+                                                    <div class="form-group" id="rating-ability-wrapper">
+                                                        <input type="hidden" id="selected_rating" name="rating" required="required">
+                                                        <h4 class="bold rating-header" style="">
+                                                            <span class="selected-rating">{{$ulasan->rating}}</span><small> / 5</small>
+                                                        </h4>
+                                                        @for($i=1; $i<=$ulasan->rating; $i++)
+                                                            <button type="button" class="btn btn-warning btn-xs">
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                            </button>
+                                                            <?php $banyak--; ?>
+                                                        @endfor
+                                                        @if($banyak >=1)
+                                                            @for($i=1; $i<=$banyak; $i++)
+                                                                <button type="button" class="btn btn-default btn-xs">
+                                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                                </button>
+                                                                <?php $banyak--; ?>
+                                                            @endfor
+                                                        @endif
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <textarea name="ulasan" readonly class="form-control" rows="4" placeholder="Masukan Ulasan Terhadap Produk">{{$ulasan->deskripsi}}</textarea>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            @empty
+
+                            @endforelse
+                        @endif
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-right"><a href="{{url('/order')}}" class="btn btn-primary"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Kembali ke Halaman Order</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -232,5 +367,32 @@
 @endsection
 
 @section('script')
+    <script>
+        jQuery(document).ready(function($){
 
+            $(".btnrating").on('click',(function(e) {
+
+                var previous_value = $("#selected_rating").val();
+
+                var selected_value = $(this).attr("data-attr");
+                $("#selected_rating").val(selected_value);
+
+                $(".selected-rating").empty();
+                $(".selected-rating").html(selected_value);
+
+                for (i = 1; i <= selected_value; ++i) {
+                    $("#rating-star-"+i).toggleClass('btn-warning');
+                    $("#rating-star-"+i).toggleClass('btn-default');
+                }
+
+                for (ix = 1; ix <= previous_value; ++ix) {
+                    $("#rating-star-"+ix).toggleClass('btn-warning');
+                    $("#rating-star-"+ix).toggleClass('btn-default');
+                }
+
+            }));
+
+
+        });
+    </script>
 @endsection

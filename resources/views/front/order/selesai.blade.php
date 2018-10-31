@@ -30,6 +30,9 @@
                                         <td align="center">Rp. {{number_format($order->order_detail()->sum('harga')+$order->jne)}},-</td>
                                         <td align="center">{!! $order->status_order == 'Complete' ? '<span class="label label-success">Selesai</span>' : ''!!}</td>
                                         <td align="center">
+                                            @if($order)
+
+                                            @endif
                                             <a href="{{url('/order/detail/'.$order->invoice)}}" class="btn btn-primary btn-sm"><span class="fa fa-file-text"></span>&nbsp;&nbsp;Detail</a>
                                         </td>
                                     </tr>

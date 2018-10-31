@@ -12,4 +12,9 @@ class Ulasan extends Model
     {
         return $this->hasOne('App\Customer', 'id', 'id_customer');
     }
+
+    public function order()
+    {
+        return $this->hasOne('App\Order', 'id', 'id_order');
+    }
 }

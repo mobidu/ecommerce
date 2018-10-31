@@ -67,6 +67,7 @@ Route::get('/p/{slug}', 'front\HomepageController@frontPage');
 // Menu Order
 Route::get('/order', 'front\OrderController@index');
 Route::get('/order/detail/{invoice}', 'front\OrderController@order_detail');
+Route::post('/order/detail/{invoice}/ulasan/{id_barang}', 'front\OrderController@submit_rating');
 Route::get('/order/data/aktif', 'front\OrderController@order_data_aktif');
 Route::get('/order/data/selesai', 'front\OrderController@order_data_selesai');
 Route::get('/order/data/batal', 'front\OrderController@order_data_batal');
