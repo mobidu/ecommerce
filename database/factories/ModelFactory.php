@@ -94,3 +94,26 @@ $factory->define(App\PencairanSaldo::class, function (Faker\Generator $faker) {
         'id_rekening'=>$faker->randomElement(\App\Bank::all()->pluck('id')->toArray())
     ];
 });
+
+$factory->define(App\Kategori::class, function (Faker\Generator $faker) {
+    return [
+        'nama' => $faker->sentence,
+        'deskripsi'=>$faker->paragraph(2, true)
+    ];
+});
+
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
+    $kategori = \App\Kategori::all()->pluck('id')->toArray();
+    $judul = $faker->sentence;
+    $slug = str_slug($judul);
+    $media = \App\Media_image::all()->pluck('id')->toArray();
+    return [
+        'judul' => $judul,
+        'slug'=>$slug,
+        'body'=>$faker->paragraph(2, true),
+
+        'id_media'=>$faker->randomElement($media),
+        'kategori_id'=>$faker->randomElement($kategori)
+    ];
+});
+

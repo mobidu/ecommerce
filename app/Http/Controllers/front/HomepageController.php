@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Diskusi;
+use App\Post;
 use App\Slide;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class HomepageController extends Controller
         $this->middleware('auth:customer', ['except'=>[
             'index', 'cart', 'proses_cart', 'delete_cart', 'kategori', 'show',
             'checkout', 'update_cart', 'getCity', 'ongkir', 'ConfirmPembayaran', 'cekInvoice',
-            'simpanInvoice', 'frontPage', 'tentang'
+            'simpanInvoice', 'frontPage', 'tentang', 'detile_blog', 'blog'
         ]]);
     }
 
@@ -40,6 +41,7 @@ class HomepageController extends Controller
         $kategori = Category::all();
         $list_slide = Slide::limit(4)->get();
         $testimoni = Testimoni::where('status', '=', 1)->orderBy('created_at', 'desc')->take(10)->get();
+        $list_post = Post::limit(10)->get();
         $bank = Bank::all();
         return view('front.index', [
             'pengaturan'    => $pengaturan,
@@ -47,7 +49,8 @@ class HomepageController extends Controller
             'kategori'      => $kategori,
             'testimoni'     => $testimoni,
             'bank'          => $bank,
-            'list_slide'    => $list_slide
+            'list_slide'    => $list_slide,
+            'list_post'     => $list_post
             ]);
     }
 
@@ -328,6 +331,25 @@ class HomepageController extends Controller
         if($diskusi->save()){
             return redirect()->back()->with('sukses', 'Berhasil Menambahkan Diskusi!');
         }
+    }
+
+    public function detile_blog($slug, Request $request){
+        $post = Post::where('slug', '=', $slug)->first();
+        $pengaturan = Setting::findOrFail(1);
+        $kategori = Category::all();
+        $testimoni = Testimoni::where('status', '=', 1)->orderBy('created_at', 'desc')->take(10)->get();
+        $bank = Bank::all();
+        return view('front.blog_detile', compact(['pengaturan', 'kategori', 'testimoni', 'bank', 'post']));
+    }
+
+    public function blog()
+    {
+        $post = Post::paginate(10);
+        $pengaturan = Setting::findOrFail(1);
+        $kategori = Category::all();
+        $testimoni = Testimoni::where('status', '=', 1)->orderBy('created_at', 'desc')->take(10)->get();
+        $bank = Bank::all();
+        return view('front.blog', compact(['pengaturan', 'kategori', 'testimoni', 'bank', 'post']));
     }
     
 }

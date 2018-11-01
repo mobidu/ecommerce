@@ -31,7 +31,14 @@
         .carousel-fade .carousel-control {
             z-index: 2;
         }
+
+
     </style>
+@endsection
+@section('plugins')
+    <link rel="stylesheet" href="{{url('/plugins/owl-carousel/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{url('/plugins/owl-carousel/assets/owl.theme.green.css')}}">
+    <script src="{{url('/plugins/owl-carousel/owl.carousel.min.js')}}"></script>
 @endsection
 @section('content')
 <div class="container">
@@ -136,7 +143,58 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="text-center">Artikel Terbaru</h3>
+                        <hr />
+
+                        @if($list_post->count() > 1)
+                            <div class="owl-carousel owl-theme">
+                                @forelse($list_post as $post)
+                                    <div class=" item">
+                                        <div class="post">
+                                            <div class="post-img-content">
+                                                <img src="{{$post->gambar ?  asset('upload/img/' . $post->gambar->name_photo) : asset('img/not-available.jpg')}}" style="width: 150px; height: 150px; text-align: center;" class="img-responsive" />
+                                            </div>
+                                            <div class="content">
+                                                <div class="author text-muted hidden-xs">
+                                                    <small>
+                                                        By <b>Admin Pasare</b> |
+                                                        {{date('d-m-Y', strtotime($post->created_at))}}
+                                                    </small>
+
+                                                </div>
+                                                <h5 style="font-weight: bold; text-align: center">
+                                                    {{$post->judul}}
+                                                </h5>
+                                                <div style="text-align: center;">
+                                                    <a href="{{url('/blog/'.$post->slug)}}" class="btn btn-warning btn-sm">Read more</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <div class="panel">
+                                        <div class="panel-body">
+                                            <center><h3 class="text-muted">Tidak Terdapat Artikel</h3></center>
+                                        </div>
+                                    </div>
+                                @endforelse
+
+                            </div>
+                        @else
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <center><h3 class="text-muted">Tidak Terdapat Artikel</h3></center>
+                                </div>
+                            </div>
+                        @endif
+
+                    </div>
+                </div>
             </div>
+
+
 
 
             <!-- Modal -->
@@ -170,6 +228,22 @@
 </div>
 
 <script>
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }
+    });
     function submitForm(id){
         console.log('Submit 1');
         event.preventDefault();

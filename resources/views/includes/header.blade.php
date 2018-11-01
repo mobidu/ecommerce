@@ -17,6 +17,7 @@
                 <li><a href="{{url('/p/metode-pembayaran')}}">Metode Pembayaran</a></li>
                 <li><a href="{{ url('/konfirmasi-pembayaran') }}">Konfirmasi Pembayaran</a></li>
                 <li><a href="{{url('/tentang')}}">Tentang Kami</a></li>
+                <li><a href="{{url('/blog')}}">Blog</a></li>
                 @if(auth()->guard('customer')->check())
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>&nbsp;&nbsp;{{auth()->guard('customer')->user()->nama_lengkap}} <span class="caret"></span></a>

@@ -40,6 +40,8 @@ Route::get('/password/reset/{token?}', 'front\PasswordController@showResetForm')
 
 //Homepage
 Route::get('/', 'front\HomepageController@index');
+Route::get('/blog', 'front\HomepageController@blog');
+Route::get('/blog/{slug}', 'front\HomepageController@detile_blog');
 Route::get('/tentang', 'front\HomepageController@tentang');
 Route::get('/profil', 'front\ProfilController@index');
 Route::get('/update-profil', 'front\ProfilController@update_profil');

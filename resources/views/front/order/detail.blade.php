@@ -335,7 +335,6 @@
                                                                 <?php $banyak--; ?>
                                                             @endfor
                                                         @endif
-
                                                     </div>
                                                     <div class="form-group">
                                                         <textarea name="ulasan" readonly class="form-control" rows="4" placeholder="Masukan Ulasan Terhadap Produk">{{$ulasan->deskripsi}}</textarea>
